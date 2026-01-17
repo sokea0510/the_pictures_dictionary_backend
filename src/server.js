@@ -15,7 +15,11 @@ const changeRoutes = require("./routes/changeRequests");
 
 const app = express();
 app.use(helmet());
-app.use(express.json({ limit: "2mb" }));
+app.use((_req, res, next) => {
+  res.setHeader("Cross-Origin-Opener-Policy", "same-origin-allow-popups");
+  next();
+});
+app.use(express.json({ limit: "4mb" }));
 app.use(morgan("dev"));
 
 const origins = (process.env.CORS_ORIGINS || "")
@@ -30,7 +34,8 @@ app.use(
       if (origins.length === 0) return cb(null, true);
       return origins.includes(origin) ? cb(null, true) : cb(new Error("CORS blocked"));
     },
-    credentials: true
+    credentials: true,
+    maxAge: 600
   })
 );
 

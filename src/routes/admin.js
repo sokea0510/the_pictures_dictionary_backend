@@ -10,6 +10,7 @@ const Item = require("../models/Item");
 const Ad = require("../models/Ad");
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
+const { notifyCategoryFollowers } = require("../utils/notifications");
 
 const router = express.Router();
 
@@ -45,8 +46,16 @@ router.delete("/categories/:id", async (req, res) => {
 });
 
 /* Items */
+router.get("/items", async (_req, res) => {
+  const items = await Item.find().sort({ createdAt: -1 }).limit(500);
+  res.json({ items });
+});
 router.post("/items", async (req, res) => {
   const doc = await Item.create(req.body);
+  await notifyCategoryFollowers(doc, {
+    title: "New content added",
+    body: (doc.translations?.en || Object.values(doc.translations || {})[0] || "New item"),
+  });
   res.json({ item: doc });
 });
 router.patch("/items/:id", async (req, res) => {
@@ -59,6 +68,10 @@ router.delete("/items/:id", async (req, res) => {
 });
 
 /* Ads */
+router.get("/ads", async (_req, res) => {
+  const ads = await Ad.find().sort({ updatedAt: -1 }).limit(200);
+  res.json({ ads });
+});
 router.post("/ads", async (req, res) => {
   const doc = await Ad.create(req.body);
   res.json({ ad: doc });

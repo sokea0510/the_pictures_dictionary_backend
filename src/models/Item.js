@@ -7,7 +7,8 @@ const ItemSchema = new mongoose.Schema(
     categoryId: { type: mongoose.Schema.Types.ObjectId, ref: "Category", required: true },
     imageUrl: { type: String, required: true },
     translations: { type: Map, of: String, default: {} },
-    tags: [{ type: String }]
+    description: { type: String, required: true, trim: true },
+    isEnabled: { type: Boolean, default: true }
   },
   { timestamps: true }
 );

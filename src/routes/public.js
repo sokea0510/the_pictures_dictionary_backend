@@ -9,28 +9,46 @@ const Ad = require("../models/Ad");
 const router = express.Router();
 
 router.get("/languages", async (_req, res) => {
-  const languages = await Language.find({ isEnabled: true }).sort({ name: 1 });
+  const languages = await Language.find({
+    $or: [{ isEnabled: true }, { isEnabled: { $exists: false } }],
+  }).sort({ name: 1 });
   res.json({ languages });
 });
 
 router.get("/categories", async (_req, res) => {
-  const categories = await Category.find({ isEnabled: true }).sort({ label: 1 });
+  const categories = await Category.find({
+    $or: [{ isEnabled: true }, { isEnabled: { $exists: false } }],
+  }).sort({ label: 1 });
   res.json({ categories });
 });
 
 router.get("/items", async (req, res) => {
   const { categoryId, q } = req.query;
-  const filter = {};
+  const filter = { $or: [{ isEnabled: true }, { isEnabled: { $exists: false } }] };
   if (categoryId) filter.categoryId = categoryId;
 
   // Simple search (extend with Atlas Search later)
   if (q && String(q).trim()) {
     const s = String(q).trim();
+    const regex = { $regex: s, $options: "i" };
     filter.$or = [
-      { tags: { $in: [s] } },
-      { "translations.en": { $regex: s, $options: "i" } },
-      { "translations.ko": { $regex: s, $options: "i" } },
-      { "translations.km": { $regex: s, $options: "i" } }
+      { description: regex },
+      {
+        $expr: {
+          $gt: [
+            {
+              $size: {
+                $filter: {
+                  input: { $objectToArray: "$translations" },
+                  as: "t",
+                  cond: { $regexMatch: { input: "$$t.v", regex: s, options: "i" } }
+                }
+              }
+            },
+            0
+          ]
+        }
+      }
     ];
   }
 

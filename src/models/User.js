@@ -8,6 +8,36 @@ const UserSchema = new mongoose.Schema(
     passwordHash: { type: String, required: true },
     role: { type: String, enum: ["user", "editor", "admin", "owner"], default: "user" },
     isActive: { type: Boolean, default: true },
+    authProvider: { type: String, enum: ["local", "google"], default: "local" },
+    googleId: { type: String, default: "" },
+
+    name: { type: String, default: "" },
+    company: { type: String, default: "" },
+    phone: { type: String, default: "" },
+    phoneCountryCode: { type: String, default: "" },
+    avatarUrl: { type: String, default: "" },
+    emailVerified: { type: Boolean, default: false },
+    marketingOptIn: { type: Boolean, default: false },
+    resetPasswordTokenHash: { type: String, default: "" },
+    resetPasswordExpiresAt: { type: Date, default: null },
+    notificationPreferences: {
+      type: Object,
+      default: {
+        securityAlerts: true,
+        accountUpdates: true,
+        learningReminders: true,
+        weeklyProgress: true,
+        dailyChallenge: true,
+        favoritesUpdates: true,
+        productTips: false,
+        editorRequestStatus: true,
+        reviewNotes: true,
+        approvalQueue: true,
+        categoryHealth: true,
+        systemAlerts: true,
+        adsReview: true,
+      }
+    },
 
     favorites: [{ type: mongoose.Schema.Types.ObjectId, ref: "Item" }],
     history: [
