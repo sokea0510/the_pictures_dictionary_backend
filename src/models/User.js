@@ -10,6 +10,9 @@ const UserSchema = new mongoose.Schema(
     isActive: { type: Boolean, default: true },
     authProvider: { type: String, enum: ["local", "google"], default: "local" },
     googleId: { type: String, default: "" },
+    planType: { type: String, enum: ["free", "premium"], default: "free" },
+    planStartsAt: { type: Date, default: null },
+    planEndsAt: { type: Date, default: null },
 
     name: { type: String, default: "" },
     company: { type: String, default: "" },

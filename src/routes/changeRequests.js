@@ -66,7 +66,11 @@ router.post("/", authRequired, requireRoleAtLeast("editor"), async (req, res) =>
 // List: editor sees their own, admin/owner sees all
 router.get("/", authRequired, requireRoleAtLeast("editor"), async (req, res) => {
   const filter = req.user.role === "editor" ? { createdBy: req.user.id } : {};
-  const requests = await ChangeRequest.find(filter).sort({ createdAt: -1 }).limit(500);
+  const requests = await ChangeRequest.find(filter)
+    .populate("createdBy", "name email")
+    .populate("reviewedBy", "name email")
+    .sort({ createdAt: -1 })
+    .limit(500);
   res.json({ requests });
 });
 

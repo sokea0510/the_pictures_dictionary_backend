@@ -5,6 +5,7 @@ const Language = require("../models/Language");
 const Category = require("../models/Category");
 const Item = require("../models/Item");
 const Ad = require("../models/Ad");
+const { translateText } = require("../utils/translate");
 
 const router = express.Router();
 
@@ -62,6 +63,23 @@ router.get("/ads", async (req, res) => {
   if (placement) filter.placement = placement;
   const ads = await Ad.find(filter).sort({ updatedAt: -1 }).limit(50);
   res.json({ ads });
+});
+
+router.post("/translate", async (req, res) => {
+  const { q, source, target } = req.body || {};
+  const text = String(q || "").trim();
+  if (!text) return res.status(400).json({ message: "Text is required." });
+  if (!target) return res.status(400).json({ message: "Target language is required." });
+  try {
+    const result = await translateText({
+      text,
+      source: source || "auto",
+      target,
+    });
+    return res.json(result);
+  } catch (err) {
+    return res.status(502).json({ message: err?.message || "Translation failed." });
+  }
 });
 
 module.exports = router;

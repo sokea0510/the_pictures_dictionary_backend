@@ -40,14 +40,15 @@ app.use(
 );
 
 app.get("/api/health", (_req, res) => res.json({ ok: true }));
-
+app.get("/", (req, res) => res.status(200).send("OK"));
+app.get("/health", (req, res) => res.status(200).json({ ok: true }));
 app.use("/api/auth", authRoutes);
 app.use("/api/me", meRoutes);
 app.use("/api/public", publicRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/change-requests", changeRoutes);
 
-const port = Number(process.env.PORT || 8080);
+const port = Number(process.env.PORT || 4000);
 
 connectDB(process.env.MONGO_URI)
   .then(() => app.listen(port, () => console.log(`[api] http://localhost:${port}`)))

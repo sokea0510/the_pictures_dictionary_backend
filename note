@@ -1,2 +1,6 @@
 git status
 git add .
+git commit -m "first commit at 2026-01-17_Pictures Dictionary is done and Ads and all"
+git push origin main
+git push -u origin main
+
