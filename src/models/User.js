@@ -21,6 +21,7 @@ const UserSchema = new mongoose.Schema(
     avatarUrl: { type: String, default: "" },
     emailVerified: { type: Boolean, default: false },
     marketingOptIn: { type: Boolean, default: false },
+    uiLanguage: { type: String, default: "en" },
     resetPasswordTokenHash: { type: String, default: "" },
     resetPasswordExpiresAt: { type: Date, default: null },
     notificationPreferences: {

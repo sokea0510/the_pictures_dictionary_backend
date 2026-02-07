@@ -9,6 +9,7 @@ const Category = require("../models/Category");
 const Item = require("../models/Item");
 const Ad = require("../models/Ad");
 const User = require("../models/User");
+const Translation = require("../models/Translation");
 const TranslationSettings = require("../models/TranslationSettings");
 const { resetSettingsCache } = require("../utils/translate");
 const TranslationUsage = require("../models/TranslationUsage");
@@ -16,6 +17,23 @@ const bcrypt = require("bcryptjs");
 const { notifyCategoryFollowers } = require("../utils/notifications");
 
 const router = express.Router();
+
+const encodeKey = (key) => String(key || "").replace(/\./g, "__dot__").replace(/\$/g, "__dollar__");
+const decodeKey = (key) => String(key || "").replace(/__dot__/g, ".").replace(/__dollar__/g, "$");
+const encodeMessages = (obj = {}) => {
+  const out = {};
+  Object.entries(obj || {}).forEach(([k, v]) => {
+    out[encodeKey(k)] = v;
+  });
+  return out;
+};
+const decodeMessages = (obj = {}) => {
+  const out = {};
+  Object.entries(obj || {}).forEach(([k, v]) => {
+    out[decodeKey(k)] = v;
+  });
+  return out;
+};
 
 // Admin + Owner can manage dictionary + ads
 router.use(authRequired, requireAnyRole(["admin", "owner"]));
@@ -160,6 +178,80 @@ router.delete("/users/:id", requireRoleAtLeast("owner"), async (req, res) => {
     return res.status(400).json({ message: "Cannot delete an owner account" });
   }
   await User.findByIdAndDelete(req.params.id);
+  res.json({ ok: true });
+});
+
+/* Admin/Owner translations */
+router.get("/translations", requireAnyRole(["admin", "owner"]), async (_req, res) => {
+  const list = await Translation.find({})
+    .select("lang fontFamily messages isEnabled")
+    .sort({ lang: 1 })
+    .lean();
+  const languages = list.map((row) => ({
+    lang: row.lang,
+    fontFamily: row.fontFamily || "",
+    numKeys: Object.keys(row.messages || {}).length,
+    isEnabled: row.isEnabled !== false,
+  }));
+  res.json({ languages });
+});
+
+router.get("/translations/:lang", requireAnyRole(["admin", "owner"]), async (req, res) => {
+  const lang = String(req.params.lang || "").trim().toLowerCase();
+  if (!lang) return res.status(400).json({ message: "Missing language code." });
+  const doc = await Translation.findOne({ lang }).lean();
+  if (!doc) return res.status(404).json({ message: "Language not found." });
+  res.json({
+    lang: doc.lang,
+    messages: decodeMessages(doc.messages || {}),
+    fontFamily: doc.fontFamily || "",
+    fontOverrides: decodeMessages(doc.fontOverrides || {}),
+    isEnabled: doc.isEnabled !== false,
+  });
+});
+
+router.post("/translations", requireAnyRole(["admin", "owner"]), async (req, res) => {
+  const lang = String(req.body?.lang || "").trim().toLowerCase();
+  if (!lang) return res.status(400).json({ message: "Missing language code." });
+  const exists = await Translation.findOne({ lang }).lean();
+  if (exists) return res.status(409).json({ message: "Language already exists." });
+  const doc = await Translation.create({ lang });
+  res.json({
+    lang: doc.lang,
+    messages: doc.messages || {},
+    fontFamily: doc.fontFamily || "",
+    fontOverrides: doc.fontOverrides || {},
+    isEnabled: doc.isEnabled !== false,
+  });
+});
+
+router.put("/translations/:lang", requireAnyRole(["admin", "owner"]), async (req, res) => {
+  const lang = String(req.params.lang || "").trim().toLowerCase();
+  if (!lang) return res.status(400).json({ message: "Missing language code." });
+  const { messages, fontFamily, fontOverrides } = req.body || {};
+  const update = {};
+  if (messages && typeof messages === "object") update.messages = encodeMessages(messages);
+  if (typeof fontFamily === "string") update.fontFamily = fontFamily;
+  if (fontOverrides && typeof fontOverrides === "object") update.fontOverrides = encodeMessages(fontOverrides);
+  if (typeof req.body?.isEnabled === "boolean") update.isEnabled = req.body.isEnabled;
+  const doc = await Translation.findOneAndUpdate(
+    { lang },
+    { $set: update },
+    { new: true, upsert: true }
+  );
+  res.json({
+    lang: doc.lang,
+    messages: decodeMessages(doc.messages || {}),
+    fontFamily: doc.fontFamily || "",
+    fontOverrides: decodeMessages(doc.fontOverrides || {}),
+    isEnabled: doc.isEnabled !== false,
+  });
+});
+
+router.delete("/translations/:lang", requireAnyRole(["admin", "owner"]), async (req, res) => {
+  const lang = String(req.params.lang || "").trim().toLowerCase();
+  if (!lang) return res.status(400).json({ message: "Missing language code." });
+  await Translation.findOneAndDelete({ lang });
   res.json({ ok: true });
 });
 

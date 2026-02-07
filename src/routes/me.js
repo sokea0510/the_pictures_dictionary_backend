@@ -11,7 +11,7 @@ const { notifyUser } = require("../utils/notifications");
 const router = express.Router();
 
 const USER_SELECT =
-  "email role favorites history name company phone phoneCountryCode avatarUrl emailVerified marketingOptIn authProvider googleId";
+  "email role favorites history name company phone phoneCountryCode avatarUrl emailVerified marketingOptIn uiLanguage authProvider googleId";
 
 router.get("/", authRequired, async (req, res) => {
   const user = await User.findById(req.user.id).select(USER_SELECT);
@@ -19,13 +19,14 @@ router.get("/", authRequired, async (req, res) => {
 });
 
 router.patch("/", authRequired, async (req, res) => {
-  const { name, company, phone, phoneCountryCode, marketingOptIn } = req.body || {};
+  const { name, company, phone, phoneCountryCode, marketingOptIn, uiLanguage } = req.body || {};
   const update = {};
   if (typeof name === "string") update.name = name;
   if (typeof company === "string") update.company = company;
   if (typeof phone === "string") update.phone = phone;
   if (typeof phoneCountryCode === "string") update.phoneCountryCode = phoneCountryCode;
   if (typeof marketingOptIn === "boolean") update.marketingOptIn = marketingOptIn;
+  if (typeof uiLanguage === "string") update.uiLanguage = uiLanguage.trim().toLowerCase() || "en";
 
   const user = await User.findByIdAndUpdate(req.user.id, { $set: update }, { new: true }).select(
     USER_SELECT

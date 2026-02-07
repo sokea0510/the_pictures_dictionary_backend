@@ -6,11 +6,21 @@ const Language = require("../models/Language");
 const Category = require("../models/Category");
 const Item = require("../models/Item");
 const Ad = require("../models/Ad");
+const Translation = require("../models/Translation");
 const { translateText } = require("../utils/translate");
 const router = express.Router();
 
 const setCache = (res, seconds) => {
   res.set("Cache-Control", `public, max-age=${seconds}, stale-while-revalidate=${seconds}`);
+};
+
+const decodeKey = (key) => String(key || "").replace(/__dot__/g, ".").replace(/__dollar__/g, "$");
+const decodeMessages = (obj = {}) => {
+  const out = {};
+  Object.entries(obj || {}).forEach(([k, v]) => {
+    out[decodeKey(k)] = v;
+  });
+  return out;
 };
 
 router.get("/languages", async (_req, res) => {
@@ -93,6 +103,36 @@ router.get("/ads", async (req, res) => {
   if (placement) filter.placement = placement;
   const ads = await Ad.find(filter).sort({ updatedAt: -1 }).limit(50).lean();
   res.json({ ads });
+});
+
+router.get("/translations/languages", async (_req, res) => {
+  setCache(res, 300);
+  const list = await Translation.find({ $or: [{ isEnabled: true }, { isEnabled: { $exists: false } }] })
+    .select("lang fontFamily messages isEnabled")
+    .sort({ lang: 1 })
+    .lean();
+  const languages = list.map((row) => ({
+    lang: row.lang,
+    fontFamily: row.fontFamily || "",
+    numKeys: Object.keys(row.messages || {}).length,
+    isEnabled: row.isEnabled !== false,
+  }));
+  res.json({ languages });
+});
+
+router.get("/translations/:lang", async (req, res) => {
+  setCache(res, 300);
+  const lang = String(req.params.lang || "").trim().toLowerCase();
+  if (!lang) return res.status(400).json({ message: "Missing language code." });
+  const doc = await Translation.findOne({ lang }).lean();
+  if (!doc || doc.isEnabled === false) return res.status(404).json({ message: "Language not found." });
+  res.json({
+    lang: doc.lang,
+    messages: decodeMessages(doc.messages || {}),
+    fontFamily: doc.fontFamily || "",
+    fontOverrides: decodeMessages(doc.fontOverrides || {}),
+    isEnabled: doc.isEnabled !== false,
+  });
 });
 
 router.post("/translate", async (req, res) => {

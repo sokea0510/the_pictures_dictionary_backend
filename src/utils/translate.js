@@ -47,10 +47,16 @@ const notifySwitch = async ({ from, to, error }) => {
   });
 };
 
-const toAzure = (code) => (code ? String(code).toLowerCase() : "");
-const toGoogle = (code) => (code ? String(code).toLowerCase() : "");
-const toAws = (code) => (code ? String(code).toLowerCase() : "");
-const toLibre = (code) => (code ? String(code).toLowerCase() : "");
+const normalizeProviderCode = (code) => {
+  if (!code) return "";
+  const c = String(code).toLowerCase();
+  if (c === "kh") return "km";
+  return c;
+};
+const toAzure = (code) => normalizeProviderCode(code);
+const toGoogle = (code) => normalizeProviderCode(code);
+const toAws = (code) => normalizeProviderCode(code);
+const toLibre = (code) => normalizeProviderCode(code);
 
 const MONTHLY_LIMITS = {
   azure: 2000000,
