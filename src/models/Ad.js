@@ -23,4 +23,6 @@ const AdSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+AdSchema.index({ isEnabled: 1, placement: 1, updatedAt: -1 });
+
 module.exports = mongoose.model("Ad", AdSchema);

@@ -10,6 +10,7 @@ const Item = require("../models/Item");
 const Ad = require("../models/Ad");
 const User = require("../models/User");
 const TranslationSettings = require("../models/TranslationSettings");
+const { resetSettingsCache } = require("../utils/translate");
 const TranslationUsage = require("../models/TranslationUsage");
 const bcrypt = require("bcryptjs");
 const { notifyCategoryFollowers } = require("../utils/notifications");
@@ -49,7 +50,7 @@ router.delete("/categories/:id", async (req, res) => {
 
 /* Items */
 router.get("/items", async (_req, res) => {
-  const items = await Item.find().sort({ createdAt: -1 }).limit(500);
+  const items = await Item.find().sort({ createdAt: -1 }).limit(500).lean();
   res.json({ items });
 });
 router.post("/items", async (req, res) => {
@@ -71,7 +72,7 @@ router.delete("/items/:id", async (req, res) => {
 
 /* Ads */
 router.get("/ads", async (_req, res) => {
-  const ads = await Ad.find().sort({ updatedAt: -1 }).limit(200);
+  const ads = await Ad.find().sort({ updatedAt: -1 }).limit(200).lean();
   res.json({ ads });
 });
 router.post("/ads", async (req, res) => {
@@ -92,7 +93,8 @@ router.get("/users", requireRoleAtLeast("owner"), async (_req, res) => {
   const users = await User.find()
     .select("email role isActive createdAt planType planStartsAt planEndsAt")
     .sort({ createdAt: -1 })
-    .limit(500);
+    .limit(500)
+    .lean();
   res.json({ users });
 });
 
@@ -190,6 +192,7 @@ router.get("/translation-settings", requireRoleAtLeast("owner"), async (_req, re
         apiKeyHint: mask(providers.libre?.apiKey),
       },
     },
+    preferredProvider: doc?.preferredProvider || "",
     updatedAt: doc?.updatedAt || null,
   });
 });
@@ -212,6 +215,9 @@ router.put("/translation-settings", requireRoleAtLeast("owner"), async (req, res
   setIfProvided("aws.sessionToken", body.aws?.sessionToken);
   setIfProvided("libre.url", body.libre?.url);
   setIfProvided("libre.apiKey", body.libre?.apiKey);
+  if (body.preferredProvider !== undefined) {
+    update.preferredProvider = body.preferredProvider || "";
+  }
 
   if (Object.keys(update).length === 0) {
     return res.status(400).json({ message: "No settings provided." });
@@ -222,6 +228,7 @@ router.put("/translation-settings", requireRoleAtLeast("owner"), async (req, res
     { $set: update, updatedBy: req.user.id },
     { upsert: true, new: true }
   );
+  resetSettingsCache();
   res.json({ ok: true, updatedAt: doc.updatedAt });
 });
 

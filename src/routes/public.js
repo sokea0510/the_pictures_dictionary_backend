@@ -9,21 +9,48 @@ const { translateText } = require("../utils/translate");
 
 const router = express.Router();
 
+const setCache = (res, seconds) => {
+  res.set("Cache-Control", `public, max-age=${seconds}, stale-while-revalidate=${seconds}`);
+};
+
 router.get("/languages", async (_req, res) => {
+  setCache(res, 300);
   const languages = await Language.find({
     $or: [{ isEnabled: true }, { isEnabled: { $exists: false } }],
-  }).sort({ name: 1 });
+  }).sort({ name: 1 }).lean();
   res.json({ languages });
 });
 
 router.get("/categories", async (_req, res) => {
+  setCache(res, 300);
   const categories = await Category.find({
     $or: [{ isEnabled: true }, { isEnabled: { $exists: false } }],
-  }).sort({ label: 1 });
-  res.json({ categories });
+  })
+    .select("_id label coverUrl isEnabled")
+    .sort({ label: 1 })
+    .lean();
+  const normalized = categories.map((cat) => {
+    const coverUrl = String(cat.coverUrl || "");
+    return {
+      ...cat,
+      coverUrl: coverUrl.startsWith("data:image") ? "" : coverUrl,
+    };
+  });
+  res.json({ categories: normalized });
+});
+
+router.get("/stats", async (_req, res) => {
+  setCache(res, 60);
+  const enabledFilter = { $or: [{ isEnabled: true }, { isEnabled: { $exists: false } }] };
+  const [itemsCount, categoriesCount] = await Promise.all([
+    Item.countDocuments(enabledFilter),
+    Category.countDocuments(enabledFilter),
+  ]);
+  res.json({ itemsCount, categoriesCount });
 });
 
 router.get("/items", async (req, res) => {
+  setCache(res, 60);
   const { categoryId, q } = req.query;
   const filter = { $or: [{ isEnabled: true }, { isEnabled: { $exists: false } }] };
   if (categoryId) filter.categoryId = categoryId;
@@ -53,15 +80,16 @@ router.get("/items", async (req, res) => {
     ];
   }
 
-  const items = await Item.find(filter).sort({ createdAt: -1 }).limit(500);
+  const items = await Item.find(filter).sort({ createdAt: -1 }).limit(500).lean();
   res.json({ items });
 });
 
 router.get("/ads", async (req, res) => {
+  setCache(res, 300);
   const { placement } = req.query;
   const filter = { isEnabled: true };
   if (placement) filter.placement = placement;
-  const ads = await Ad.find(filter).sort({ updatedAt: -1 }).limit(50);
+  const ads = await Ad.find(filter).sort({ updatedAt: -1 }).limit(50).lean();
   res.json({ ads });
 });
 

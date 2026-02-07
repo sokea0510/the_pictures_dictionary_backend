@@ -2,6 +2,7 @@
 
 const express = require("express");
 const crypto = require("crypto");
+const { uploadImageDataUrl } = require("../utils/storage");
 const { authRequired } = require("../middleware/auth");
 const User = require("../models/User");
 const Notification = require("../models/Notification");
@@ -43,9 +44,21 @@ router.post("/avatar", authRequired, async (req, res) => {
   if (!imageData || typeof imageData !== "string") {
     return res.status(400).json({ message: "Missing image data" });
   }
+
+  let avatarUrl;
+  try {
+    const uploaded = await uploadImageDataUrl({
+      dataUrl: imageData,
+      keyPrefix: `avatars/${req.user.id}`,
+    });
+    avatarUrl = uploaded.url;
+  } catch (err) {
+    return res.status(400).json({ message: err?.message || "Image upload failed" });
+  }
+
   const user = await User.findByIdAndUpdate(
     req.user.id,
-    { $set: { avatarUrl: imageData } },
+    { $set: { avatarUrl } },
     { new: true }
   ).select(USER_SELECT);
   await notifyUser(user, "accountUpdates", {

@@ -27,6 +27,9 @@ const state = {
   lastUsageNotifyAt: {},
   settingsCache: { data: null, fetchedAt: 0 },
 };
+const resetSettingsCache = () => {
+  state.settingsCache = { data: null, fetchedAt: 0 };
+};
 
 const notifySwitch = async ({ from, to, error }) => {
   const key = `${from || "none"}->${to}`;
@@ -55,6 +58,7 @@ const MONTHLY_LIMITS = {
   aws: 2000000,
   libre: null,
 };
+const AUTO_SWITCH_THRESHOLD = 50;
 
 const pick = (value, fallback) => {
   if (value === undefined || value === null) return fallback;
@@ -92,7 +96,7 @@ const getSettings = async () => {
     },
   };
 
-  const data = { providers };
+  const data = { providers, preferredProvider: doc?.preferredProvider || "" };
   state.settingsCache = { data, fetchedAt: now };
   return data;
 };
@@ -201,6 +205,23 @@ const isAvailable = {
   libre: canUseLibre,
 };
 
+const getUsageMap = async () => {
+  const yearMonth = new Date().toISOString().slice(0, 7);
+  const usage = await TranslationUsage.find({ yearMonth }).lean();
+  const map = {};
+  usage.forEach((row) => {
+    map[row.provider] = row.chars || 0;
+  });
+  return map;
+};
+
+const getRemaining = (provider, usageMap) => {
+  const limit = MONTHLY_LIMITS[provider] || null;
+  if (!limit) return Number.POSITIVE_INFINITY;
+  const used = usageMap[provider] || 0;
+  return Math.max(limit - used, 0);
+};
+
 const updateUsage = async ({ provider, chars }) => {
   const yearMonth = new Date().toISOString().slice(0, 7);
   await TranslationUsage.findOneAndUpdate(
@@ -237,16 +258,40 @@ const translateText = async ({ text, source, target }) => {
   let usedProvider = "";
   const providers = providerOrder();
   const settings = await getSettings();
+  const usageMap = await getUsageMap();
+  const preferred = String(settings.preferredProvider || "").toLowerCase();
+  const preferredProviders = preferred && providers.includes(preferred) ? [preferred] : [];
+  const orderedProviders = [
+    ...preferredProviders,
+    ...providers.filter((provider) => provider !== preferred),
+  ];
+  let preferredAttempted = false;
+  let preferredError = "";
 
-  for (const provider of providers) {
+  for (const provider of orderedProviders) {
     const available = isAvailable[provider];
     const fn = providerFns[provider];
     const config = settings.providers?.[provider] || {};
     if (!available || !available(config)) continue;
     if (!fn) continue;
+    const remaining = getRemaining(provider, usageMap);
+    if (remaining <= AUTO_SWITCH_THRESHOLD) {
+      errors.push({
+        provider,
+        message: `remaining chars too low (${remaining})`,
+      });
+      continue;
+    }
     try {
       const translatedText = await fn({ text, source, target, config });
       usedProvider = provider;
+      if (preferred && usedProvider !== preferred && preferredAttempted && preferredError) {
+        await notifySwitch({
+          from: preferred,
+          to: usedProvider,
+          error: preferredError,
+        });
+      }
       if (state.lastProvider && state.lastProvider !== usedProvider) {
         await notifySwitch({
           from: state.lastProvider,
@@ -259,6 +304,10 @@ const translateText = async ({ text, source, target }) => {
       return { translatedText, provider: usedProvider };
     } catch (err) {
       errors.push({ provider, message: err?.message || "Translation failed." });
+      if (preferred && provider === preferred) {
+        preferredAttempted = true;
+        preferredError = err?.message || "Translation failed.";
+      }
     }
   }
 
@@ -277,4 +326,5 @@ const translateText = async ({ text, source, target }) => {
 
 module.exports = {
   translateText,
+  resetSettingsCache,
 };

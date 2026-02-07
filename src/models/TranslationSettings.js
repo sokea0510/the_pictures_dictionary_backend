@@ -29,6 +29,7 @@ const ProviderSchema = new mongoose.Schema(
 const TranslationSettingsSchema = new mongoose.Schema(
   {
     providers: { type: ProviderSchema, default: () => ({}) },
+    preferredProvider: { type: String, default: "" },
     updatedBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   },
   { timestamps: true }

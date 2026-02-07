@@ -14,7 +14,8 @@ const ChangeRequestSchema = new mongoose.Schema(
 
     reviewedBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     reviewedAt: { type: Date },
-    reviewNote: { type: String, default: "" }
+    reviewNote: { type: String, default: "" },
+    reviewDecision: { type: String, default: "" }
   },
   { timestamps: true }
 );

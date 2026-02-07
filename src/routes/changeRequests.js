@@ -84,6 +84,9 @@ router.post("/:id/approve", authRequired, requireAnyRole(["admin", "owner"]), as
   if (!Model) return res.status(400).json({ message: "Unknown entityType" });
 
   let appliedEntityId = cr.entityId;
+  if (req.body?.payload && (cr.action === "create" || cr.action === "update")) {
+    cr.payload = req.body.payload;
+  }
 
   if (cr.action === "create") {
     const doc = await Model.create(cr.payload);
@@ -108,6 +111,7 @@ router.post("/:id/approve", authRequired, requireAnyRole(["admin", "owner"]), as
   cr.reviewedBy = req.user.id;
   cr.reviewedAt = new Date();
   cr.reviewNote = req.body?.note || "";
+  cr.reviewDecision = "approve";
   await cr.save();
 
   await audit(req.user.id, "change_request_approved", cr.entityType, cr._id, { appliedEntityId });
@@ -134,6 +138,7 @@ router.post("/:id/reject", authRequired, requireAnyRole(["admin", "owner"]), asy
   cr.reviewedBy = req.user.id;
   cr.reviewedAt = new Date();
   cr.reviewNote = req.body?.note || "";
+  cr.reviewDecision = req.body?.decision || "reject";
   await cr.save();
 
   await audit(req.user.id, "change_request_rejected", cr.entityType, cr._id, {});
