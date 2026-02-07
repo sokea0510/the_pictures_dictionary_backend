@@ -1,6 +1,7 @@
 // backend/src/routes/public.js
 
 const express = require("express");
+const mongoose = require("mongoose");
 const Language = require("../models/Language");
 const Category = require("../models/Category");
 const Item = require("../models/Item");
@@ -52,7 +53,9 @@ router.get("/items", async (req, res) => {
   setCache(res, 60);
   const { categoryId, q } = req.query;
   const filter = { $or: [{ isEnabled: true }, { isEnabled: { $exists: false } }] };
-  if (categoryId) filter.categoryId = categoryId;
+  if (categoryId && mongoose.Types.ObjectId.isValid(String(categoryId))) {
+    filter.categoryId = categoryId;
+  }
 
   // Simple search (extend with Atlas Search later)
   if (q && String(q).trim()) {
