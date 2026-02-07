@@ -6,7 +6,6 @@ const Category = require("../models/Category");
 const Item = require("../models/Item");
 const Ad = require("../models/Ad");
 const { translateText } = require("../utils/translate");
-
 const router = express.Router();
 
 const setCache = (res, seconds) => {
