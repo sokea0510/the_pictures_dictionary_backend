@@ -4,7 +4,9 @@ const express = require("express");
 const crypto = require("crypto");
 const { uploadImageDataUrl } = require("../utils/storage");
 const { authRequired } = require("../middleware/auth");
+const { requireAnyRole } = require("../middleware/rbac");
 const User = require("../models/User");
+const Language = require("../models/Language");
 const Notification = require("../models/Notification");
 const { notifyUser } = require("../utils/notifications");
 
@@ -96,6 +98,14 @@ router.post("/email/verify", authRequired, async (req, res) => {
     { $set: { email: String(email).trim().toLowerCase(), emailVerified: false } },
     { new: true }
   ).select(USER_SELECT);
+  await notifyUser(user, "accountUpdates", {
+    type: "account_update",
+    title: "Email updated",
+    body: "Your email address was updated. Please verify it.",
+    link: "/settings/profile",
+  });
+  res.json({ ok: true, user });
+});
 
 router.post("/google/disconnect", authRequired, async (req, res) => {
   const user = await User.findById(req.user.id);
@@ -175,14 +185,6 @@ router.post("/google/link", authRequired, async (req, res) => {
   const updated = await User.findById(req.user.id).select(USER_SELECT);
   res.json({ ok: true, user: updated });
 });
-  await notifyUser(user, "accountUpdates", {
-    type: "account_update",
-    title: "Email updated",
-    body: "Your email address was updated. Please verify it.",
-    link: "/settings/profile",
-  });
-  res.json({ ok: true, user });
-});
 
 router.post("/password/forgot", authRequired, async (_req, res) => {
   const { email } = _req.body || {};
@@ -246,6 +248,33 @@ router.post("/password/change", authRequired, async (req, res) => {
 router.post("/marketing/test", authRequired, async (_req, res) => {
   res.json({ ok: true });
 });
+
+router.get("/languages", authRequired, requireAnyRole(["editor", "admin", "owner"]), async (_req, res) => {
+  const languages = await Language.find({})
+    .select("_id code name isEnabled")
+    .sort({ name: 1 })
+    .lean();
+  res.json({ languages });
+});
+
+router.patch(
+  "/languages/:id/enabled",
+  authRequired,
+  requireAnyRole(["editor", "admin", "owner"]),
+  async (req, res) => {
+    const { isEnabled } = req.body || {};
+    if (typeof isEnabled !== "boolean") {
+      return res.status(400).json({ message: "isEnabled must be boolean." });
+    }
+    const language = await Language.findByIdAndUpdate(
+      req.params.id,
+      { $set: { isEnabled } },
+      { new: true }
+    ).select("_id code name isEnabled");
+    if (!language) return res.status(404).json({ message: "Language not found." });
+    res.json({ language });
+  }
+);
 
 const NOTIFICATION_KEYS = [
   "securityAlerts",

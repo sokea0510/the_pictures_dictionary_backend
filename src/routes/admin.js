@@ -35,6 +35,18 @@ const decodeMessages = (obj = {}) => {
   return out;
 };
 
+const normalizePhoneticPronunciations = (value) => {
+  if (!value || typeof value !== "object") return {};
+  const normalized = {};
+  Object.entries(value).forEach(([code, text]) => {
+    const key = String(code || "").trim().toLowerCase();
+    const pronunciation = String(text || "").trim();
+    if (!key || !pronunciation) return;
+    normalized[key] = pronunciation;
+  });
+  return normalized;
+};
+
 // Admin + Owner can manage dictionary + ads
 router.use(authRequired, requireAnyRole(["admin", "owner"]));
 
@@ -72,7 +84,11 @@ router.get("/items", async (_req, res) => {
   res.json({ items });
 });
 router.post("/items", async (req, res) => {
-  const doc = await Item.create(req.body);
+  const payload = { ...(req.body || {}) };
+  payload.description = String(payload.description || "").trim() || "No description";
+  payload.imageThumbUrl = String(payload.imageThumbUrl || payload.imageUrl || "").trim();
+  payload.phoneticPronunciations = normalizePhoneticPronunciations(payload.phoneticPronunciations);
+  const doc = await Item.create(payload);
   await notifyCategoryFollowers(doc, {
     title: "New content added",
     body: (doc.translations?.en || Object.values(doc.translations || {})[0] || "New item"),
@@ -80,7 +96,21 @@ router.post("/items", async (req, res) => {
   res.json({ item: doc });
 });
 router.patch("/items/:id", async (req, res) => {
-  const doc = await Item.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true });
+  const payload = { ...(req.body || {}) };
+  if (payload.description !== undefined) {
+    payload.description = String(payload.description || "").trim() || "No description";
+  }
+  if (payload.imageUrl !== undefined || payload.imageThumbUrl !== undefined) {
+    payload.imageThumbUrl = String(payload.imageThumbUrl || payload.imageUrl || "").trim();
+  }
+  if (payload.phoneticPronunciations !== undefined) {
+    payload.phoneticPronunciations = normalizePhoneticPronunciations(payload.phoneticPronunciations);
+  }
+  const doc = await Item.findByIdAndUpdate(
+    req.params.id,
+    { $set: payload },
+    { new: true, runValidators: true }
+  );
   res.json({ item: doc });
 });
 router.delete("/items/:id", async (req, res) => {

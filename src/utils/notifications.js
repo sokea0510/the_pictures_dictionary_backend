@@ -3,6 +3,7 @@
 const Notification = require("../models/Notification");
 const User = require("../models/User");
 const Item = require("../models/Item");
+const { sendWebPushToUser, sendWebPushToUsers } = require("./webPush");
 
 const isAllowed = (user, key) => {
   if (!user) return false;
@@ -22,7 +23,7 @@ const createNotification = async ({
   meta,
 }) => {
   if (!userId) return null;
-  return Notification.create({
+  const doc = await Notification.create({
     userId,
     type,
     title: title || "",
@@ -32,6 +33,18 @@ const createNotification = async ({
     status: status || "",
     meta: meta || {},
   });
+  await sendWebPushToUser(userId, {
+    type: type || "general",
+    title: title || "",
+    body: body || "",
+    data: {
+      link: link || "",
+      imageUrl: imageUrl || "",
+      status: status || "",
+      meta: meta || {},
+    },
+  }).catch(() => ({}));
+  return doc;
 };
 
 const notifyUser = async (user, prefKey, payload) => {
@@ -53,7 +66,22 @@ const notifyUsersByRole = async (roles, prefKey, payload) => {
     status: payload.status || "",
     meta: payload.meta || {},
   }));
-  return Notification.insertMany(docs);
+  const inserted = await Notification.insertMany(docs);
+  await sendWebPushToUsers(
+    targets.map((u) => u._id),
+    {
+      type: payload.type || "general",
+      title: payload.title || "",
+      body: payload.body || "",
+      data: {
+        link: payload.link || "",
+        imageUrl: payload.imageUrl || "",
+        status: payload.status || "",
+        meta: payload.meta || {},
+      },
+    }
+  ).catch(() => ({}));
+  return inserted;
 };
 
 const notifyCategoryFollowers = async (item, payload = {}) => {
@@ -80,7 +108,24 @@ const notifyCategoryFollowers = async (item, payload = {}) => {
       itemId: item._id,
     },
   }));
-  return Notification.insertMany(docs);
+  const inserted = await Notification.insertMany(docs);
+  await sendWebPushToUsers(
+    users.map((u) => u._id),
+    {
+      type: payload.type || "category_update",
+      title: payload.title || "New content added",
+      body: payload.body || "New words were added to a category you follow.",
+      data: {
+        link: payload.link || `/dictionary?categoryId=${item.categoryId}`,
+        imageUrl: payload.imageUrl || item.imageUrl || "",
+        meta: {
+          categoryId: item.categoryId,
+          itemId: item._id,
+        },
+      },
+    }
+  ).catch(() => ({}));
+  return inserted;
 };
 
 module.exports = {

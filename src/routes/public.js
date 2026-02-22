@@ -37,7 +37,6 @@ router.get("/categories", async (_req, res) => {
     $or: [{ isEnabled: true }, { isEnabled: { $exists: false } }],
   })
     .select("_id label coverUrl isEnabled")
-    .sort({ label: 1 })
     .lean();
   const normalized = categories.map((cat) => {
     const coverUrl = String(cat.coverUrl || "");
@@ -45,7 +44,7 @@ router.get("/categories", async (_req, res) => {
       ...cat,
       coverUrl: coverUrl.startsWith("data:image") ? "" : coverUrl,
     };
-  });
+  }).sort((a, b) => String(a.label || "").localeCompare(String(b.label || ""), undefined, { sensitivity: "base" }));
   res.json({ categories: normalized });
 });
 
@@ -63,8 +62,12 @@ router.get("/items", async (req, res) => {
   setCache(res, 60);
   const { categoryId, q } = req.query;
   const filter = { $or: [{ isEnabled: true }, { isEnabled: { $exists: false } }] };
-  if (categoryId && mongoose.Types.ObjectId.isValid(String(categoryId))) {
-    filter.categoryId = categoryId;
+  if (categoryId) {
+    const normalizedCategoryId = String(categoryId).trim();
+    if (!mongoose.Types.ObjectId.isValid(normalizedCategoryId)) {
+      return res.status(400).json({ message: "Invalid categoryId" });
+    }
+    filter.categoryId = normalizedCategoryId;
   }
 
   // Simple search (extend with Atlas Search later)

@@ -36,6 +36,18 @@ function titleFromPayload(payload = {}) {
   return t.en || Object.values(t)[0] || payload.label || "Item";
 }
 
+function normalizePhoneticPronunciations(value) {
+  if (!value || typeof value !== "object") return {};
+  const normalized = {};
+  Object.entries(value).forEach(([code, text]) => {
+    const key = String(code || "").trim().toLowerCase();
+    const pronunciation = String(text || "").trim();
+    if (!key || !pronunciation) return;
+    normalized[key] = pronunciation;
+  });
+  return normalized;
+}
+
 // Editor+ can submit change requests
 router.post("/", authRequired, requireRoleAtLeast("editor"), async (req, res) => {
   const { entityType, action, entityId, payload } = req.body || {};
@@ -87,24 +99,39 @@ router.post("/:id/approve", authRequired, requireAnyRole(["admin", "owner"]), as
   if (req.body?.payload && (cr.action === "create" || cr.action === "update")) {
     cr.payload = req.body.payload;
   }
+  if (cr.entityType === "item" && (cr.action === "create" || cr.action === "update")) {
+    cr.payload = {
+      ...(cr.payload || {}),
+      description: String(cr.payload?.description || "").trim() || "No description",
+      imageThumbUrl: String(cr.payload?.imageThumbUrl || cr.payload?.imageUrl || "").trim(),
+      phoneticPronunciations: normalizePhoneticPronunciations(cr.payload?.phoneticPronunciations),
+    };
+  }
 
-  if (cr.action === "create") {
-    const doc = await Model.create(cr.payload);
-    appliedEntityId = doc._id;
-    if (cr.entityType === "item") {
-      await notifyCategoryFollowers(doc, {
-        title: "New content added",
-        body: titleFromPayload(cr.payload),
-      });
+  try {
+    if (cr.action === "create") {
+      const doc = await Model.create(cr.payload);
+      appliedEntityId = doc._id;
+      if (cr.entityType === "item") {
+        await notifyCategoryFollowers(doc, {
+          title: "New content added",
+          body: titleFromPayload(cr.payload),
+        });
+      }
+    } else if (cr.action === "update") {
+      if (!cr.entityId) return res.status(400).json({ message: "Missing entityId" });
+      await Model.findByIdAndUpdate(cr.entityId, { $set: cr.payload }, { new: true, runValidators: true });
+    } else if (cr.action === "delete") {
+      if (!cr.entityId) return res.status(400).json({ message: "Missing entityId" });
+      await Model.findByIdAndDelete(cr.entityId);
+    } else {
+      return res.status(400).json({ message: "Invalid action" });
     }
-  } else if (cr.action === "update") {
-    if (!cr.entityId) return res.status(400).json({ message: "Missing entityId" });
-    await Model.findByIdAndUpdate(cr.entityId, { $set: cr.payload }, { new: true });
-  } else if (cr.action === "delete") {
-    if (!cr.entityId) return res.status(400).json({ message: "Missing entityId" });
-    await Model.findByIdAndDelete(cr.entityId);
-  } else {
-    return res.status(400).json({ message: "Invalid action" });
+  } catch (err) {
+    if (err?.name === "ValidationError" || err?.name === "CastError") {
+      return res.status(400).json({ message: err.message || "Invalid payload" });
+    }
+    throw err;
   }
 
   cr.status = "approved";
