@@ -3,3 +3,5 @@ dist/
 .env
 .DS_Store
 Pict-Dictionary_accessKeys.csv
+gen-lang-client-0216008081-e6aa74f41268.json
+var/tts-cache/

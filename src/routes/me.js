@@ -12,6 +12,16 @@ const { notifyUser } = require("../utils/notifications");
 
 const router = express.Router();
 
+const normalizeLangCode = (value, fallback = "") => {
+  const raw = String(value || "").trim().toLowerCase();
+  if (!raw) return fallback;
+  const key = raw.split(/[-_]/)[0];
+  if (["km", "kh", "khmer"].includes(key)) return "kh";
+  if (["kr", "ko", "korean"].includes(key)) return "kr";
+  if (["en", "eng", "english"].includes(key)) return "en";
+  return key;
+};
+
 const USER_SELECT =
   "email role favorites history name company phone phoneCountryCode avatarUrl emailVerified marketingOptIn uiLanguage authProvider googleId";
 
@@ -28,7 +38,7 @@ router.patch("/", authRequired, async (req, res) => {
   if (typeof phone === "string") update.phone = phone;
   if (typeof phoneCountryCode === "string") update.phoneCountryCode = phoneCountryCode;
   if (typeof marketingOptIn === "boolean") update.marketingOptIn = marketingOptIn;
-  if (typeof uiLanguage === "string") update.uiLanguage = uiLanguage.trim().toLowerCase() || "en";
+  if (typeof uiLanguage === "string") update.uiLanguage = normalizeLangCode(uiLanguage, "en");
 
   const user = await User.findByIdAndUpdate(req.user.id, { $set: update }, { new: true }).select(
     USER_SELECT
@@ -250,10 +260,14 @@ router.post("/marketing/test", authRequired, async (_req, res) => {
 });
 
 router.get("/languages", authRequired, requireAnyRole(["editor", "admin", "owner"]), async (_req, res) => {
-  const languages = await Language.find({})
+  const list = await Language.find({})
     .select("_id code name isEnabled")
     .sort({ name: 1 })
     .lean();
+  const languages = list.map((lang) => ({
+    ...lang,
+    code: normalizeLangCode(lang.code),
+  }));
   res.json({ languages });
 });
 
@@ -399,8 +413,10 @@ router.post("/history", authRequired, async (req, res) => {
   const { itemId, fromLang, toLang } = req.body || {};
   if (!itemId) return res.status(400).json({ message: "Missing itemId" });
 
+  const normalizedFrom = normalizeLangCode(fromLang);
+  const normalizedTo = normalizeLangCode(toLang);
   await User.findByIdAndUpdate(req.user.id, {
-    $push: { history: { itemId, fromLang, toLang, at: new Date() } }
+    $push: { history: { itemId, fromLang: normalizedFrom, toLang: normalizedTo, at: new Date() } }
   });
   res.json({ ok: true });
 });

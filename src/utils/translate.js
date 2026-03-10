@@ -3,6 +3,7 @@
 const { notifyUsersByRole } = require("./notifications");
 const TranslationSettings = require("../models/TranslationSettings");
 const TranslationUsage = require("../models/TranslationUsage");
+const { hasGoogleServiceAccount, getGoogleAccessToken, getGoogleProjectId } = require("./googleAuth");
 
 let TranslateClient;
 let TranslateTextCommand;
@@ -13,12 +14,27 @@ try {
   TranslateTextCommand = null;
 }
 
+const PROVIDER_CATALOG = {
+  azure: { creditFree: false, monthlyLimit: 2000000 },
+  google: { creditFree: false, monthlyLimit: 500000 },
+  aws: { creditFree: false, monthlyLimit: 2000000 },
+  libre: { creditFree: true, monthlyLimit: null },
+};
+const CREDIT_FREE_ONLY = String(process.env.TRANSLATION_CREDIT_FREE_ONLY || "true").trim().toLowerCase() !== "false";
+const allowedProviderSet = () =>
+  new Set(
+    Object.keys(PROVIDER_CATALOG).filter((provider) =>
+      CREDIT_FREE_ONLY ? PROVIDER_CATALOG[provider].creditFree : true
+    )
+  );
+
 const providerOrder = () => {
-  const raw = process.env.TRANSLATION_PROVIDERS || "azure,google,aws,libre";
+  const allowed = allowedProviderSet();
+  const raw = process.env.TRANSLATION_PROVIDERS || "libre";
   return raw
     .split(",")
     .map((p) => p.trim().toLowerCase())
-    .filter(Boolean);
+    .filter((provider) => provider && allowed.has(provider));
 };
 
 const state = {
@@ -51,6 +67,7 @@ const normalizeProviderCode = (code) => {
   if (!code) return "";
   const c = String(code).toLowerCase();
   if (c === "kh") return "km";
+  if (c === "kr" || c === "korean") return "ko";
   return c;
 };
 const toAzure = (code) => normalizeProviderCode(code);
@@ -58,12 +75,9 @@ const toGoogle = (code) => normalizeProviderCode(code);
 const toAws = (code) => normalizeProviderCode(code);
 const toLibre = (code) => normalizeProviderCode(code);
 
-const MONTHLY_LIMITS = {
-  azure: 2000000,
-  google: 500000,
-  aws: 2000000,
-  libre: null,
-};
+const MONTHLY_LIMITS = Object.fromEntries(
+  Object.entries(PROVIDER_CATALOG).map(([provider, meta]) => [provider, meta.monthlyLimit])
+);
 const AUTO_SWITCH_THRESHOLD = 50;
 
 const pick = (value, fallback) => {
@@ -86,19 +100,24 @@ const getSettings = async () => {
       key: pick(doc.providers?.azure?.key, process.env.AZURE_TRANSLATOR_KEY),
       region: pick(doc.providers?.azure?.region, process.env.AZURE_TRANSLATOR_REGION),
       endpoint: pick(doc.providers?.azure?.endpoint, process.env.AZURE_TRANSLATOR_ENDPOINT),
+      enabled: doc.providers?.azure?.enabled !== false,
     },
     google: {
       key: pick(doc.providers?.google?.key, process.env.GOOGLE_TRANSLATE_KEY),
+      ttsKey: pick(doc.providers?.google?.ttsKey, process.env.GOOGLE_TTS_KEY),
+      enabled: doc.providers?.google?.enabled !== false,
     },
     aws: {
       accessKeyId: pick(doc.providers?.aws?.accessKeyId, process.env.AWS_ACCESS_KEY_ID),
       secretAccessKey: pick(doc.providers?.aws?.secretAccessKey, process.env.AWS_SECRET_ACCESS_KEY),
       region: pick(doc.providers?.aws?.region, process.env.AWS_REGION),
       sessionToken: pick(doc.providers?.aws?.sessionToken, process.env.AWS_SESSION_TOKEN),
+      enabled: doc.providers?.aws?.enabled !== false,
     },
     libre: {
       url: pick(doc.providers?.libre?.url, process.env.LIBRETRANSLATE_URL),
       apiKey: pick(doc.providers?.libre?.apiKey, process.env.LIBRETRANSLATE_API_KEY),
+      enabled: doc.providers?.libre?.enabled !== false,
     },
   };
 
@@ -107,15 +126,16 @@ const getSettings = async () => {
   return data;
 };
 
-const canUseAzure = (config) => config.key && config.region;
-const canUseGoogle = (config) => config.key;
+const canUseAzure = (config) => config.enabled !== false && config.key && config.region;
+const canUseGoogle = (config) => config.enabled !== false && (config.key || hasGoogleServiceAccount());
 const canUseAws = (config) =>
+  config.enabled !== false &&
   TranslateClient &&
   TranslateTextCommand &&
   config.accessKeyId &&
   config.secretAccessKey &&
   config.region;
-const canUseLibre = (config) => config.url || config.apiKey;
+const canUseLibre = (config) => config.enabled !== false && (config.url || config.apiKey);
 
 const translateAzure = async ({ text, source, target, config }) => {
   const endpoint = config.endpoint || "https://api.cognitive.microsofttranslator.com";
@@ -138,6 +158,33 @@ const translateAzure = async ({ text, source, target, config }) => {
 };
 
 const translateGoogle = async ({ text, source, target, config }) => {
+  if (!config.key) {
+    const projectId = await getGoogleProjectId();
+    const accessToken = await getGoogleAccessToken();
+    if (!projectId || !accessToken) {
+      throw new Error("Google translation credentials not configured.");
+    }
+    const endpoint = `https://translation.googleapis.com/v3/projects/${encodeURIComponent(projectId)}/locations/global:translateText`;
+    const body = {
+      contents: [text],
+      targetLanguageCode: toGoogle(target),
+      mimeType: "text/plain",
+    };
+    if (source && source !== "auto") body.sourceLanguageCode = toGoogle(source);
+    const res = await fetch(endpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
+      },
+      body: JSON.stringify(body),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(data.error?.message || "Google translation failed.");
+    const translatedText = data?.translations?.[0]?.translatedText || "";
+    return translatedText;
+  }
+
   const apiKey = config.key;
   const endpoint = "https://translation.googleapis.com/language/translate/v2";
   const body = {

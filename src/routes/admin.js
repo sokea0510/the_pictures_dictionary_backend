@@ -1,6 +1,8 @@
 // backend/src/routes/admin.js
 
 const express = require("express");
+const fs = require("fs");
+const path = require("path");
 const { authRequired } = require("../middleware/auth");
 const { requireAnyRole, requireRoleAtLeast } = require("../middleware/rbac");
 
@@ -47,24 +49,105 @@ const normalizePhoneticPronunciations = (value) => {
   return normalized;
 };
 
+const normalizeLanguageCode = (value) => {
+  const raw = String(value || "").trim().toLowerCase();
+  const key = raw.split(/[-_]/)[0];
+  if (["km", "kh", "khmer"].includes(key)) return "kh";
+  if (["kr", "ko", "korean"].includes(key)) return "kr";
+  if (["en", "eng", "english"].includes(key)) return "en";
+  return key;
+};
+const normalizeLanguageName = (value) => String(value || "").trim();
+const languageAliases = (code) => {
+  if (code === "kh") return ["km", "khmer"];
+  if (code === "kr") return ["ko", "korean"];
+  if (code === "en") return ["eng", "english"];
+  return [];
+};
+
 // Admin + Owner can manage dictionary + ads
 router.use(authRequired, requireAnyRole(["admin", "owner"]));
 
 /* Languages */
 router.post("/languages", async (req, res) => {
-  const doc = await Language.create(req.body);
-  res.json({ language: doc });
+  const payload = req.body || {};
+  const code = normalizeLanguageCode(payload.code);
+  const name = normalizeLanguageName(payload.name);
+
+  if (!code || !name) {
+    return res.status(400).json({ message: "Language code and name are required." });
+  }
+
+  const exists = await Language.findOne({ code }).lean();
+  if (exists) {
+    return res.status(409).json({ message: "Language code already exists." });
+  }
+
+  try {
+    const doc = await Language.create({
+      code,
+      name,
+      isEnabled: payload.isEnabled !== false,
+    });
+    return res.json({ language: doc });
+  } catch (err) {
+    if (Number(err?.code) === 11000) {
+      return res.status(409).json({ message: "Language code already exists." });
+    }
+    throw err;
+  }
 });
 router.patch("/languages/:id", async (req, res) => {
-  const doc = await Language.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true });
-  res.json({ language: doc });
+  const payload = { ...(req.body || {}) };
+  if (payload.code !== undefined) {
+    payload.code = normalizeLanguageCode(payload.code);
+    if (!payload.code) {
+      return res.status(400).json({ message: "Language code cannot be empty." });
+    }
+    const exists = await Language.findOne({ code: payload.code, _id: { $ne: req.params.id } }).lean();
+    if (exists) {
+      return res.status(409).json({ message: "Language code already exists." });
+    }
+  }
+  if (payload.name !== undefined) {
+    payload.name = normalizeLanguageName(payload.name);
+    if (!payload.name) {
+      return res.status(400).json({ message: "Language name cannot be empty." });
+    }
+  }
+  if (payload.isEnabled !== undefined) {
+    payload.isEnabled = payload.isEnabled !== false;
+  }
+
+  try {
+    const doc = await Language.findByIdAndUpdate(
+      req.params.id,
+      { $set: payload },
+      { new: true, runValidators: true }
+    );
+    if (!doc) return res.status(404).json({ message: "Language not found." });
+    return res.json({ language: doc });
+  } catch (err) {
+    if (Number(err?.code) === 11000) {
+      return res.status(409).json({ message: "Language code already exists." });
+    }
+    throw err;
+  }
 });
 router.delete("/languages/:id", async (req, res) => {
-  await Language.findByIdAndDelete(req.params.id);
-  res.json({ ok: true });
+  const deleted = await Language.findByIdAndDelete(req.params.id);
+  if (!deleted) return res.status(404).json({ message: "Language not found." });
+  return res.json({ ok: true });
 });
 
 /* Categories */
+router.get("/categories", async (_req, res) => {
+  const categories = await Category.find({})
+    .select("_id label coverUrl isEnabled createdAt updatedAt")
+    .sort({ label: 1 })
+    .lean();
+  res.json({ categories });
+});
 router.post("/categories", async (req, res) => {
   const doc = await Category.create(req.body);
   res.json({ category: doc });
@@ -218,7 +301,7 @@ router.get("/translations", requireAnyRole(["admin", "owner"]), async (_req, res
     .sort({ lang: 1 })
     .lean();
   const languages = list.map((row) => ({
-    lang: row.lang,
+    lang: normalizeLanguageCode(row.lang),
     fontFamily: row.fontFamily || "",
     numKeys: Object.keys(row.messages || {}).length,
     isEnabled: row.isEnabled !== false,
@@ -227,12 +310,14 @@ router.get("/translations", requireAnyRole(["admin", "owner"]), async (_req, res
 });
 
 router.get("/translations/:lang", requireAnyRole(["admin", "owner"]), async (req, res) => {
-  const lang = String(req.params.lang || "").trim().toLowerCase();
+  const lang = normalizeLanguageCode(req.params.lang);
   if (!lang) return res.status(400).json({ message: "Missing language code." });
-  const doc = await Translation.findOne({ lang }).lean();
+  const doc = await Translation.findOne({ lang: { $in: [lang, ...languageAliases(lang)] } })
+    .sort({ createdAt: -1 })
+    .lean();
   if (!doc) return res.status(404).json({ message: "Language not found." });
   res.json({
-    lang: doc.lang,
+    lang,
     messages: decodeMessages(doc.messages || {}),
     fontFamily: doc.fontFamily || "",
     fontOverrides: decodeMessages(doc.fontOverrides || {}),
@@ -241,9 +326,9 @@ router.get("/translations/:lang", requireAnyRole(["admin", "owner"]), async (req
 });
 
 router.post("/translations", requireAnyRole(["admin", "owner"]), async (req, res) => {
-  const lang = String(req.body?.lang || "").trim().toLowerCase();
+  const lang = normalizeLanguageCode(req.body?.lang);
   if (!lang) return res.status(400).json({ message: "Missing language code." });
-  const exists = await Translation.findOne({ lang }).lean();
+  const exists = await Translation.findOne({ lang: { $in: [lang, ...languageAliases(lang)] } }).lean();
   if (exists) return res.status(409).json({ message: "Language already exists." });
   const doc = await Translation.create({ lang });
   res.json({
@@ -256,7 +341,7 @@ router.post("/translations", requireAnyRole(["admin", "owner"]), async (req, res
 });
 
 router.put("/translations/:lang", requireAnyRole(["admin", "owner"]), async (req, res) => {
-  const lang = String(req.params.lang || "").trim().toLowerCase();
+  const lang = normalizeLanguageCode(req.params.lang);
   if (!lang) return res.status(400).json({ message: "Missing language code." });
   const { messages, fontFamily, fontOverrides } = req.body || {};
   const update = {};
@@ -265,7 +350,7 @@ router.put("/translations/:lang", requireAnyRole(["admin", "owner"]), async (req
   if (fontOverrides && typeof fontOverrides === "object") update.fontOverrides = encodeMessages(fontOverrides);
   if (typeof req.body?.isEnabled === "boolean") update.isEnabled = req.body.isEnabled;
   const doc = await Translation.findOneAndUpdate(
-    { lang },
+    { lang: { $in: [lang, ...languageAliases(lang)] } },
     { $set: update },
     { new: true, upsert: true }
   );
@@ -279,9 +364,9 @@ router.put("/translations/:lang", requireAnyRole(["admin", "owner"]), async (req
 });
 
 router.delete("/translations/:lang", requireAnyRole(["admin", "owner"]), async (req, res) => {
-  const lang = String(req.params.lang || "").trim().toLowerCase();
+  const lang = normalizeLanguageCode(req.params.lang);
   if (!lang) return res.status(400).json({ message: "Missing language code." });
-  await Translation.findOneAndDelete({ lang });
+  await Translation.findOneAndDelete({ lang: { $in: [lang, ...languageAliases(lang)] } });
   res.json({ ok: true });
 });
 
@@ -289,30 +374,45 @@ router.delete("/translations/:lang", requireAnyRole(["admin", "owner"]), async (
 router.get("/translation-settings", requireRoleAtLeast("owner"), async (_req, res) => {
   const doc = await TranslationSettings.findOne().lean();
   const providers = doc?.providers || {};
+  const features = doc?.features || {};
+  const ttsProviders = doc?.ttsProviders || {};
   const mask = (value) => (value ? `${String(value).slice(0, 2)}••••${String(value).slice(-2)}` : "");
   res.json({
     providers: {
       azure: {
         configured: !!(providers.azure?.key && providers.azure?.region),
+        enabled: providers.azure?.enabled !== false,
         region: providers.azure?.region || "",
         endpoint: providers.azure?.endpoint || "",
         keyHint: mask(providers.azure?.key),
       },
       google: {
-        configured: !!providers.google?.key,
+        configured: !!(providers.google?.key || providers.google?.ttsKey),
+        enabled: providers.google?.enabled !== false,
         keyHint: mask(providers.google?.key),
+        ttsKeyHint: mask(providers.google?.ttsKey),
       },
       aws: {
         configured: !!(providers.aws?.accessKeyId && providers.aws?.secretAccessKey && providers.aws?.region),
+        enabled: providers.aws?.enabled !== false,
         region: providers.aws?.region || "",
         accessKeyIdHint: mask(providers.aws?.accessKeyId),
         secretAccessKeyHint: mask(providers.aws?.secretAccessKey),
       },
       libre: {
         configured: !!(providers.libre?.url || providers.libre?.apiKey),
+        enabled: providers.libre?.enabled !== false,
         url: providers.libre?.url || "",
         apiKeyHint: mask(providers.libre?.apiKey),
       },
+    },
+    features: {
+      quickTranslateEnabled: features.quickTranslateEnabled !== false,
+    },
+    ttsProviders: {
+      gemini: { enabled: ttsProviders?.gemini?.enabled !== false },
+      googleCloud: { enabled: ttsProviders?.googleCloud?.enabled !== false },
+      googleFallback: { enabled: ttsProviders?.googleFallback?.enabled !== false },
     },
     preferredProvider: doc?.preferredProvider || "",
     updatedAt: doc?.updatedAt || null,
@@ -321,6 +421,7 @@ router.get("/translation-settings", requireRoleAtLeast("owner"), async (_req, re
 
 router.put("/translation-settings", requireRoleAtLeast("owner"), async (req, res) => {
   const body = req.body || {};
+  const current = await TranslationSettings.findOne().select("preferredProvider providers.libre.enabled").lean();
   const update = {};
   const setIfProvided = (path, value) => {
     if (value === undefined) return;
@@ -330,15 +431,50 @@ router.put("/translation-settings", requireRoleAtLeast("owner"), async (req, res
   setIfProvided("azure.key", body.azure?.key);
   setIfProvided("azure.region", body.azure?.region);
   setIfProvided("azure.endpoint", body.azure?.endpoint);
+  setIfProvided("azure.enabled", body.azure?.enabled);
   setIfProvided("google.key", body.google?.key);
+  setIfProvided("google.ttsKey", body.google?.ttsKey);
+  setIfProvided("google.enabled", body.google?.enabled);
   setIfProvided("aws.accessKeyId", body.aws?.accessKeyId);
   setIfProvided("aws.secretAccessKey", body.aws?.secretAccessKey);
   setIfProvided("aws.region", body.aws?.region);
   setIfProvided("aws.sessionToken", body.aws?.sessionToken);
+  setIfProvided("aws.enabled", body.aws?.enabled);
   setIfProvided("libre.url", body.libre?.url);
   setIfProvided("libre.apiKey", body.libre?.apiKey);
+  setIfProvided("libre.enabled", body.libre?.enabled);
+  if (body.features?.quickTranslateEnabled !== undefined) {
+    update["features.quickTranslateEnabled"] = !!body.features.quickTranslateEnabled;
+  }
+  if (body.ttsProviders?.gemini?.enabled !== undefined) {
+    update["ttsProviders.gemini.enabled"] = !!body.ttsProviders.gemini.enabled;
+  }
+  if (body.ttsProviders?.googleCloud?.enabled !== undefined) {
+    update["ttsProviders.googleCloud.enabled"] = !!body.ttsProviders.googleCloud.enabled;
+  }
+  if (body.ttsProviders?.googleFallback?.enabled !== undefined) {
+    update["ttsProviders.googleFallback.enabled"] = !!body.ttsProviders.googleFallback.enabled;
+  }
   if (body.preferredProvider !== undefined) {
-    update.preferredProvider = body.preferredProvider || "";
+    const normalized = String(body.preferredProvider || "").trim().toLowerCase();
+    const allowed = new Set(["", "libre"]);
+    if (!allowed.has(normalized)) {
+      return res.status(400).json({ message: "Only credit-free providers are allowed as preferred provider." });
+    }
+    update.preferredProvider = normalized;
+  }
+
+  const nextLibreEnabled = body.libre?.enabled !== undefined
+    ? !!body.libre.enabled
+    : current?.providers?.libre?.enabled !== false;
+  const nextPreferred = String(
+    update.preferredProvider !== undefined ? update.preferredProvider : current?.preferredProvider || ""
+  ).toLowerCase();
+  if (nextPreferred === "libre" && !nextLibreEnabled) {
+    return res.status(400).json({ message: "Cannot set Libre as preferred while it is disabled." });
+  }
+  if (!nextLibreEnabled && update.preferredProvider === undefined && nextPreferred === "libre") {
+    update.preferredProvider = "";
   }
 
   if (Object.keys(update).length === 0) {
@@ -355,15 +491,84 @@ router.put("/translation-settings", requireRoleAtLeast("owner"), async (req, res
 });
 
 router.get("/translation-usage", requireRoleAtLeast("owner"), async (_req, res) => {
+  const providerList = ["azure", "google", "aws", "libre"];
+  const creditFreeProviders = ["libre"];
   const limits = {
     azure: 2000000,
     google: 500000,
     aws: 2000000,
     libre: null,
   };
+  const ttsLimits = {
+    "tts:gemini_25_flash_preview": Number(process.env.TTS_GEMINI_MONTHLY_LIMIT || 4000000),
+    "tts:google_cloud": Number(process.env.TTS_GOOGLE_CLOUD_MONTHLY_LIMIT || 4000000),
+    "tts:google_fallback": Number(process.env.TTS_GOOGLE_FALLBACK_MONTHLY_LIMIT || 4000000),
+  };
   const yearMonth = new Date().toISOString().slice(0, 7);
-  const usage = await TranslationUsage.find({ yearMonth }).lean();
-  res.json({ yearMonth, usage, limits });
+  const settings = await TranslationSettings.findOne().select("providers ttsProviders").lean();
+  const usageRows = await TranslationUsage.find({ yearMonth }).lean();
+  const usageMap = {};
+  const ttsUsageMap = {};
+  usageRows.forEach((row) => {
+    const code = String(row.provider || "");
+    if (code.startsWith("tts:")) {
+      ttsUsageMap[code] = row.chars || 0;
+      return;
+    }
+    usageMap[code] = row.chars || 0;
+  });
+  const usage = providerList.map((provider) => ({
+    provider,
+    chars: usageMap[provider] || 0,
+    creditFree: creditFreeProviders.includes(provider),
+    enabled: settings?.providers?.[provider]?.enabled !== false,
+  }));
+  const runtimeProviders = usage
+    .filter((row) => row.creditFree && row.enabled)
+    .map((row) => row.provider);
+  const ttsProviders = [
+    { provider: "tts:gemini_25_flash_preview", label: "Gemini 2.5 Flash Preview TTS", creditFree: true },
+    { provider: "tts:google_cloud", label: "Google Cloud TTS", creditFree: false },
+    { provider: "tts:google_fallback", label: "Google Translate TTS Fallback", creditFree: true },
+  ];
+  const ttsUsage = ttsProviders.map((item) => ({
+    ...item,
+    chars: ttsUsageMap[item.provider] || 0,
+    limit: ttsLimits[item.provider] ?? null,
+    remaining:
+      ttsLimits[item.provider] == null
+        ? null
+        : Math.max((ttsLimits[item.provider] || 0) - (ttsUsageMap[item.provider] || 0), 0),
+    enabled:
+      item.provider === "tts:gemini_25_flash_preview"
+        ? settings?.ttsProviders?.gemini?.enabled !== false
+        : item.provider === "tts:google_cloud"
+          ? settings?.ttsProviders?.googleCloud?.enabled !== false
+          : settings?.ttsProviders?.googleFallback?.enabled !== false,
+  }));
+  res.json({
+    yearMonth,
+    usage,
+    ttsUsage,
+    limits,
+    ttsLimits,
+    providers: providerList,
+    creditFreeProviders,
+    runtimeProviders,
+  });
+});
+
+router.post("/translation-usage/tts-cache/clear", requireRoleAtLeast("owner"), async (_req, res) => {
+  const configured = String(process.env.TTS_CACHE_DIR || "").trim();
+  const dir = configured || path.resolve(process.cwd(), "var", "tts-cache");
+  try {
+    await fs.promises.rm(dir, { recursive: true, force: true });
+  } catch {}
+  try {
+    await fs.promises.mkdir(dir, { recursive: true });
+  } catch {}
+  await TranslationUsage.deleteMany({ provider: /^tts:/ });
+  res.json({ ok: true, cacheDir: dir });
 });
 
 module.exports = router;

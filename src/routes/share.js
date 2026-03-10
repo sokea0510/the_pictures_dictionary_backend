@@ -22,7 +22,7 @@ const normalizeLang = (value, fallback) => {
   if (!raw) return fallback;
   const key = raw.split(/[-_]/)[0];
   if (["km", "kh", "khmer"].includes(key)) return "kh";
-  if (["kr", "ko", "korean"].includes(key)) return "ko";
+  if (["kr", "ko", "korean"].includes(key)) return "kr";
   if (["en", "eng", "english"].includes(key)) return "en";
   return key;
 };
@@ -34,8 +34,8 @@ const getTranslation = (item, langCode) => {
   const altKeys =
     key === "kh"
       ? ["km", "khmer"]
-      : key === "ko"
-        ? ["kr", "korean"]
+      : key === "kr"
+        ? ["ko", "korean"]
         : key === "en"
           ? ["eng", "english"]
           : [];
