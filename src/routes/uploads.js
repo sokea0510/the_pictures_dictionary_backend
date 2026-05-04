@@ -7,7 +7,7 @@ const { uploadImageDataUrl } = require("../utils/storage");
 
 const router = express.Router();
 
-const ALLOWED_TYPES = new Set(["item", "category", "ad", "avatar", "misc"]);
+const ALLOWED_TYPES = new Set(["item", "category", "ad", "avatar", "blog", "misc"]);
 
 const buildPrefix = (type, userId) => {
   const date = new Date();

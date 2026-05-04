@@ -16,6 +16,7 @@ const changeRoutes = require("./routes/changeRequests");
 const uploadRoutes = require("./routes/uploads");
 const pushRoutes = require("./routes/push");
 const shareRoutes = require("./routes/share");
+const blogRoutes = require("./routes/blog");
 
 const app = express();
 app.use(helmet());
@@ -106,6 +107,7 @@ app.use("/api/admin", adminRoutes);
 app.use("/api/change-requests", changeRoutes);
 app.use("/api/uploads", uploadRoutes);
 app.use("/api/push", pushRoutes);
+app.use("/api/blog", blogRoutes);
 
 const port = Number(process.env.PORT || 4000);
 

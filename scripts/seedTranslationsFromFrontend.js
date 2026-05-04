@@ -69,7 +69,9 @@ async function main() {
 
   const encodeKey = (key) => String(key || "").replace(/\./g, "__dot__").replace(/\$/g, "__dollar__");
   const existing = await Translation.findOne({ lang: "en" }).lean();
-  const existingDecoded = existing?.messages || {};
+  const existingDecoded = existing?.messages instanceof Map
+    ? Object.fromEntries(existing.messages.entries())
+    : { ...(existing?.messages || {}) };
   const encodedMessages = {};
   Object.entries(messages || {}).forEach(([k, v]) => {
     encodedMessages[encodeKey(k)] = v;
@@ -83,7 +85,10 @@ async function main() {
   );
 
   console.log(`[seed] extracted keys: ${Object.keys(messages).length}`);
-  console.log(`[seed] total en keys after merge: ${Object.keys(doc.messages || {}).length}`);
+  const enKeyCount = doc.messages instanceof Map
+    ? doc.messages.size
+    : Object.keys(doc.messages || {}).length;
+  console.log(`[seed] total en keys after merge: ${enKeyCount}`);
 
   // Ensure other languages have all keys (fill missing only)
   const otherLangs = await Translation.find({ lang: { $ne: "en" } });

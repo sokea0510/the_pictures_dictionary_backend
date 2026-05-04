@@ -36,6 +36,73 @@ const decodeMessages = (obj = {}) => {
   });
   return out;
 };
+const escapeCsvCell = (value) => {
+  const text = String(value ?? "");
+  if (/[",\n\r]/.test(text)) {
+    return `"${text.replace(/"/g, "\"\"")}"`;
+  }
+  return text;
+};
+const toCsv = (rows = []) => rows.map((row) => row.map(escapeCsvCell).join(",")).join("\n");
+const parseCsv = (input = "") => {
+  const text = String(input || "");
+  const rows = [];
+  let row = [];
+  let cell = "";
+  let i = 0;
+  let inQuotes = false;
+
+  while (i < text.length) {
+    const ch = text[i];
+    if (inQuotes) {
+      if (ch === "\"") {
+        if (text[i + 1] === "\"") {
+          cell += "\"";
+          i += 2;
+          continue;
+        }
+        inQuotes = false;
+        i += 1;
+        continue;
+      }
+      cell += ch;
+      i += 1;
+      continue;
+    }
+
+    if (ch === "\"") {
+      inQuotes = true;
+      i += 1;
+      continue;
+    }
+    if (ch === ",") {
+      row.push(cell);
+      cell = "";
+      i += 1;
+      continue;
+    }
+    if (ch === "\n") {
+      row.push(cell);
+      rows.push(row);
+      row = [];
+      cell = "";
+      i += 1;
+      continue;
+    }
+    if (ch === "\r") {
+      i += 1;
+      continue;
+    }
+    cell += ch;
+    i += 1;
+  }
+
+  row.push(cell);
+  if (row.some((value) => String(value).trim() !== "") || rows.length === 0) {
+    rows.push(row);
+  }
+  return rows;
+};
 
 const normalizePhoneticPronunciations = (value) => {
   if (!value || typeof value !== "object") return {};
@@ -307,6 +374,122 @@ router.get("/translations", requireAnyRole(["admin", "owner"]), async (_req, res
     isEnabled: row.isEnabled !== false,
   }));
   res.json({ languages });
+});
+
+router.get("/translations/export/csv", requireRoleAtLeast("owner"), async (_req, res) => {
+  const docs = await Translation.find({})
+    .select("lang messages")
+    .sort({ lang: 1 })
+    .lean();
+
+  const byLang = new Map();
+  docs.forEach((doc) => {
+    const lang = normalizeLanguageCode(doc.lang);
+    if (!lang || byLang.has(lang)) return;
+    byLang.set(lang, decodeMessages(doc.messages || {}));
+  });
+
+  const languages = Array.from(byLang.keys()).sort();
+  const keysSet = new Set();
+  languages.forEach((lang) => {
+    Object.keys(byLang.get(lang) || {}).forEach((key) => keysSet.add(key));
+  });
+  const keys = Array.from(keysSet).sort();
+
+  const rows = [["key", ...languages]];
+  keys.forEach((key) => {
+    const row = [key];
+    languages.forEach((lang) => row.push((byLang.get(lang) || {})[key] || ""));
+    rows.push(row);
+  });
+
+  const csv = toCsv(rows);
+  const stamp = new Date().toISOString().slice(0, 19).replace(/[:T]/g, "-");
+  res.setHeader("Content-Type", "text/csv; charset=utf-8");
+  res.setHeader("Content-Disposition", `attachment; filename="translations-${stamp}.csv"`);
+  res.send(`\uFEFF${csv}`);
+});
+
+router.post("/translations/import/csv", requireRoleAtLeast("owner"), async (req, res) => {
+  const csv = String(req.body?.csv || "");
+  if (!csv.trim()) return res.status(400).json({ message: "Missing CSV content." });
+
+  const rows = parseCsv(csv.replace(/^\uFEFF/, ""));
+  if (!rows.length) return res.status(400).json({ message: "CSV is empty." });
+
+  const header = rows[0].map((col) => String(col || "").trim());
+  if (String(header[0] || "").toLowerCase() !== "key") {
+    return res.status(400).json({ message: "First CSV column must be 'key'." });
+  }
+
+  const seen = new Set();
+  const languageColumns = [];
+  for (let i = 1; i < header.length; i += 1) {
+    const raw = String(header[i] || "").trim();
+    if (!raw) continue;
+    const lang = normalizeLanguageCode(raw);
+    if (!lang) return res.status(400).json({ message: `Invalid language column: ${raw}` });
+    if (seen.has(lang)) {
+      return res.status(400).json({ message: `Duplicate language column after normalization: ${lang}` });
+    }
+    seen.add(lang);
+    languageColumns.push({ index: i, lang });
+  }
+  if (!languageColumns.length) {
+    return res.status(400).json({ message: "CSV must include at least one language column." });
+  }
+
+  const targetLangs = languageColumns.map((col) => col.lang);
+  const aliases = targetLangs.flatMap((lang) => [lang, ...languageAliases(lang)]);
+  const docs = await Translation.find({ lang: { $in: aliases } })
+    .select("lang messages")
+    .lean();
+  const existingByLang = new Map();
+  docs.forEach((doc) => {
+    const lang = normalizeLanguageCode(doc.lang);
+    if (!lang || existingByLang.has(lang)) return;
+    existingByLang.set(lang, decodeMessages(doc.messages || {}));
+  });
+
+  const nextByLang = new Map();
+  targetLangs.forEach((lang) => {
+    nextByLang.set(lang, { ...(existingByLang.get(lang) || {}) });
+  });
+
+  let updatedKeys = 0;
+  for (let r = 1; r < rows.length; r += 1) {
+    const row = rows[r] || [];
+    const key = String(row[0] || "").trim();
+    if (!key) continue;
+    languageColumns.forEach(({ index, lang }) => {
+      const value = row[index];
+      if (value === undefined || value === null || String(value) === "") return;
+      const map = nextByLang.get(lang) || {};
+      const nextVal = String(value);
+      if (map[key] !== nextVal) {
+        map[key] = nextVal;
+        updatedKeys += 1;
+      }
+      nextByLang.set(lang, map);
+    });
+  }
+
+  let updatedLanguages = 0;
+  for (const lang of targetLangs) {
+    await Translation.findOneAndUpdate(
+      { lang: { $in: [lang, ...languageAliases(lang)] } },
+      { $set: { lang, messages: encodeMessages(nextByLang.get(lang) || {}) } },
+      { new: true, upsert: true }
+    );
+    updatedLanguages += 1;
+  }
+
+  res.json({
+    ok: true,
+    updatedLanguages,
+    updatedKeys,
+    message: `Imported CSV: updated ${updatedKeys} values across ${updatedLanguages} languages.`,
+  });
 });
 
 router.get("/translations/:lang", requireAnyRole(["admin", "owner"]), async (req, res) => {
