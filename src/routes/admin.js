@@ -36,6 +36,7 @@ const decodeMessages = (obj = {}) => {
   });
   return out;
 };
+
 const escapeCsvCell = (value) => {
   const text = String(value ?? "");
   if (/[",\n\r]/.test(text)) {
@@ -286,10 +287,10 @@ router.delete("/ads/:id", async (req, res) => {
   res.json({ ok: true });
 });
 
-/* Owner-only user management */
-router.get("/users", requireRoleAtLeast("owner"), async (_req, res) => {
+/* Admin/Owner user visibility; owner-only mutations below */
+router.get("/users", requireAnyRole(["admin", "owner"]), async (_req, res) => {
   const users = await User.find()
-    .select("email role isActive createdAt planType planStartsAt planEndsAt")
+    .select("name email role isActive authProvider googleId facebookId telegramId avatarUrl emailVerified createdAt updatedAt planType planStartsAt planEndsAt")
     .sort({ createdAt: -1 })
     .limit(500)
     .lean();
@@ -376,7 +377,13 @@ router.get("/translations", requireAnyRole(["admin", "owner"]), async (_req, res
   res.json({ languages });
 });
 
-router.get("/translations/export/csv", requireRoleAtLeast("owner"), async (_req, res) => {
+router.get("/translations/export/csv", requireRoleAtLeast("owner"), async (req, res) => {
+  const requestedLangs = String(req.query?.langs || "")
+    .split(",")
+    .map(normalizeLanguageCode)
+    .filter(Boolean);
+  const requestedSet = requestedLangs.length ? new Set(requestedLangs) : null;
+
   const docs = await Translation.find({})
     .select("lang messages")
     .sort({ lang: 1 })
@@ -386,10 +393,13 @@ router.get("/translations/export/csv", requireRoleAtLeast("owner"), async (_req,
   docs.forEach((doc) => {
     const lang = normalizeLanguageCode(doc.lang);
     if (!lang || byLang.has(lang)) return;
+    if (requestedSet && !requestedSet.has(lang)) return;
     byLang.set(lang, decodeMessages(doc.messages || {}));
   });
 
-  const languages = Array.from(byLang.keys()).sort();
+  const languages = requestedSet
+    ? requestedLangs.filter((lang, index) => requestedLangs.indexOf(lang) === index && byLang.has(lang))
+    : Array.from(byLang.keys()).sort();
   const keysSet = new Set();
   languages.forEach((lang) => {
     Object.keys(byLang.get(lang) || {}).forEach((key) => keysSet.add(key));

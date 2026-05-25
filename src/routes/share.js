@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const Item = require("../models/Item");
 const Category = require("../models/Category");
+const BlogPost = require("../models/BlogPost");
 
 const router = express.Router();
 const BOT_UA_RE =
@@ -16,6 +17,20 @@ const escapeHtml = (value) =>
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
+
+const stripText = (value) =>
+  String(value || "")
+    .replace(/<[^>]*>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+const imageTypeFromUrl = (url) => {
+  const value = String(url || "").split("?")[0].toLowerCase();
+  if (value.endsWith(".png")) return "image/png";
+  if (value.endsWith(".webp")) return "image/webp";
+  if (value.endsWith(".gif")) return "image/gif";
+  return "image/jpeg";
+};
 
 const normalizeLang = (value, fallback) => {
   const raw = String(value || "").trim().toLowerCase();
@@ -45,8 +60,20 @@ const getTranslation = (item, langCode) => {
 const frontEndBase = (req) => {
   const explicit = process.env.FRONTEND_URL || process.env.APP_BASE_URL || "";
   if (explicit) return explicit.replace(/\/+$/, "");
+  const host = String(req.get("host") || "").toLowerCase();
+  if (host === "api.picturedictionary.cloud" || host.startsWith("api.")) {
+    return "https://picturedictionary.cloud";
+  }
   const origin = `${req.protocol}://${req.get("host") || "localhost:4000"}`;
   return origin.replace(/\/+$/, "");
+};
+
+const requestPublicBase = (req) => {
+  const proto = String(req.get("x-forwarded-proto") || req.protocol || "https")
+    .split(",")[0]
+    .trim();
+  const host = String(req.get("x-forwarded-host") || req.get("host") || "").split(",")[0].trim();
+  return `${proto || "https"}://${host || "localhost:4000"}`.replace(/\/+$/, "");
 };
 
 const absoluteImageUrl = (req, raw) => {
@@ -97,10 +124,11 @@ router.get("/item/:itemId", async (req, res) => {
   const categoryLabel = String(category?.label || "").trim();
   const title = toText && toText !== "-" ? `${fromText} (${toText})` : fromText;
   const descriptionParts = [
+    toText && toText !== "-" ? `${fromText} means ${toText}` : "",
     categoryLabel ? `Category: ${categoryLabel}` : "",
     String(item.description || "").trim(),
   ].filter(Boolean);
-  const description = descriptionParts.join(" - ") || "Picture Dictionary item";
+  const description = descriptionParts.join(" - ") || "Learn words with pictures, translation, and voice support.";
   const webBase = frontEndBase(req);
   const imageUrl = absoluteImageUrl(req, item.imageUrl || item.imageThumbUrl);
   const fallbackImage = String(process.env.SHARE_FALLBACK_IMAGE || "").trim()
@@ -112,8 +140,10 @@ router.get("/item/:itemId", async (req, res) => {
     appUrlParams.set("categoryId", resolvedCategoryId);
   }
   appUrlParams.set("itemId", itemId);
+  appUrlParams.set("from", from);
+  appUrlParams.set("to", to);
   const appUrl = `${webBase}/dictionary?${appUrlParams.toString()}`;
-  const canonicalShareUrl = `${req.protocol}://${req.get("host")}/share/item/${encodeURIComponent(itemId)}?categoryId=${encodeURIComponent(resolvedCategoryId)}&from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}`;
+  const canonicalShareUrl = `${requestPublicBase(req)}/share/item/${encodeURIComponent(itemId)}?categoryId=${encodeURIComponent(resolvedCategoryId)}&from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}`;
 
   const isCrawler = BOT_UA_RE.test(String(req.get("user-agent") || ""));
 
@@ -122,6 +152,10 @@ router.get("/item/:itemId", async (req, res) => {
   }
 
   res.set("Cache-Control", "public, max-age=300, stale-while-revalidate=300");
+  res.set(
+    "Content-Security-Policy",
+    "default-src 'none'; img-src 'self' https: data:; base-uri 'none'; form-action 'none'; frame-ancestors 'none'"
+  );
   res.type("html").send(`<!doctype html>
 <html lang="en">
   <head>
@@ -139,15 +173,87 @@ router.get("/item/:itemId", async (req, res) => {
     <meta property="og:url" content="${escapeHtml(canonicalShareUrl)}" />
     <meta property="og:image" content="${escapeHtml(ogImage)}" />
     <meta property="og:image:secure_url" content="${escapeHtml(ogImage)}" />
+    <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:alt" content="${escapeHtml(title)}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="${escapeHtml(canonicalShareUrl)}" />
     <meta name="twitter:title" content="${escapeHtml(title)}" />
     <meta name="twitter:description" content="${escapeHtml(description)}" />
     <meta name="twitter:image" content="${escapeHtml(ogImage)}" />
+    <meta name="twitter:image:src" content="${escapeHtml(ogImage)}" />
   </head>
   <body>
     <p>Redirecting to <a href="${escapeHtml(appUrl)}">item details</a>...</p>
+  </body>
+</html>`);
+});
+
+router.get("/blog/:slug", async (req, res) => {
+  const slug = String(req.params.slug || "").trim().toLowerCase();
+  if (!slug) {
+    return res.status(400).type("text/plain").send("Invalid slug");
+  }
+
+  const post = await BlogPost.findOne({ slug, status: "published" }).lean();
+  if (!post) {
+    return res.status(404).type("text/plain").send("Post not found");
+  }
+
+  const webBase = frontEndBase(req);
+  const title = String(post.title || "Picture Dictionary Blog").trim();
+  const description =
+    stripText(post.excerpt).slice(0, 280) ||
+    stripText(post.content).slice(0, 280) ||
+    "Read education, language, health, and learning articles from Picture Dictionary.";
+  const imageUrl = absoluteImageUrl(req, post.coverImageUrl);
+  const fallbackImage = String(process.env.SHARE_FALLBACK_IMAGE || "").trim()
+    || `${webBase}/apple-touch-icon.png`;
+  const ogImage = imageUrl || fallbackImage;
+  const appUrl = `${webBase}/blog/${encodeURIComponent(slug)}`;
+  const canonicalShareUrl = `${requestPublicBase(req)}/share/blog/${encodeURIComponent(slug)}`;
+  const isCrawler = BOT_UA_RE.test(String(req.get("user-agent") || ""));
+
+  if (!isCrawler) {
+    return res.redirect(302, appUrl);
+  }
+
+  res.set("Cache-Control", "public, max-age=300, stale-while-revalidate=300");
+  res.set(
+    "Content-Security-Policy",
+    "default-src 'none'; img-src 'self' https: data:; base-uri 'none'; form-action 'none'; frame-ancestors 'none'"
+  );
+  res.type("html").send(`<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>${escapeHtml(title)}</title>
+    <meta name="description" content="${escapeHtml(description)}" />
+    <link rel="canonical" href="${escapeHtml(canonicalShareUrl)}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Picture Dictionary" />
+    ${FB_APP_ID ? `<meta property="fb:app_id" content="${escapeHtml(FB_APP_ID)}" />` : ""}
+    ${FB_PAGE_URL ? `<meta property="article:publisher" content="${escapeHtml(FB_PAGE_URL)}" />` : ""}
+    <meta property="og:title" content="${escapeHtml(title)}" />
+    <meta property="og:description" content="${escapeHtml(description)}" />
+    <meta property="og:url" content="${escapeHtml(canonicalShareUrl)}" />
+    <meta property="og:image" content="${escapeHtml(ogImage)}" />
+    <meta property="og:image:secure_url" content="${escapeHtml(ogImage)}" />
+    <meta property="og:image:type" content="${escapeHtml(imageTypeFromUrl(ogImage))}" />
+    <meta property="og:image:alt" content="${escapeHtml(post.coverImageAlt || title)}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="${escapeHtml(canonicalShareUrl)}" />
+    <meta name="twitter:title" content="${escapeHtml(title)}" />
+    <meta name="twitter:description" content="${escapeHtml(description)}" />
+    <meta name="twitter:image" content="${escapeHtml(ogImage)}" />
+    <meta name="twitter:image:src" content="${escapeHtml(ogImage)}" />
+  </head>
+  <body>
+    <p>Redirecting to <a href="${escapeHtml(appUrl)}">blog post</a>...</p>
   </body>
 </html>`);
 });

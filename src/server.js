@@ -19,12 +19,11 @@ const shareRoutes = require("./routes/share");
 const blogRoutes = require("./routes/blog");
 
 const app = express();
-app.use(helmet());
+app.set("trust proxy", true);
+app.use(helmet({
+  crossOriginOpenerPolicy: { policy: "same-origin-allow-popups" },
+}));
 app.use(compression());
-app.use((_req, res, next) => {
-  res.setHeader("Cross-Origin-Opener-Policy", "same-origin-allow-popups");
-  next();
-});
 app.use(express.json({ limit: "4mb" }));
 app.use(morgan("dev"));
 
@@ -94,9 +93,26 @@ app.use(cors(corsOptions));
 app.get("/api/health", (_req, res) => res.json({ ok: true }));
 app.get("/", (req, res) => res.status(200).send("OK"));
 app.get("/health", (req, res) => res.status(200).json({ ok: true }));
-app.get("/robots.txt", (_req, res) => {
+app.get(["/robots.txt", "/robots.tx"], (_req, res) => {
+  res.set("Cache-Control", "no-store, max-age=0");
   res.type("text/plain").send(
-    "User-agent: *\nDisallow: /\nAllow: /api/health\n"
+    [
+      "User-agent: facebookexternalhit",
+      "Allow: /share/",
+      "Allow: /api/health",
+      "Disallow: /",
+      "",
+      "User-agent: Facebot",
+      "Allow: /share/",
+      "Allow: /api/health",
+      "Disallow: /",
+      "",
+      "User-agent: *",
+      "Allow: /share/",
+      "Allow: /api/health",
+      "Disallow: /",
+      "",
+    ].join("\n")
   );
 });
 app.use("/share", shareRoutes);

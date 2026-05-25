@@ -144,9 +144,9 @@ router.post("/google/disconnect", authRequired, async (req, res) => {
 });
 
 router.post("/google/link", authRequired, async (req, res) => {
-  const { credential } = req.body || {};
-  if (!credential || typeof credential !== "string") {
-    return res.status(400).json({ message: "Missing Google credential" });
+  const { credential, accessToken } = req.body || {};
+  if ((!credential || typeof credential !== "string") && (!accessToken || typeof accessToken !== "string")) {
+    return res.status(400).json({ message: "Missing Google token" });
   }
 
   const clientId = process.env.GOOGLE_CLIENT_ID;
@@ -156,11 +156,19 @@ router.post("/google/link", authRequired, async (req, res) => {
   const client = new OAuth2Client(clientId);
   let payload;
   try {
-    const ticket = await client.verifyIdToken({
-      idToken: credential,
-      audience: clientId,
-    });
-    payload = ticket.getPayload();
+    if (credential) {
+      const ticket = await client.verifyIdToken({
+        idToken: credential,
+        audience: clientId,
+      });
+      payload = ticket.getPayload();
+    } else {
+      const response = await fetch("https://www.googleapis.com/oauth2/v3/userinfo", {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
+      if (!response.ok) throw new Error("Invalid Google access token");
+      payload = await response.json();
+    }
   } catch {
     return res.status(401).json({ message: "Invalid Google token" });
   }

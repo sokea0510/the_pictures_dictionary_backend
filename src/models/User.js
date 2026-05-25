@@ -8,8 +8,10 @@ const UserSchema = new mongoose.Schema(
     passwordHash: { type: String, required: true },
     role: { type: String, enum: ["user", "editor", "admin", "owner"], default: "user" },
     isActive: { type: Boolean, default: true },
-    authProvider: { type: String, enum: ["local", "google"], default: "local" },
+    authProvider: { type: String, enum: ["local", "google", "facebook", "telegram"], default: "local" },
     googleId: { type: String, default: "" },
+    facebookId: { type: String, default: "" },
+    telegramId: { type: String, default: "" },
     planType: { type: String, enum: ["free", "premium"], default: "free" },
     planStartsAt: { type: Date, default: null },
     planEndsAt: { type: Date, default: null },
@@ -24,6 +26,9 @@ const UserSchema = new mongoose.Schema(
     uiLanguage: { type: String, default: "en" },
     resetPasswordTokenHash: { type: String, default: "" },
     resetPasswordExpiresAt: { type: Date, default: null },
+    loginOtpHash: { type: String, default: "" },
+    loginOtpExpiresAt: { type: Date, default: null },
+    loginOtpLastSentAt: { type: Date, default: null },
     notificationPreferences: {
       type: Object,
       default: {

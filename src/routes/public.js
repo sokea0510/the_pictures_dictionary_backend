@@ -165,6 +165,8 @@ router.get("/stats", async (_req, res) => {
 router.get("/items", async (req, res) => {
   setCache(res, 60);
   const { categoryId, q } = req.query;
+  const limit = Math.min(Math.max(Number(req.query.limit) || 500, 1), 500);
+  const offset = Math.max(Number(req.query.offset) || 0, 0);
   const filter = { $or: [{ isEnabled: true }, { isEnabled: { $exists: false } }] };
   if (categoryId) {
     const normalizedCategoryId = String(categoryId).trim();
@@ -199,12 +201,24 @@ router.get("/items", async (req, res) => {
     ];
   }
 
-  const items = await Item.find(filter).sort({ createdAt: -1 }).limit(500).lean();
-  res.json({ items });
+  const query = Item.find(filter).sort({ createdAt: -1 }).skip(offset).limit(limit).lean();
+  const [items, total] = await Promise.all([
+    query,
+    Item.countDocuments(filter),
+  ]);
+  res.json({
+    items,
+    total,
+    limit,
+    offset,
+    hasMore: offset + items.length < total,
+  });
 });
 
 router.get("/ads", async (req, res) => {
-  setCache(res, 300);
+  res.set("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");
+  res.set("Pragma", "no-cache");
+  res.set("Expires", "0");
   const { placement } = req.query;
   const filter = { isEnabled: true };
   if (placement) filter.placement = placement;

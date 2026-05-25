@@ -1,0 +1,6057 @@
+[
+  {
+    "key": "auto.app.content-is-reviewed-through-editor-and-admin-workflows-b",
+    "value": "Content is reviewed through editor and admin workflows before publication.",
+    "source": "object-text",
+    "file": "frontend/src/App.jsx",
+    "line": 126
+  },
+  {
+    "key": "auto.app.yes-use-the-contact-page-so-the-team-can-review-and-upda",
+    "value": "Yes. Use the contact page so the team can review and update content quickly.",
+    "source": "object-text",
+    "file": "frontend/src/App.jsx",
+    "line": 134
+  },
+  {
+    "key": "auto.app.online-picture-dictionary-learn-words-with-images-and-tr",
+    "value": "Online Picture Dictionary - Learn Words with Images and Translation",
+    "source": "object-title",
+    "file": "frontend/src/App.jsx",
+    "line": 143
+  },
+  {
+    "key": "auto.app.use-our-online-picture-dictionary-to-learn-word-meanings",
+    "value": "Use our online picture dictionary to learn word meanings with pictures, translation, and pronunciation in multiple languages.",
+    "source": "object-description",
+    "file": "frontend/src/App.jsx",
+    "line": 144
+  },
+  {
+    "key": "auto.app.challenge-modes-picture-dictionary",
+    "value": "Challenge Modes - Picture Dictionary",
+    "source": "object-title",
+    "file": "frontend/src/App.jsx",
+    "line": 165
+  },
+  {
+    "key": "auto.app.practice-handwriting-with-beginner-friendly-tracing-less",
+    "value": "Practice handwriting with beginner-friendly tracing lessons for English, Korean, Khmer, Japanese, Vietnamese, and Chinese.",
+    "source": "object-description",
+    "file": "frontend/src/App.jsx",
+    "line": 166
+  },
+  {
+    "key": "auto.app.blog-general-knowledge-articles-for-education-health-and",
+    "value": "Blog - General Knowledge Articles for Education, Health, and News",
+    "source": "object-title",
+    "file": "frontend/src/App.jsx",
+    "line": 182
+  },
+  {
+    "key": "auto.app.read-original-general-knowledge-articles-about-education",
+    "value": "Read original general knowledge articles about education, health, news, technology, science, business, and daily life.",
+    "source": "object-description",
+    "file": "frontend/src/App.jsx",
+    "line": 183
+  },
+  {
+    "key": "auto.app.original-general-knowledge-articles-about-education-heal",
+    "value": "Original general knowledge articles about education, health, news, technology, science, business, and daily life.",
+    "source": "object-description",
+    "file": "frontend/src/App.jsx",
+    "line": 192
+  },
+  {
+    "key": "auto.app.favorites-picture-dictionary",
+    "value": "Favorites - Picture Dictionary",
+    "source": "object-title",
+    "file": "frontend/src/App.jsx",
+    "line": 199
+  },
+  {
+    "key": "auto.app.access-your-saved-vocabulary-items-and-continue-learning",
+    "value": "Access your saved vocabulary items and continue learning from your personalized picture list.",
+    "source": "object-description",
+    "file": "frontend/src/App.jsx",
+    "line": 200
+  },
+  {
+    "key": "auto.app.history-picture-dictionary",
+    "value": "History - Picture Dictionary",
+    "source": "object-title",
+    "file": "frontend/src/App.jsx",
+    "line": 207
+  },
+  {
+    "key": "auto.app.review-your-recent-searches-and-translations-to-reinforc",
+    "value": "Review your recent searches and translations to reinforce vocabulary retention.",
+    "source": "object-description",
+    "file": "frontend/src/App.jsx",
+    "line": 208
+  },
+  {
+    "key": "auto.app.login-picture-dictionary",
+    "value": "Login - Picture Dictionary",
+    "source": "object-title",
+    "file": "frontend/src/App.jsx",
+    "line": 215
+  },
+  {
+    "key": "auto.app.sign-in-to-sync-favorites-history-and-settings-across-de",
+    "value": "Sign in to sync favorites, history, and settings across devices.",
+    "source": "object-description",
+    "file": "frontend/src/App.jsx",
+    "line": 216
+  },
+  {
+    "key": "auto.app.register-picture-dictionary",
+    "value": "Register - Picture Dictionary",
+    "source": "object-title",
+    "file": "frontend/src/App.jsx",
+    "line": 222
+  },
+  {
+    "key": "auto.app.create-an-account-to-save-words-and-track-your-learning",
+    "value": "Create an account to save words and track your learning progress.",
+    "source": "object-description",
+    "file": "frontend/src/App.jsx",
+    "line": 223
+  },
+  {
+    "key": "auto.app.about-picture-dictionary",
+    "value": "About - Picture Dictionary",
+    "source": "object-title",
+    "file": "frontend/src/App.jsx",
+    "line": 229
+  },
+  {
+    "key": "auto.app.learn-about-the-mission-and-learning-approach-behind-pic",
+    "value": "Learn about the mission and learning approach behind Picture Dictionary.",
+    "source": "object-description",
+    "file": "frontend/src/App.jsx",
+    "line": 230
+  },
+  {
+    "key": "auto.app.faq-picture-dictionary",
+    "value": "FAQ - Picture Dictionary",
+    "source": "object-title",
+    "file": "frontend/src/App.jsx",
+    "line": 244
+  },
+  {
+    "key": "auto.app.read-common-questions-about-accounts-vocabulary-content",
+    "value": "Read common questions about accounts, vocabulary content, and usage.",
+    "source": "object-description",
+    "file": "frontend/src/App.jsx",
+    "line": 245
+  },
+  {
+    "key": "auto.app.terms-of-service-picture-dictionary",
+    "value": "Terms of Service - Picture Dictionary",
+    "source": "object-title",
+    "file": "frontend/src/App.jsx",
+    "line": 257
+  },
+  {
+    "key": "auto.app.review-the-terms-and-usage-rules-for-picturedictionary-c",
+    "value": "Review the terms and usage rules for picturedictionary.cloud.",
+    "source": "object-description",
+    "file": "frontend/src/App.jsx",
+    "line": 258
+  },
+  {
+    "key": "auto.app.privacy-policy-picture-dictionary",
+    "value": "Privacy Policy - Picture Dictionary",
+    "source": "object-title",
+    "file": "frontend/src/App.jsx",
+    "line": 264
+  },
+  {
+    "key": "auto.app.understand-what-data-is-collected-and-how-picture-dictio",
+    "value": "Understand what data is collected and how Picture Dictionary protects it.",
+    "source": "object-description",
+    "file": "frontend/src/App.jsx",
+    "line": 265
+  },
+  {
+    "key": "auto.app.advertising-policy-picture-dictionary",
+    "value": "Advertising Policy - Picture Dictionary",
+    "source": "object-title",
+    "file": "frontend/src/App.jsx",
+    "line": 271
+  },
+  {
+    "key": "auto.app.see-advertising-standards-and-partnership-policies",
+    "value": "See advertising standards and partnership policies.",
+    "source": "object-description",
+    "file": "frontend/src/App.jsx",
+    "line": 272
+  },
+  {
+    "key": "auto.app.contact-picture-dictionary",
+    "value": "Contact - Picture Dictionary",
+    "source": "object-title",
+    "file": "frontend/src/App.jsx",
+    "line": 278
+  },
+  {
+    "key": "auto.app.contact-picture-dictionary-for-support-policy-and-busine",
+    "value": "Contact Picture Dictionary for support, policy, and business questions.",
+    "source": "object-description",
+    "file": "frontend/src/App.jsx",
+    "line": 279
+  },
+  {
+    "key": "auto.app.picture-dictionary-visual-language-learning-platform",
+    "value": "Picture Dictionary - Visual Language Learning Platform",
+    "source": "object-title",
+    "file": "frontend/src/App.jsx",
+    "line": 294
+  },
+  {
+    "key": "auto.app.picture-dictionary-provides-image-first-vocabulary-learn",
+    "value": "Picture Dictionary provides image-first vocabulary learning with translation, pronunciation, and structured categories.",
+    "source": "object-description",
+    "file": "frontend/src/App.jsx",
+    "line": 295
+  },
+  {
+    "key": "auto.app.facebook-picture-dictionary",
+    "value": "Facebook - Picture Dictionary",
+    "source": "object-title",
+    "file": "frontend/src/App.jsx",
+    "line": 345
+  },
+  {
+    "key": "auto.app.follow-picture-dictionary-updates-and-social-announcemen",
+    "value": "Follow Picture Dictionary updates and social announcements.",
+    "source": "object-description",
+    "file": "frontend/src/App.jsx",
+    "line": 346
+  },
+  {
+    "key": "auto.app.telegram-picture-dictionary",
+    "value": "Telegram - Picture Dictionary",
+    "source": "object-title",
+    "file": "frontend/src/App.jsx",
+    "line": 351
+  },
+  {
+    "key": "auto.app.join-picture-dictionary-updates-on-telegram",
+    "value": "Join Picture Dictionary updates on Telegram.",
+    "source": "object-description",
+    "file": "frontend/src/App.jsx",
+    "line": 352
+  },
+  {
+    "key": "auto.app.status-picture-dictionary",
+    "value": "Status - Picture Dictionary",
+    "source": "object-title",
+    "file": "frontend/src/App.jsx",
+    "line": 357
+  },
+  {
+    "key": "auto.app.view-uptime-and-service-status-notices-for-picture-dicti",
+    "value": "View uptime and service-status notices for Picture Dictionary.",
+    "source": "object-description",
+    "file": "frontend/src/App.jsx",
+    "line": 358
+  },
+  {
+    "key": "auto.app.changelog-picture-dictionary",
+    "value": "Changelog - Picture Dictionary",
+    "source": "object-title",
+    "file": "frontend/src/App.jsx",
+    "line": 363
+  },
+  {
+    "key": "auto.app.track-recent-updates-and-improvements-in-picture-diction",
+    "value": "Track recent updates and improvements in Picture Dictionary.",
+    "source": "object-description",
+    "file": "frontend/src/App.jsx",
+    "line": 364
+  },
+  {
+    "key": "auto.app.cookies-picture-dictionary",
+    "value": "Cookies - Picture Dictionary",
+    "source": "object-title",
+    "file": "frontend/src/App.jsx",
+    "line": 369
+  },
+  {
+    "key": "auto.app.read-how-cookies-are-used-for-security-and-core-product",
+    "value": "Read how cookies are used for security and core product functions.",
+    "source": "object-description",
+    "file": "frontend/src/App.jsx",
+    "line": 370
+  },
+  {
+    "key": "auto.components.appearancesettings.general",
+    "value": "General",
+    "source": "jsx-text",
+    "file": "frontend/src/components/AppearanceSettings.jsx",
+    "line": 160
+  },
+  {
+    "key": "auto.components.appearancesettings.system",
+    "value": "System",
+    "source": "object-label",
+    "file": "frontend/src/components/AppearanceSettings.jsx",
+    "line": 38
+  },
+  {
+    "key": "auto.components.appearancesettings.light",
+    "value": "Light",
+    "source": "object-label",
+    "file": "frontend/src/components/AppearanceSettings.jsx",
+    "line": 39
+  },
+  {
+    "key": "auto.components.appearancesettings.dark",
+    "value": "Dark",
+    "source": "object-label",
+    "file": "frontend/src/components/AppearanceSettings.jsx",
+    "line": 40
+  },
+  {
+    "key": "auto.components.appearancesettings.normal",
+    "value": "Normal",
+    "source": "object-label",
+    "file": "frontend/src/components/AppearanceSettings.jsx",
+    "line": 44
+  },
+  {
+    "key": "auto.components.appearancesettings.high-contrast",
+    "value": "High contrast",
+    "source": "object-label",
+    "file": "frontend/src/components/AppearanceSettings.jsx",
+    "line": 45
+  },
+  {
+    "key": "auto.components.appearancesettings.default",
+    "value": "Default",
+    "source": "object-label",
+    "file": "frontend/src/components/AppearanceSettings.jsx",
+    "line": 48
+  },
+  {
+    "key": "auto.components.appearancesettings.red",
+    "value": "Red",
+    "source": "object-label",
+    "file": "frontend/src/components/AppearanceSettings.jsx",
+    "line": 49
+  },
+  {
+    "key": "auto.components.appearancesettings.blue",
+    "value": "Blue",
+    "source": "object-label",
+    "file": "frontend/src/components/AppearanceSettings.jsx",
+    "line": 50
+  },
+  {
+    "key": "auto.components.appearancesettings.green",
+    "value": "Green",
+    "source": "object-label",
+    "file": "frontend/src/components/AppearanceSettings.jsx",
+    "line": 51
+  },
+  {
+    "key": "auto.components.appearancesettings.purple",
+    "value": "Purple",
+    "source": "object-label",
+    "file": "frontend/src/components/AppearanceSettings.jsx",
+    "line": 52
+  },
+  {
+    "key": "auto.components.dashboard.dashboard",
+    "value": "Dashboard",
+    "source": "jsx-text",
+    "file": "frontend/src/components/Dashboard.jsx",
+    "line": 115
+  },
+  {
+    "key": "auto.components.dashboard.quick-actions",
+    "value": "Quick actions",
+    "source": "jsx-text",
+    "file": "frontend/src/components/Dashboard.jsx",
+    "line": 195
+  },
+  {
+    "key": "auto.components.dashboard.jump-to-the-next-task-in-your-workflow",
+    "value": "Jump to the next task in your workflow.",
+    "source": "jsx-text",
+    "file": "frontend/src/components/Dashboard.jsx",
+    "line": 196
+  },
+  {
+    "key": "auto.components.dashboard.review-my-requests",
+    "value": "Review my requests",
+    "source": "jsx-text",
+    "file": "frontend/src/components/Dashboard.jsx",
+    "line": 207
+  },
+  {
+    "key": "auto.components.dashboard.check-status-and-next-steps",
+    "value": "Check status and next steps.",
+    "source": "jsx-text",
+    "file": "frontend/src/components/Dashboard.jsx",
+    "line": 208
+  },
+  {
+    "key": "auto.components.dashboard.add-new-item",
+    "value": "Add new item",
+    "source": "jsx-text",
+    "file": "frontend/src/components/Dashboard.jsx",
+    "line": 216
+  },
+  {
+    "key": "auto.components.dashboard.create-or-edit-picture-entries",
+    "value": "Create or edit picture entries.",
+    "source": "jsx-text",
+    "file": "frontend/src/components/Dashboard.jsx",
+    "line": 217
+  },
+  {
+    "key": "auto.components.dashboard.approve-requests",
+    "value": "Approve requests",
+    "source": "jsx-text",
+    "file": "frontend/src/components/Dashboard.jsx",
+    "line": 225
+  },
+  {
+    "key": "auto.components.dashboard.items-manager",
+    "value": "Items manager",
+    "source": "jsx-text",
+    "file": "frontend/src/components/Dashboard.jsx",
+    "line": 234
+  },
+  {
+    "key": "auto.components.dashboard.edit-enable-or-delete-items",
+    "value": "Edit, enable, or delete items.",
+    "source": "jsx-text",
+    "file": "frontend/src/components/Dashboard.jsx",
+    "line": 235
+  },
+  {
+    "key": "auto.components.dashboard.ads-manager",
+    "value": "Ads manager",
+    "source": "jsx-text",
+    "file": "frontend/src/components/Dashboard.jsx",
+    "line": 243
+  },
+  {
+    "key": "auto.components.dashboard.users-roles",
+    "value": "Users & roles",
+    "source": "jsx-text",
+    "file": "frontend/src/components/Dashboard.jsx",
+    "line": 252
+  },
+  {
+    "key": "auto.components.dashboard.close",
+    "value": "Close",
+    "source": "jsx-text",
+    "file": "frontend/src/components/Dashboard.jsx",
+    "line": 270
+  },
+  {
+    "key": "auto.components.dashboard.no-languages-yet",
+    "value": "No languages yet.",
+    "source": "jsx-text",
+    "file": "frontend/src/components/Dashboard.jsx",
+    "line": 286
+  },
+  {
+    "key": "auto.components.dashboard.categories-length",
+    "value": ") ) : categories.length ? (",
+    "source": "jsx-text",
+    "file": "frontend/src/components/Dashboard.jsx",
+    "line": 286
+  },
+  {
+    "key": "auto.components.dashboard.no-image",
+    "value": "No Image",
+    "source": "jsx-text",
+    "file": "frontend/src/components/Dashboard.jsx",
+    "line": 299
+  },
+  {
+    "key": "auto.components.dashboard.no-categories-yet",
+    "value": "No categories yet.",
+    "source": "jsx-text",
+    "file": "frontend/src/components/Dashboard.jsx",
+    "line": 313
+  },
+  {
+    "key": "auto.components.dashboard.languages",
+    "value": "Languages",
+    "source": "jsx-attribute",
+    "file": "frontend/src/components/Dashboard.jsx",
+    "line": 123
+  },
+  {
+    "key": "auto.components.dashboard.categories",
+    "value": "Categories",
+    "source": "jsx-attribute",
+    "file": "frontend/src/components/Dashboard.jsx",
+    "line": 130
+  },
+  {
+    "key": "auto.components.dashboard.total-items",
+    "value": "Total items",
+    "source": "jsx-attribute",
+    "file": "frontend/src/components/Dashboard.jsx",
+    "line": 137
+  },
+  {
+    "key": "auto.components.dashboard.my-requests",
+    "value": "My requests",
+    "source": "jsx-attribute",
+    "file": "frontend/src/components/Dashboard.jsx",
+    "line": 148
+  },
+  {
+    "key": "auto.components.dashboard.rejected-requests",
+    "value": "Rejected requests",
+    "source": "jsx-attribute",
+    "file": "frontend/src/components/Dashboard.jsx",
+    "line": 157
+  },
+  {
+    "key": "auto.components.dashboard.pending-approvals",
+    "value": "Pending approvals",
+    "source": "jsx-attribute",
+    "file": "frontend/src/components/Dashboard.jsx",
+    "line": 166
+  },
+  {
+    "key": "auto.components.dashboard.total-users",
+    "value": "Total users",
+    "source": "jsx-attribute",
+    "file": "frontend/src/components/Dashboard.jsx",
+    "line": 175
+  },
+  {
+    "key": "auto.components.dashboard.active-ads",
+    "value": "Active ads",
+    "source": "jsx-attribute",
+    "file": "frontend/src/components/Dashboard.jsx",
+    "line": 184
+  },
+  {
+    "key": "auto.components.login.back-to-home",
+    "value": "Back to home",
+    "source": "jsx-attribute",
+    "file": "frontend/src/components/Login.jsx",
+    "line": 65
+  },
+  {
+    "key": "auto.components.notificationsettings.toggle-preferences-anytime",
+    "value": "Toggle preferences anytime",
+    "source": "jsx-text",
+    "file": "frontend/src/components/NotificationSettings.jsx",
+    "line": 216
+  },
+  {
+    "key": "auto.components.notificationsettings.browser-push-notifications",
+    "value": "Browser Push Notifications",
+    "source": "jsx-text",
+    "file": "frontend/src/components/NotificationSettings.jsx",
+    "line": 231
+  },
+  {
+    "key": "auto.components.notificationsettings.this-browser-does-not-support-web-push-notifications",
+    "value": "This browser does not support web push notifications.",
+    "source": "jsx-text",
+    "file": "frontend/src/components/NotificationSettings.jsx",
+    "line": 233
+  },
+  {
+    "key": "auto.components.notificationsettings.on-iphone-ipad-open-this-app-from-your-home-screen-insta",
+    "value": "On iPhone/iPad, open this app from your Home Screen (installed PWA) to enable push.",
+    "source": "jsx-text",
+    "file": "frontend/src/components/NotificationSettings.jsx",
+    "line": 236
+  },
+  {
+    "key": "auto.components.notificationsettings.disable-push",
+    "value": "Disable Push",
+    "source": "jsx-text",
+    "file": "frontend/src/components/NotificationSettings.jsx",
+    "line": 256
+  },
+  {
+    "key": "auto.components.notificationsettings.send-test-push",
+    "value": "Send Test Push",
+    "source": "jsx-text",
+    "file": "frontend/src/components/NotificationSettings.jsx",
+    "line": 264
+  },
+  {
+    "key": "auto.components.notificationsettings.loading",
+    "value": "Loading...",
+    "source": "jsx-text",
+    "file": "frontend/src/components/NotificationSettings.jsx",
+    "line": 276
+  },
+  {
+    "key": "auto.components.notificationsettings.notify-me-about-sign-ins-password-changes-and-security-a",
+    "value": "Notify me about sign-ins, password changes, and security alerts.",
+    "source": "object-label",
+    "file": "frontend/src/components/NotificationSettings.jsx",
+    "line": 34
+  },
+  {
+    "key": "auto.components.notificationsettings.notify-me-about-account-changes-profile-updates-and-poli",
+    "value": "Notify me about account changes, profile updates, and policy updates.",
+    "source": "object-label",
+    "file": "frontend/src/components/NotificationSettings.jsx",
+    "line": 39
+  },
+  {
+    "key": "auto.components.notificationsettings.send-me-reminders-to-continue-learning-and-review-saved",
+    "value": "Send me reminders to continue learning and review saved words.",
+    "source": "object-label",
+    "file": "frontend/src/components/NotificationSettings.jsx",
+    "line": 44
+  },
+  {
+    "key": "auto.components.notificationsettings.notify-me-with-a-weekly-learning-progress-summary",
+    "value": "Notify me with a weekly learning progress summary.",
+    "source": "object-label",
+    "file": "frontend/src/components/NotificationSettings.jsx",
+    "line": 49
+  },
+  {
+    "key": "auto.components.notificationsettings.notify-me-about-daily-picture-challenges-and-streaks",
+    "value": "Notify me about daily picture challenges and streaks.",
+    "source": "object-label",
+    "file": "frontend/src/components/NotificationSettings.jsx",
+    "line": 54
+  },
+  {
+    "key": "auto.components.notificationsettings.notify-me-when-new-content-is-added-to-categories-i-foll",
+    "value": "Notify me when new content is added to categories I follow.",
+    "source": "object-label",
+    "file": "frontend/src/components/NotificationSettings.jsx",
+    "line": 59
+  },
+  {
+    "key": "auto.components.notificationsettings.notify-me-about-product-tips-feature-updates-and-special",
+    "value": "Notify me about product tips, feature updates, and special offers.",
+    "source": "object-label",
+    "file": "frontend/src/components/NotificationSettings.jsx",
+    "line": 64
+  },
+  {
+    "key": "auto.components.notificationsettings.notify-me-when-my-editor-requests-are-approved-or-reject",
+    "value": "Notify me when my editor requests are approved or rejected.",
+    "source": "object-label",
+    "file": "frontend/src/components/NotificationSettings.jsx",
+    "line": 69
+  },
+  {
+    "key": "auto.components.notificationsettings.notify-me-when-reviewers-leave-notes-on-my-submissions",
+    "value": "Notify me when reviewers leave notes on my submissions.",
+    "source": "object-label",
+    "file": "frontend/src/components/NotificationSettings.jsx",
+    "line": 74
+  },
+  {
+    "key": "auto.components.notificationsettings.notify-me-when-items-are-waiting-for-approval",
+    "value": "Notify me when items are waiting for approval.",
+    "source": "object-label",
+    "file": "frontend/src/components/NotificationSettings.jsx",
+    "line": 79
+  },
+  {
+    "key": "auto.components.notificationsettings.notify-me-when-categories-are-empty-or-near-their-item-l",
+    "value": "Notify me when categories are empty or near their item limit.",
+    "source": "object-label",
+    "file": "frontend/src/components/NotificationSettings.jsx",
+    "line": 84
+  },
+  {
+    "key": "auto.components.notificationsettings.notify-me-about-system-alerts-or-service-interruptions",
+    "value": "Notify me about system alerts or service interruptions.",
+    "source": "object-label",
+    "file": "frontend/src/components/NotificationSettings.jsx",
+    "line": 89
+  },
+  {
+    "key": "auto.components.notificationsettings.notify-me-about-ad-review-status-and-placement-changes",
+    "value": "Notify me about ad review status and placement changes.",
+    "source": "object-label",
+    "file": "frontend/src/components/NotificationSettings.jsx",
+    "line": 94
+  },
+  {
+    "key": "auto.components.privacysecuritysettings.connecting",
+    "value": "Connecting…",
+    "source": "jsx-text",
+    "file": "frontend/src/components/PrivacySecuritySettings.jsx",
+    "line": 506
+  },
+  {
+    "key": "auto.components.privacysecuritysettings.loading-preferences",
+    "value": "Loading preferences...",
+    "source": "jsx-text",
+    "file": "frontend/src/components/PrivacySecuritySettings.jsx",
+    "line": 520
+  },
+  {
+    "key": "auto.components.privacysecuritysettings.en",
+    "value": "EN",
+    "source": "object-label",
+    "file": "frontend/src/components/PrivacySecuritySettings.jsx",
+    "line": 104
+  },
+  {
+    "key": "auto.components.profilesettings.profile-updated-successfully",
+    "value": "Profile updated successfully!",
+    "source": "jsx-text",
+    "file": "frontend/src/components/ProfileSettings.jsx",
+    "line": 244
+  },
+  {
+    "key": "auto.components.profilesettings.upload-avatar",
+    "value": "Upload avatar",
+    "source": "jsx-text",
+    "file": "frontend/src/components/ProfileSettings.jsx",
+    "line": 253
+  },
+  {
+    "key": "auto.components.profilesettings.country-code",
+    "value": "Country code",
+    "source": "jsx-text",
+    "file": "frontend/src/components/ProfileSettings.jsx",
+    "line": 386
+  },
+  {
+    "key": "auto.components.profilesettings.avatar",
+    "value": "avatar",
+    "source": "jsx-attribute",
+    "file": "frontend/src/components/ProfileSettings.jsx",
+    "line": 41
+  },
+  {
+    "key": "auto.components.profilesettings.remove-avatar",
+    "value": "Remove avatar",
+    "source": "jsx-attribute",
+    "file": "frontend/src/components/ProfileSettings.jsx",
+    "line": 277
+  },
+  {
+    "key": "auto.components.profilesettings.south-korea",
+    "value": "South Korea",
+    "source": "object-label",
+    "file": "frontend/src/components/ProfileSettings.jsx",
+    "line": 24
+  },
+  {
+    "key": "auto.components.profilesettings.cambodia",
+    "value": "Cambodia",
+    "source": "object-label",
+    "file": "frontend/src/components/ProfileSettings.jsx",
+    "line": 25
+  },
+  {
+    "key": "auto.components.profilesettings.united-states",
+    "value": "United States",
+    "source": "object-label",
+    "file": "frontend/src/components/ProfileSettings.jsx",
+    "line": 26
+  },
+  {
+    "key": "auto.components.profilesettings.japan",
+    "value": "Japan",
+    "source": "object-label",
+    "file": "frontend/src/components/ProfileSettings.jsx",
+    "line": 27
+  },
+  {
+    "key": "auto.components.profilesettings.vietnam",
+    "value": "Vietnam",
+    "source": "object-label",
+    "file": "frontend/src/components/ProfileSettings.jsx",
+    "line": 28
+  },
+  {
+    "key": "auto.components.profilesettings.thailand",
+    "value": "Thailand",
+    "source": "object-label",
+    "file": "frontend/src/components/ProfileSettings.jsx",
+    "line": 29
+  },
+  {
+    "key": "auto.components.profilesettings.china",
+    "value": "China",
+    "source": "object-label",
+    "file": "frontend/src/components/ProfileSettings.jsx",
+    "line": 30
+  },
+  {
+    "key": "auto.components.register.back-to-home",
+    "value": "Back to home",
+    "source": "jsx-attribute",
+    "file": "frontend/src/components/Register.jsx",
+    "line": 54
+  },
+  {
+    "key": "auto.components.sidebar.toggle-menu",
+    "value": "Toggle menu",
+    "source": "jsx-attribute",
+    "file": "frontend/src/components/Sidebar.jsx",
+    "line": 260
+  },
+  {
+    "key": "auto.components.sidebar.picture-dictionary-logo",
+    "value": "Picture Dictionary logo",
+    "source": "jsx-attribute",
+    "file": "frontend/src/components/Sidebar.jsx",
+    "line": 273
+  },
+  {
+    "key": "auto.components.sidebar.close-login-dialog",
+    "value": "Close login dialog",
+    "source": "jsx-attribute",
+    "file": "frontend/src/components/Sidebar.jsx",
+    "line": 483
+  },
+  {
+    "key": "auto.components.topheader.the-pictures-dictionary",
+    "value": "The Pictures Dictionary",
+    "source": "jsx-text",
+    "file": "frontend/src/components/TopHeader.jsx",
+    "line": 238
+  },
+  {
+    "key": "auto.components.topheader.sk-media",
+    "value": "Sk-Media",
+    "source": "jsx-text",
+    "file": "frontend/src/components/TopHeader.jsx",
+    "line": 239
+  },
+  {
+    "key": "auto.components.topheader.notifications",
+    "value": "Notifications",
+    "source": "jsx-text",
+    "file": "frontend/src/components/TopHeader.jsx",
+    "line": 263
+  },
+  {
+    "key": "auto.components.topheader.loading-notifications",
+    "value": "Loading notifications...",
+    "source": "jsx-text",
+    "file": "frontend/src/components/TopHeader.jsx",
+    "line": 280
+  },
+  {
+    "key": "auto.components.topheader.no-image",
+    "value": "No image",
+    "source": "jsx-text",
+    "file": "frontend/src/components/TopHeader.jsx",
+    "line": 318
+  },
+  {
+    "key": "auto.components.topheader.no-notifications-yet",
+    "value": "No notifications yet.",
+    "source": "jsx-text",
+    "file": "frontend/src/components/TopHeader.jsx",
+    "line": 327
+  },
+  {
+    "key": "auto.components.topheader.log-out",
+    "value": "Log out",
+    "source": "jsx-text",
+    "file": "frontend/src/components/TopHeader.jsx",
+    "line": 408
+  },
+  {
+    "key": "auto.components.topheader.ad",
+    "value": "Ad",
+    "source": "jsx-text",
+    "file": "frontend/src/components/TopHeader.jsx",
+    "line": 449
+  },
+  {
+    "key": "auto.components.topheader.sponsored-content",
+    "value": "Sponsored content",
+    "source": "jsx-text",
+    "file": "frontend/src/components/TopHeader.jsx",
+    "line": 474
+  },
+  {
+    "key": "auto.components.topheader.no-ad-script-configured",
+    "value": "No ad script configured.",
+    "source": "jsx-text",
+    "file": "frontend/src/components/TopHeader.jsx",
+    "line": 485
+  },
+  {
+    "key": "auto.components.topheader.go-to-home",
+    "value": "Go to home",
+    "source": "jsx-attribute",
+    "file": "frontend/src/components/TopHeader.jsx",
+    "line": 232
+  },
+  {
+    "key": "auto.components.topheader.picture-dictionary-logo",
+    "value": "Picture Dictionary logo",
+    "source": "jsx-attribute",
+    "file": "frontend/src/components/TopHeader.jsx",
+    "line": 234
+  },
+  {
+    "key": "auto.components.topheader.open-notifications",
+    "value": "Open notifications",
+    "source": "jsx-attribute",
+    "file": "frontend/src/components/TopHeader.jsx",
+    "line": 249
+  },
+  {
+    "key": "auto.components.topheader.notification-settings",
+    "value": "Notification settings",
+    "source": "jsx-attribute",
+    "file": "frontend/src/components/TopHeader.jsx",
+    "line": 272
+  },
+  {
+    "key": "auto.components.topheader.open-profile-menu",
+    "value": "Open profile menu",
+    "source": "jsx-attribute",
+    "file": "frontend/src/components/TopHeader.jsx",
+    "line": 346
+  },
+  {
+    "key": "auto.components.topheader.account",
+    "value": "Account",
+    "source": "object-label",
+    "file": "frontend/src/components/TopHeader.jsx",
+    "line": 145
+  },
+  {
+    "key": "auto.components.topheader.billing",
+    "value": "Billing",
+    "source": "object-label",
+    "file": "frontend/src/components/TopHeader.jsx",
+    "line": 151
+  },
+  {
+    "key": "auto.components.topheader.notifications",
+    "value": "Notifications",
+    "source": "object-label",
+    "file": "frontend/src/components/TopHeader.jsx",
+    "line": 157
+  },
+  {
+    "key": "auto.components.translationsettings.loading-translation-settings",
+    "value": "Loading translation settings...",
+    "source": "jsx-text",
+    "file": "frontend/src/components/TranslationSettings.jsx",
+    "line": 261
+  },
+  {
+    "key": "auto.components.translationsettings.translation-providers",
+    "value": "Translation providers",
+    "source": "jsx-text",
+    "file": "frontend/src/components/TranslationSettings.jsx",
+    "line": 287
+  },
+  {
+    "key": "auto.components.translationsettings.owner-only-provider-keys-and-usage-status",
+    "value": "Owner-only provider keys and usage status.",
+    "source": "jsx-text",
+    "file": "frontend/src/components/TranslationSettings.jsx",
+    "line": 288
+  },
+  {
+    "key": "auto.components.translationsettings.refresh",
+    "value": "Refresh",
+    "source": "jsx-text",
+    "file": "frontend/src/components/TranslationSettings.jsx",
+    "line": 296
+  },
+  {
+    "key": "auto.components.translationsettings.manual-provider-selection-for-owners-the-system-auto-swi",
+    "value": "Manual provider selection for owners. The system auto-switches when remaining usage is at or below 50 chars.",
+    "source": "jsx-text",
+    "file": "frontend/src/components/TranslationSettings.jsx",
+    "line": 302
+  },
+  {
+    "key": "auto.components.translationsettings.preferred-provider",
+    "value": "Preferred provider",
+    "source": "jsx-text",
+    "file": "frontend/src/components/TranslationSettings.jsx",
+    "line": 308
+  },
+  {
+    "key": "auto.components.translationsettings.auto-follow-provider-order",
+    "value": "Auto (follow provider order)",
+    "source": "jsx-text",
+    "file": "frontend/src/components/TranslationSettings.jsx",
+    "line": 314
+  },
+  {
+    "key": "auto.components.translationsettings.switch-provider",
+    "value": "Switch provider",
+    "source": "jsx-text",
+    "file": "frontend/src/components/TranslationSettings.jsx",
+    "line": 333
+  },
+  {
+    "key": "auto.components.translationsettings.quick-translate-enabled",
+    "value": "Quick Translate enabled",
+    "source": "jsx-text",
+    "file": "frontend/src/components/TranslationSettings.jsx",
+    "line": 356
+  },
+  {
+    "key": "auto.components.translationsettings.gemini-tts-enabled",
+    "value": "Gemini TTS enabled",
+    "source": "jsx-text",
+    "file": "frontend/src/components/TranslationSettings.jsx",
+    "line": 365
+  },
+  {
+    "key": "auto.components.translationsettings.google-cloud-tts-enabled",
+    "value": "Google Cloud TTS enabled",
+    "source": "jsx-text",
+    "file": "frontend/src/components/TranslationSettings.jsx",
+    "line": 374
+  },
+  {
+    "key": "auto.components.translationsettings.google-translate-tts-fallback-enabled",
+    "value": "Google Translate TTS Fallback enabled",
+    "source": "jsx-text",
+    "file": "frontend/src/components/TranslationSettings.jsx",
+    "line": 383
+  },
+  {
+    "key": "auto.components.translationsettings.no-runtime-translation-providers-are-enabled",
+    "value": "No runtime translation providers are enabled.",
+    "source": "jsx-text",
+    "file": "frontend/src/components/TranslationSettings.jsx",
+    "line": 393
+  },
+  {
+    "key": "auto.components.translationsettings.tts-usage-this-month",
+    "value": "TTS usage this month",
+    "source": "jsx-text",
+    "file": "frontend/src/components/TranslationSettings.jsx",
+    "line": 439
+  },
+  {
+    "key": "auto.components.translationsettings.no-tts-usage-recorded-yet",
+    "value": "No TTS usage recorded yet.",
+    "source": "jsx-text",
+    "file": "frontend/src/components/TranslationSettings.jsx",
+    "line": 497
+  },
+  {
+    "key": "auto.components.translationsettings.azure-translator",
+    "value": "Azure Translator",
+    "source": "jsx-text",
+    "file": "frontend/src/components/TranslationSettings.jsx",
+    "line": 511
+  },
+  {
+    "key": "auto.components.translationsettings.google-translate",
+    "value": "Google Translate",
+    "source": "jsx-text",
+    "file": "frontend/src/components/TranslationSettings.jsx",
+    "line": 539
+  },
+  {
+    "key": "auto.components.translationsettings.aws-translate",
+    "value": "AWS Translate",
+    "source": "jsx-text",
+    "file": "frontend/src/components/TranslationSettings.jsx",
+    "line": 556
+  },
+  {
+    "key": "auto.components.translationsettings.libretranslate",
+    "value": "LibreTranslate",
+    "source": "jsx-text",
+    "file": "frontend/src/components/TranslationSettings.jsx",
+    "line": 592
+  },
+  {
+    "key": "auto.components.translationsettings.save-settings",
+    "value": "Save settings",
+    "source": "jsx-text",
+    "file": "frontend/src/components/TranslationSettings.jsx",
+    "line": 619
+  },
+  {
+    "key": "auto.components.translationsettings.provider-switch",
+    "value": "Provider switch",
+    "source": "jsx-attribute",
+    "file": "frontend/src/components/TranslationSettings.jsx",
+    "line": 301
+  },
+  {
+    "key": "auto.components.translationsettings.usage-this-month",
+    "value": "Usage this month",
+    "source": "jsx-attribute",
+    "file": "frontend/src/components/TranslationSettings.jsx",
+    "line": 400
+  },
+  {
+    "key": "auto.components.translationsettings.update-provider-keys",
+    "value": "Update provider keys",
+    "source": "jsx-attribute",
+    "file": "frontend/src/components/TranslationSettings.jsx",
+    "line": 508
+  },
+  {
+    "key": "auto.components.translationsettings.paste-new-azure-key",
+    "value": "Paste new Azure key",
+    "source": "jsx-attribute",
+    "file": "frontend/src/components/TranslationSettings.jsx",
+    "line": 515
+  },
+  {
+    "key": "auto.components.translationsettings.koreacentral",
+    "value": "koreacentral",
+    "source": "jsx-attribute",
+    "file": "frontend/src/components/TranslationSettings.jsx",
+    "line": 523
+  },
+  {
+    "key": "auto.components.translationsettings.paste-new-google-api-key",
+    "value": "Paste new Google API key",
+    "source": "jsx-attribute",
+    "file": "frontend/src/components/TranslationSettings.jsx",
+    "line": 543
+  },
+  {
+    "key": "auto.components.translationsettings.paste-new-google-tts-api-key",
+    "value": "Paste new Google TTS API key",
+    "source": "jsx-attribute",
+    "file": "frontend/src/components/TranslationSettings.jsx",
+    "line": 551
+  },
+  {
+    "key": "auto.components.translationsettings.ap-northeast-2",
+    "value": "ap-northeast-2",
+    "source": "jsx-attribute",
+    "file": "frontend/src/components/TranslationSettings.jsx",
+    "line": 576
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.ads-manager",
+    "value": "Ads Manager",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 166
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.manage-adsense-scripts-or-manual-ad-creatives-for-free-u",
+    "value": "Manage AdSense scripts or manual ad creatives for free users.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 167
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.refresh",
+    "value": "Refresh",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 176
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.placement",
+    "value": "Placement",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 194
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.provider",
+    "value": "Provider",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 213
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.enabled-for-free-users",
+    "value": "Enabled for free users",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 240
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.title",
+    "value": "Title",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 248
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.image-970-x-250",
+    "value": "Image (970 x 250)",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 261
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.image-300-x-250",
+    "value": "Image (300 x 250)",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 281
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.image-728-x-90",
+    "value": "Image (728 x 90)",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 301
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.image-970-x-90",
+    "value": "Image (970 x 90)",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 321
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.link-url",
+    "value": "Link URL",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 341
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.script-snippet",
+    "value": "Script snippet",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 356
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.include-the-adsense-script-and-ad-slot-markup-for-this-p",
+    "value": "Include the AdSense script and ad slot markup for this placement.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 367
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.cancel",
+    "value": "Cancel",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 387
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.active-placements",
+    "value": "Active placements",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 396
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.all-ads",
+    "value": "All ads",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 411
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.loading-ads",
+    "value": "Loading ads...",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 413
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.ads-length",
+    "value": ") : ads.length ? (",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 413
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.edit",
+    "value": "Edit",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 436
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.delete",
+    "value": "Delete",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 451
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.no-ads-configured",
+    "value": "No ads configured.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 458
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.ad-headline",
+    "value": "Ad headline",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 257
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.ad-preview-large",
+    "value": "Ad preview large",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 275
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.ad-preview-medium",
+    "value": "Ad preview medium",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 295
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.ad-preview-small",
+    "value": "Ad preview small",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 315
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.ad-preview-wide",
+    "value": "Ad preview wide",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 335
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.paste-adsense-or-other-script-here",
+    "value": "Paste AdSense or other script here.",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 365
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.top-header",
+    "value": "Top header",
+    "source": "object-label",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 8
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.dictionary-hero",
+    "value": "Dictionary hero",
+    "source": "object-label",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 9
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.dictionary-item-list",
+    "value": "Dictionary item list",
+    "source": "object-label",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 10
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.category-section",
+    "value": "Category section",
+    "source": "object-label",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 11
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.item-detail-modal",
+    "value": "Item detail modal",
+    "source": "object-label",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 12
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.adsense",
+    "value": "AdSense",
+    "source": "object-label",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 16
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.manual",
+    "value": "Manual",
+    "source": "object-label",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 17
+  },
+  {
+    "key": "auto.pages.admin.adsmanagerpage.other-script",
+    "value": "Other script",
+    "source": "object-label",
+    "file": "frontend/src/pages/Admin/AdsManagerPage.jsx",
+    "line": 18
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.items-manager",
+    "value": "Items Manager",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 126
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.review-all-items-edit-translations-and-control-visibilit",
+    "value": "Review all items, edit translations, and control visibility.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 127
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.dictionary",
+    "value": "Dictionary",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 137
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.all-statuses",
+    "value": "All statuses",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 146
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.enabled",
+    "value": "Enabled",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 147
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.disabled",
+    "value": "Disabled",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 148
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.refresh",
+    "value": "Refresh",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 155
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.filtereditems-length-0",
+    "value": ") : filteredItems.length === 0 ? (",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 169
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.no-items-yet",
+    "value": "No items yet.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 171
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.items",
+    "value": "Items",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 176
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.status",
+    "value": "Status",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 177
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.action",
+    "value": "Action",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 178
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.no-image",
+    "value": "No Image",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 197
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.delete",
+    "value": "Delete",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 246
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.edit",
+    "value": "Edit",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 252
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.edit-item",
+    "value": "Edit Item",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 268
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.update-translations-and-pronunciation-details",
+    "value": "Update translations and pronunciation details",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 269
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.close",
+    "value": "Close",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 275
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.no-preview",
+    "value": "No preview",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 284
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.description",
+    "value": "Description",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 290
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.translations",
+    "value": "Translations",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 300
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.select-language",
+    "value": "Select language",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 336
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.add",
+    "value": "Add",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 365
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.cancel",
+    "value": "Cancel",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 375
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.save",
+    "value": "Save",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 383
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.item-details",
+    "value": "Item details",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 396
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.status.2",
+    "value": "Status:",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 430
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.category",
+    "value": "Category:",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 433
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.issue-date",
+    "value": "Issue date:",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 437
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.edit-date",
+    "value": "Edit date:",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 440
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.description.2",
+    "value": "Description:",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 443
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.payload",
+    "value": "Payload",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 448
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.image-preview",
+    "value": "Image preview",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 451
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.translations.2",
+    "value": "Translations:",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 474
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.phonetic-pronunciations",
+    "value": "Phonetic Pronunciations:",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 484
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.item",
+    "value": "Item",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 193
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.translation",
+    "value": "translation",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 349
+  },
+  {
+    "key": "auto.pages.admin.approvalspage.phonetic-pronunciation",
+    "value": "phonetic pronunciation",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Admin/ApprovalsPage.jsx",
+    "line": 357
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.users-roles",
+    "value": "Users & Roles",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 149
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.owner-can-add-update-role-plan-status-and-delete-users-a",
+    "value": "Owner can add, update role/plan/status, and delete users. Account info and password changes are not available here.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 150
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.refresh",
+    "value": "Refresh",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 159
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.create-user",
+    "value": "Create user",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 171
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.new-users-can-be-assigned-as-editor-or-admin-password-mu",
+    "value": "New users can be assigned as editor or admin. Password must be at least 6 characters.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 172
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.email-address",
+    "value": "Email address",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 176
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.password",
+    "value": "Password",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 187
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.role",
+    "value": "Role",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 199
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.editor",
+    "value": "Editor",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 209
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.admin",
+    "value": "Admin",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 210
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.role-access-overview",
+    "value": "Role access overview",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 223
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.user",
+    "value": "User:",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 225
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.free-picture-dictionary-access-log-in-to-keep-history-an",
+    "value": "Free picture dictionary access. Log in to keep history and favorites. Extra features depend on owner settings.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 225
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.editor.2",
+    "value": "Editor:",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 226
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.admin.2",
+    "value": "Admin:",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 227
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.approve-reject-editor-requests-manage-language-pictures",
+    "value": "Approve/reject editor requests. Manage language & pictures.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 227
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.owner",
+    "value": "Owner:",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 228
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.manage-users-role-subscription-status-and-deletion-owner",
+    "value": "Manage users, role, subscription, status, and deletion (owner accounts are protected).",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 228
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.all-users",
+    "value": "All users",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 235
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.owner-can-edit-role-status-subscription-and-delete-users",
+    "value": "Owner can edit role, status, subscription, and delete users. Account info and passwords are not editable in this page.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 236
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.loading-users",
+    "value": "Loading users...",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 241
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.edit-plan",
+    "value": "Edit plan",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 288
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.delete",
+    "value": "Delete",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 296
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.no-users-found",
+    "value": "No users found.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 303
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.plan",
+    "value": "Plan",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 329
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.free",
+    "value": "Free",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 345
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.premium",
+    "value": "Premium",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 346
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.plan-start",
+    "value": "Plan start",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 351
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.plan-end",
+    "value": "Plan end",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 364
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.cancel",
+    "value": "Cancel",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 384
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.save-changes",
+    "value": "Save changes",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 392
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.delete-user",
+    "value": "Delete user?",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 404
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.this-action-permanently-removes-the-user-account-this-ca",
+    "value": "This action permanently removes the user account. This cannot be undone.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 407
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.delete-user.2",
+    "value": "Delete user",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 424
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.email-address",
+    "value": "Email address",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 183
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.password",
+    "value": "Password",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 194
+  },
+  {
+    "key": "auto.pages.admin.usersrolespage.close",
+    "value": "Close",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Admin/UsersRolesPage.jsx",
+    "line": 322
+  },
+  {
+    "key": "auto.pages.blog.blogpage.friend-link",
+    "value": "Friend Link",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 784
+  },
+  {
+    "key": "auto.pages.blog.blogpage.show-less-like-this",
+    "value": "Show less like this",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 821
+  },
+  {
+    "key": "auto.pages.blog.blogpage.ctrl",
+    "value": "Ctrl /",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 836
+  },
+  {
+    "key": "auto.pages.blog.blogpage.report-story",
+    "value": "Report story...",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 880
+  },
+  {
+    "key": "auto.pages.blog.blogpage.cancel",
+    "value": "Cancel",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 1170
+  },
+  {
+    "key": "auto.pages.blog.blogpage.save",
+    "value": "Save",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 1178
+  },
+  {
+    "key": "auto.pages.blog.blogpage.reply",
+    "value": "Reply",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 1204
+  },
+  {
+    "key": "auto.pages.blog.blogpage.edit",
+    "value": "Edit",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 1212
+  },
+  {
+    "key": "auto.pages.blog.blogpage.edited",
+    "value": "(edited)",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 1273
+  },
+  {
+    "key": "auto.pages.blog.blogpage.live",
+    "value": "Live",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 1330
+  },
+  {
+    "key": "auto.pages.blog.blogpage.please",
+    "value": "Please",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 1346
+  },
+  {
+    "key": "auto.pages.blog.blogpage.log-in",
+    "value": "log in",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 1347
+  },
+  {
+    "key": "auto.pages.blog.blogpage.to-clap-comment-or-reply",
+    "value": "to clap, comment, or reply.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 1347
+  },
+  {
+    "key": "auto.pages.blog.blogpage.respond",
+    "value": "Respond",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 1363
+  },
+  {
+    "key": "auto.pages.blog.blogpage.no-comments-or-replies-yet",
+    "value": "No comments or replies yet.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 1392
+  },
+  {
+    "key": "auto.pages.blog.blogpage.be-the-first-to-respond",
+    "value": "Be the first to respond.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 1393
+  },
+  {
+    "key": "auto.pages.blog.blogpage.see-all-responses",
+    "value": "See all responses",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 1401
+  },
+  {
+    "key": "auto.pages.blog.blogpage.this-embed-url-is-not-valid",
+    "value": "This embed URL is not valid.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 1544
+  },
+  {
+    "key": "auto.pages.blog.blogpage.new-part",
+    "value": "New Part",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 1554
+  },
+  {
+    "key": "auto.pages.blog.blogpage.output-push",
+    "value": "\")) output.push(",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 1567
+  },
+  {
+    "key": "auto.pages.blog.blogpage.blog-post-not-found",
+    "value": "Blog post not found",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 1763
+  },
+  {
+    "key": "auto.pages.blog.blogpage.back-to-blog",
+    "value": "Back to Blog",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 1764
+  },
+  {
+    "key": "auto.pages.blog.blogpage.featured",
+    "value": "Featured",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 1834
+  },
+  {
+    "key": "auto.pages.blog.blogpage.related-links",
+    "value": "Related Links",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 1856
+  },
+  {
+    "key": "auto.pages.blog.blogpage.most-interesting",
+    "value": "Most Interesting",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 1869
+  },
+  {
+    "key": "auto.pages.blog.blogpage.top-stories",
+    "value": "Top Stories",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 1892
+  },
+  {
+    "key": "auto.pages.blog.blogpage.general-knowledge",
+    "value": "General Knowledge",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 1911
+  },
+  {
+    "key": "auto.pages.blog.blogpage.blog-for-education-health-news-and-life-skills",
+    "value": "Blog for Education, Health, News, and Life Skills",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 1912
+  },
+  {
+    "key": "auto.pages.blog.blogpage.continue-reading",
+    "value": "Continue Reading",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 1962
+  },
+  {
+    "key": "auto.pages.blog.blogpage.knowledge",
+    "value": "Knowledge",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 1977
+  },
+  {
+    "key": "auto.pages.blog.blogpage.latest-news",
+    "value": "Latest News",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 1998
+  },
+  {
+    "key": "auto.pages.blog.blogpage.view-all",
+    "value": "View All",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 2001
+  },
+  {
+    "key": "auto.pages.blog.blogpage.about-the-blog",
+    "value": "About the Blog",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 2037
+  },
+  {
+    "key": "auto.pages.blog.blogpage.original-learning-articles",
+    "value": "Original learning articles",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 2045
+  },
+  {
+    "key": "auto.pages.blog.blogpage.short-posts-for-students-families-and-readers-who-want-p",
+    "value": "Short posts for students, families, and readers who want practical knowledge across common daily topics.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 2046
+  },
+  {
+    "key": "auto.pages.blog.blogpage.topics",
+    "value": "Topics",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 2054
+  },
+  {
+    "key": "auto.pages.blog.blogpage.clap-for-this-story",
+    "value": "Clap for this story",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 707
+  },
+  {
+    "key": "auto.pages.blog.blogpage.clap",
+    "value": "Clap",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 708
+  },
+  {
+    "key": "auto.pages.blog.blogpage.go-to-responses",
+    "value": "Go to responses",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 717
+  },
+  {
+    "key": "auto.pages.blog.blogpage.comment",
+    "value": "Comment",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 718
+  },
+  {
+    "key": "auto.pages.blog.blogpage.shares",
+    "value": "Shares",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 723
+  },
+  {
+    "key": "auto.pages.blog.blogpage.views",
+    "value": "Views",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 727
+  },
+  {
+    "key": "auto.pages.blog.blogpage.share-story",
+    "value": "Share story",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 753
+  },
+  {
+    "key": "auto.pages.blog.blogpage.share",
+    "value": "Share",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 754
+  },
+  {
+    "key": "auto.pages.blog.blogpage.open-share-options",
+    "value": "Open share options",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 767
+  },
+  {
+    "key": "auto.pages.blog.blogpage.share-options",
+    "value": "Share options",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 768
+  },
+  {
+    "key": "auto.pages.blog.blogpage.open-more-options",
+    "value": "Open more options",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 813
+  },
+  {
+    "key": "auto.pages.blog.blogpage.more",
+    "value": "More",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 814
+  },
+  {
+    "key": "auto.pages.blog.blogpage.what-are-your-thoughts",
+    "value": "What are your thoughts?",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 1353
+  },
+  {
+    "key": "auto.pages.blog.blogpage.copy-code",
+    "value": "Copy code",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 1470
+  },
+  {
+    "key": "auto.pages.blog.blogpage.search-articles",
+    "value": "Search articles",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 1922
+  },
+  {
+    "key": "auto.pages.blog.blogpage.how-pictures-help-learners-remember-new-words-faster",
+    "value": "How Pictures Help Learners Remember New Words Faster",
+    "source": "object-title",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 39
+  },
+  {
+    "key": "auto.pages.blog.blogpage.simple-health-habits-that-support-better-study-sessions",
+    "value": "Simple Health Habits That Support Better Study Sessions",
+    "source": "object-title",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 52
+  },
+  {
+    "key": "auto.pages.blog.blogpage.reading-news-online-a-beginner-guide-to-checking-informa",
+    "value": "Reading News Online: A Beginner Guide to Checking Information",
+    "source": "object-title",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 63
+  },
+  {
+    "key": "auto.pages.blog.blogpage.how-ai-tools-are-changing-everyday-language-practice",
+    "value": "How AI Tools Are Changing Everyday Language Practice",
+    "source": "object-title",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 74
+  },
+  {
+    "key": "auto.pages.blog.blogpage.money-words-every-student-should-understand-early",
+    "value": "Money Words Every Student Should Understand Early",
+    "source": "object-title",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 85
+  },
+  {
+    "key": "auto.pages.blog.blogpage.why-clean-water-lessons-matter-in-every-community",
+    "value": "Why Clean Water Lessons Matter in Every Community",
+    "source": "object-title",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 96
+  },
+  {
+    "key": "auto.pages.blog.blogpage.share-on-bluesky",
+    "value": "Share on Bluesky",
+    "source": "object-label",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 685
+  },
+  {
+    "key": "auto.pages.blog.blogpage.share-on-facebook",
+    "value": "Share on Facebook",
+    "source": "object-label",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 686
+  },
+  {
+    "key": "auto.pages.blog.blogpage.share-on-telegram",
+    "value": "Share on Telegram",
+    "source": "object-label",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 687
+  },
+  {
+    "key": "auto.pages.blog.blogpage.share-on-linkedin",
+    "value": "Share on LinkedIn",
+    "source": "object-label",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 688
+  },
+  {
+    "key": "auto.pages.blog.blogpage.share-on-threads",
+    "value": "Share on Threads",
+    "source": "object-label",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 689
+  },
+  {
+    "key": "auto.pages.blog.blogpage.share-on-x",
+    "value": "Share on X",
+    "source": "object-label",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 690
+  },
+  {
+    "key": "auto.pages.blog.blogpage.if-i-don-t-open-my-curtains-in-the-morning-i-will-refuse",
+    "value": "If I don't open my curtains in the morning, I will refuse to get up. That initial shock for my eyes is essential to my internal time manager that is circadian rhythm.",
+    "source": "object-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 932
+  },
+  {
+    "key": "auto.pages.blog.blogpage.exactly",
+    "value": "Exactly",
+    "source": "object-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 942
+  },
+  {
+    "key": "auto.pages.blog.blogpage.pengalaman-main-lebih-mulus-dengan-akses-alternatif-peci",
+    "value": "Pengalaman Main Lebih Mulus dengan Akses Alternatif PECITOTO Terbaru share your opini about my pages https://medium.com/@prediksipecitoto/pengalaman-main-lebih-mulus-dengan-akses-alternatif-pecitoto-terbaru-470cd2cb70b3 thankyou",
+    "source": "object-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 951
+  },
+  {
+    "key": "auto.pages.blog.blogpage.that-is-a-practical-win-the-anxiety-part-is-important",
+    "value": "That is a practical win. The anxiety part is important.",
+    "source": "object-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 975
+  },
+  {
+    "key": "auto.pages.blog.blogpage.good-point-the-context-and-portion-probably-matter",
+    "value": "Good point. The context and portion probably matter.",
+    "source": "object-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 999
+  },
+  {
+    "key": "auto.pages.blog.blogpage.fruit-with-fiber-is-a-helpful-distinction-for-learners",
+    "value": "Fruit with fiber is a helpful distinction for learners.",
+    "source": "object-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 1008
+  },
+  {
+    "key": "auto.pages.blog.blogpage.i-agree-it-is-easy-to-understand",
+    "value": "I agree. It is easy to understand.",
+    "source": "object-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 1025
+  },
+  {
+    "key": "auto.pages.blog.blogpage.this-can-become-a-simple-warm-up-question",
+    "value": "This can become a simple warm-up question.",
+    "source": "object-text",
+    "file": "frontend/src/pages/Blog/BlogPage.jsx",
+    "line": 1038
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.picture-first-learning",
+    "value": "Picture-first learning",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 1670
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.the-picture-dictionary",
+    "value": "The Picture Dictionary",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 1673
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.build-vocabulary-with-vivid-imagery-audio-cues-and-examp",
+    "value": "Build vocabulary with vivid imagery, audio cues, and example phrases crafted for fast recall.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 1676
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.search-any-word-in-any-available-language",
+    "value": "Search any word in any available language",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 1687
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.suggestions",
+    "value": "Suggestions",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 1723
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.searching",
+    "value": "Searching...",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 1725
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.suggestions-length",
+    "value": ") : suggestions.length ? (",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 1725
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.no-image",
+    "value": "No Image",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 1756
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.view",
+    "value": "View",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 1791
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.no-suggestions-yet",
+    "value": "No suggestions yet.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 1801
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.type-of",
+    "value": "Type of",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 1822
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.listen",
+    "value": "Listen",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 1864
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.copy",
+    "value": "Copy",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 1872
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.picture-set",
+    "value": "Picture set",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 1969
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.open",
+    "value": "Open",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 1975
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.items-length",
+    "value": ") : items.length ? (",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 2034
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.copy-item-link",
+    "value": "Copy item link",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 2137
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.open-image-link",
+    "value": "Open image link",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 2153
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.platform-copyonly",
+    "value": "platform.copyOnly ? (",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 2156
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.instagram-and-tiktok-copy-link-then-paste-in-app",
+    "value": "Instagram and TikTok: copy link, then paste in app.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 2194
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.link-copied",
+    "value": "Link copied",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 2198
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.online-picture-dictionary",
+    "value": "Online Picture Dictionary",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 2265
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.picture-dictionary-is-an-online-image-dictionary-for-lea",
+    "value": "Picture Dictionary is an online image dictionary for learning word meaning with picture, translation, and pronunciation across English, Khmer, Korean, Japanese, Thai, Vietnamese, Hindi, Indonesian, and Chinese.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 2268
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.dailychallengewords-length",
+    "value": ") : !!dailyChallengeWords.length ? (",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 2385
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.dailychallengeerror",
+    "value": ") : dailyChallengeError ? (",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 2602
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.dailychallengecompleted",
+    "value": ") : dailyChallengeCompleted ? (",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 2615
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.currentchallengeitem",
+    "value": ") : currentChallengeItem ? (",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 2699
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.picture-dictionary",
+    "value": "Picture Dictionary",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 2837
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.fast-clean-and-practical-visual-vocabulary-for-everyday",
+    "value": "Fast, clean, and practical visual vocabulary for everyday learning.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 2839
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.explore",
+    "value": "Explore",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 2846
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.about",
+    "value": "About",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 2848
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.faq",
+    "value": "FAQ",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 2849
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.policies",
+    "value": "Policies",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 2853
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.terms-of-service",
+    "value": "Terms of Service",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 2855
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.privacy-policy",
+    "value": "Privacy Policy",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 2856
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.advertising",
+    "value": "Advertising",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 2857
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.support-social",
+    "value": "Support & Social",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 2861
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.contact-us",
+    "value": "Contact Us",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 2863
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.2026-picturedictionary-cloud-all-rights-reserved",
+    "value": "© 2026 picturedictionary.cloud. All rights reserved.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 2889
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.status",
+    "value": "Status",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 2891
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.changelog",
+    "value": "Changelog",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 2892
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.cookies",
+    "value": "Cookies",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 2893
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.ad",
+    "value": "Ad",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 3147
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.placement-item-list-banner",
+    "value": ") : placement === \"item_list_banner\" ? (",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 3156
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.sponsored-content",
+    "value": "Sponsored content",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 3191
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.no-ad-script-configured",
+    "value": "No ad script configured.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 3202
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.previous-highlight-card",
+    "value": "Previous highlight card",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 1525
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.switch-languages",
+    "value": "Switch languages",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 1588
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.next-highlight-card",
+    "value": "Next highlight card",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 1657
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.try-sunrise-market-library",
+    "value": "Try: sunrise, market, library, 葡萄, 포도",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 1695
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.clear-search",
+    "value": "Clear search",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 1704
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.search",
+    "value": "Search",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 1715
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.toggle-favorite",
+    "value": "Toggle favorite",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 1780
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.item",
+    "value": "Item",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 2070
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.share-item",
+    "value": "Share item",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 2120
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.picture-dictionary-logo",
+    "value": "Picture Dictionary logo",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 2831
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.open-facebook",
+    "value": "Open Facebook",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 2870
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.open-telegram",
+    "value": "Open Telegram",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 2878
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.scroll-to-top",
+    "value": "Scroll to top",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 3106
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.about-the-picture-dictionary",
+    "value": "About The Picture Dictionary",
+    "source": "object-title",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 12
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.faq",
+    "value": "FAQ",
+    "source": "object-title",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 22
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.terms-of-service",
+    "value": "Terms of Service",
+    "source": "object-title",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 31
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.privacy-policy",
+    "value": "Privacy Policy",
+    "source": "object-title",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 41
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.advertising-policy",
+    "value": "Advertising Policy",
+    "source": "object-title",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 51
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.contact-us",
+    "value": "Contact Us",
+    "source": "object-title",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 61
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.facebook",
+    "value": "Facebook",
+    "source": "object-title",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 70
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.telegram",
+    "value": "Telegram",
+    "source": "object-title",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 78
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.status",
+    "value": "Status",
+    "source": "object-title",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 86
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.changelog",
+    "value": "Changelog",
+    "source": "object-title",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 94
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.cookies",
+    "value": "Cookies",
+    "source": "object-title",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 102
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.handwriting",
+    "value": "Handwriting",
+    "source": "object-title",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 136
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.voice",
+    "value": "Voice",
+    "source": "object-title",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 137
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.conversation",
+    "value": "Conversation",
+    "source": "object-title",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 138
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.image",
+    "value": "Image",
+    "source": "object-title",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 139
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.document",
+    "value": "Document",
+    "source": "object-title",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 140
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.en",
+    "value": "EN",
+    "source": "object-label",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 207
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.kh",
+    "value": "KH",
+    "source": "object-label",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 208
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.kr",
+    "value": "KR",
+    "source": "object-label",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 209
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.animals",
+    "value": "Animals",
+    "source": "object-label",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 352
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.food",
+    "value": "Food",
+    "source": "object-label",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 353
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.travel",
+    "value": "Travel",
+    "source": "object-label",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 354
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.school",
+    "value": "School",
+    "source": "object-label",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 355
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.nature",
+    "value": "Nature",
+    "source": "object-label",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 356
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.home",
+    "value": "Home",
+    "source": "object-label",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 357
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.body",
+    "value": "Body",
+    "source": "object-label",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 358
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.sports",
+    "value": "Sports",
+    "source": "object-label",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 359
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.facebook",
+    "value": "Facebook",
+    "source": "object-label",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 608
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.telegram",
+    "value": "Telegram",
+    "source": "object-label",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 620
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.whatsapp",
+    "value": "WhatsApp",
+    "source": "object-label",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 626
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.instagram",
+    "value": "Instagram",
+    "source": "object-label",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 632
+  },
+  {
+    "key": "auto.pages.dictionary.dictionarypage.tiktok",
+    "value": "TikTok",
+    "source": "object-label",
+    "file": "frontend/src/pages/Dictionary/DictionaryPage.jsx",
+    "line": 639
+  },
+  {
+    "key": "auto.pages.dictionary.favoritespage.favorites-length",
+    "value": ") : favorites.length ? (",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/FavoritesPage.jsx",
+    "line": 108
+  },
+  {
+    "key": "auto.pages.dictionary.favoritespage.favorite-item",
+    "value": "Favorite item",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Dictionary/FavoritesPage.jsx",
+    "line": 122
+  },
+  {
+    "key": "auto.pages.dictionary.favoritespage.remove-from-favorites",
+    "value": "Remove from favorites",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Dictionary/FavoritesPage.jsx",
+    "line": 150
+  },
+  {
+    "key": "auto.pages.dictionary.historypage.history-length",
+    "value": ") : !history.length ? (",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Dictionary/HistoryPage.jsx",
+    "line": 224
+  },
+  {
+    "key": "auto.pages.dictionary.historypage.item",
+    "value": "Item",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Dictionary/HistoryPage.jsx",
+    "line": 299
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.add-a-valid-https-embed-url",
+    "value": "Add a valid https:// embed URL.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 382
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.new-part",
+    "value": "New Part",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 392
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.output-push",
+    "value": "\")) output.push(",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 405
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.blog-editor",
+    "value": "Blog Editor",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 915
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.create-posts-with-images-text-source-links-tags-and-publ",
+    "value": "Create posts with images, text, source links, tags, and publishing controls.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 916
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.blog-list",
+    "value": "Blog List",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 925
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.new-post",
+    "value": "New Post",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 934
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.refresh",
+    "value": "Refresh",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 943
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.translate-blog",
+    "value": "Translate Blog",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 960
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.select-language",
+    "value": "Select language",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 970
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.language-versions",
+    "value": "Language Versions",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 992
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.no-enabled-translation-languages-found",
+    "value": "No enabled translation languages found.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1016
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.translated-title",
+    "value": "Translated Title",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1027
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.translated-short-excerpt",
+    "value": "Translated Short Excerpt",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1037
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.original",
+    "value": "Original",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1061
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.translation",
+    "value": "Translation",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1068
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.uses-original-until-translated",
+    "value": "Uses original until translated",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1070
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.heading",
+    "value": "Heading",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1087
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.large-h1",
+    "value": "Large H1",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1088
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.medium-h2",
+    "value": "Medium H2",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1089
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.small-h3",
+    "value": "Small H3",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1090
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.font",
+    "value": "Font",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1104
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.preview",
+    "value": "Preview",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1140
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.this-blog-does-not-have-article-content-to-translate-yet",
+    "value": "This blog does not have article content to translate yet.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1149
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.showeditor",
+    "value": ") : !showEditor ? (",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1155
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.all-statuses",
+    "value": "All statuses",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1176
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.draft",
+    "value": "Draft",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1177
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.published",
+    "value": "Published",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1178
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.search",
+    "value": "Search",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1186
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.no-cover-image",
+    "value": "No cover image",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1204
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.featured",
+    "value": "Featured",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1213
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.clap",
+    "value": "Clap",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1221
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.comments",
+    "value": "Comments",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1226
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.shares",
+    "value": "Shares",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1231
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.views",
+    "value": "Views",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1236
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.interested",
+    "value": "Interested",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1242
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.avg-read",
+    "value": "Avg Read",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1246
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.scroll",
+    "value": "Scroll",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1250
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.edit",
+    "value": "Edit",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1263
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.translate",
+    "value": "Translate",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1274
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.no-blog-posts-found",
+    "value": "No blog posts found.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1295
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.view",
+    "value": "View",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1347
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.not-public-yet",
+    "value": "Not public yet",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1351
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.title",
+    "value": "Title",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1381
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.slug",
+    "value": "Slug",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1390
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.category",
+    "value": "Category",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1399
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.original-language",
+    "value": "Original Language",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1411
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.tags",
+    "value": "Tags",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1425
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.short-excerpt",
+    "value": "Short Excerpt",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1435
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.recommended-30-to-40-words-maximum-40-words",
+    "value": "Recommended: 30 to 40 words. Maximum: 40 words.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1447
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.cover-image",
+    "value": "Cover Image",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1455
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.no-image",
+    "value": "No image",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1462
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.standard-blog-cover-1200-x-675-px-16-9-ratio-uploaded-co",
+    "value": "Standard blog cover: 1200 x 675 px, 16:9 ratio. Uploaded covers are centered and cropped to fit.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1468
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.upload-image",
+    "value": "Upload Image",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1472
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.image-url",
+    "value": "Image URL",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1477
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.image-alt-text",
+    "value": "Image Alt Text",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1486
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.article-content",
+    "value": "Article Content",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1501
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.image",
+    "value": "Image",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1571
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.nothing-to-preview-yet",
+    "value": "Nothing to preview yet.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1580
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.related-links",
+    "value": "Related Links",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1601
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.add-link",
+    "value": "Add Link",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1603
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.save-as-draft",
+    "value": "Save as draft",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1647
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.publish",
+    "value": "Publish",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1648
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.copy-code",
+    "value": "Copy code",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 305
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.translated-blog-title",
+    "value": "Translated blog title",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1032
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.translated-short-summary",
+    "value": "Translated short summary",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1047
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.heading-size",
+    "value": "Heading size",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1085
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.google-font",
+    "value": "Google font",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1102
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.search-your-blog-posts",
+    "value": "Search your blog posts",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1167
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.delete-post",
+    "value": "Delete post",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1285
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.search-blog-posts",
+    "value": "Search blog posts",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1313
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.write-a-clear-blog-title",
+    "value": "Write a clear blog title",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1386
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.post-url-slug",
+    "value": "post-url-slug",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1395
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.learning-health-student-tips",
+    "value": "learning, health, student tips",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1430
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.write-a-short-summary-for-blog-cards-recommended-length",
+    "value": "Write a short summary for blog cards. Recommended length: 30 to 40 words.",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1445
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.describe-the-image",
+    "value": "Describe the image",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1491
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.insert-image",
+    "value": "Insert image",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1565
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.link-label",
+    "value": "Link label",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1614
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.remove-link",
+    "value": "Remove link",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1622
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.write-the-blog-article-here-use-the-toolbar-for-headings",
+    "value": "Write the blog article here. Use the toolbar for headings, bold text, lists, quotes, links, and article images. Example: ## Section title Article text...",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 1593
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.default",
+    "value": "Default",
+    "source": "object-label",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 35
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.inter",
+    "value": "Inter",
+    "source": "object-label",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 36
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.roboto",
+    "value": "Roboto",
+    "source": "object-label",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 37
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.noto-sans-khmer",
+    "value": "Noto Sans Khmer",
+    "source": "object-label",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 38
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.noto-serif",
+    "value": "Noto Serif",
+    "source": "object-label",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 39
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.merriweather",
+    "value": "Merriweather",
+    "source": "object-label",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 40
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.poppins",
+    "value": "Poppins",
+    "source": "object-label",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 41
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.lora",
+    "value": "Lora",
+    "source": "object-label",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 42
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.bold",
+    "value": "Bold",
+    "source": "object-label",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 649
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.italic",
+    "value": "Italic",
+    "source": "object-label",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 650
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.bullet-list",
+    "value": "Bullet list",
+    "source": "object-label",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 651
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.numbered-list",
+    "value": "Numbered list",
+    "source": "object-label",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 652
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.quote",
+    "value": "Quote",
+    "source": "object-label",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 653
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.link",
+    "value": "Link",
+    "source": "object-label",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 654
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.table",
+    "value": "Table",
+    "source": "object-label",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 655
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.embed",
+    "value": "Embed",
+    "source": "object-label",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 832
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.code-block",
+    "value": "Code Block",
+    "source": "object-label",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 833
+  },
+  {
+    "key": "auto.pages.editor.blogeditorpage.new-part",
+    "value": "New Part",
+    "source": "object-label",
+    "file": "frontend/src/pages/Editor/BlogEditorPage.jsx",
+    "line": 835
+  },
+  {
+    "key": "auto.pages.editor.categoriespage.category-management",
+    "value": "Category Management",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/CategoriesPage.jsx",
+    "line": 191
+  },
+  {
+    "key": "auto.pages.editor.categoriespage.all-categories",
+    "value": "All Categories",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/CategoriesPage.jsx",
+    "line": 192
+  },
+  {
+    "key": "auto.pages.editor.categoriespage.template-style-category-list-with-quick-status-and-actio",
+    "value": "Template-style category list with quick status and actions.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/CategoriesPage.jsx",
+    "line": 193
+  },
+  {
+    "key": "auto.pages.editor.categoriespage.refresh",
+    "value": "Refresh",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/CategoriesPage.jsx",
+    "line": 202
+  },
+  {
+    "key": "auto.pages.editor.categoriespage.new-category",
+    "value": "New Category",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/CategoriesPage.jsx",
+    "line": 216
+  },
+  {
+    "key": "auto.pages.editor.categoriespage.add-words",
+    "value": "Add Words",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/CategoriesPage.jsx",
+    "line": 225
+  },
+  {
+    "key": "auto.pages.editor.categoriespage.items",
+    "value": "Items",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/CategoriesPage.jsx",
+    "line": 250
+  },
+  {
+    "key": "auto.pages.editor.categoriespage.number",
+    "value": "Number",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/CategoriesPage.jsx",
+    "line": 251
+  },
+  {
+    "key": "auto.pages.editor.categoriespage.status",
+    "value": "Status",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/CategoriesPage.jsx",
+    "line": 252
+  },
+  {
+    "key": "auto.pages.editor.categoriespage.action",
+    "value": "Action",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/CategoriesPage.jsx",
+    "line": 253
+  },
+  {
+    "key": "auto.pages.editor.categoriespage.no-categories-found",
+    "value": "No categories found",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/CategoriesPage.jsx",
+    "line": 268
+  },
+  {
+    "key": "auto.pages.editor.categoriespage.edit",
+    "value": "Edit",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/CategoriesPage.jsx",
+    "line": 336
+  },
+  {
+    "key": "auto.pages.editor.categoriespage.edit-category",
+    "value": "Edit Category",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/CategoriesPage.jsx",
+    "line": 363
+  },
+  {
+    "key": "auto.pages.editor.categoriespage.category-name",
+    "value": "Category name",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/CategoriesPage.jsx",
+    "line": 368
+  },
+  {
+    "key": "auto.pages.editor.categoriespage.cover-image-url",
+    "value": "Cover image URL",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/CategoriesPage.jsx",
+    "line": 377
+  },
+  {
+    "key": "auto.pages.editor.categoriespage.cancel",
+    "value": "Cancel",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/CategoriesPage.jsx",
+    "line": 391
+  },
+  {
+    "key": "auto.pages.editor.categoriespage.create-a-category-for-organizing-words",
+    "value": "Create a category for organizing words.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/CategoriesPage.jsx",
+    "line": 414
+  },
+  {
+    "key": "auto.pages.editor.categoriespage.cover-image-url-optional",
+    "value": "Cover image URL (optional)",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/CategoriesPage.jsx",
+    "line": 426
+  },
+  {
+    "key": "auto.pages.editor.categoriespage.confirm-delete",
+    "value": "Confirm delete",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/CategoriesPage.jsx",
+    "line": 460
+  },
+  {
+    "key": "auto.pages.editor.categoriespage.this-action-cannot-be-undone",
+    "value": "This action cannot be undone.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/CategoriesPage.jsx",
+    "line": 466
+  },
+  {
+    "key": "auto.pages.editor.categoriespage.search-category-by-name-or-id",
+    "value": "Search category by name or ID",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Editor/CategoriesPage.jsx",
+    "line": 238
+  },
+  {
+    "key": "auto.pages.editor.categoriespage.edit-category.2",
+    "value": "Edit category",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Editor/CategoriesPage.jsx",
+    "line": 334
+  },
+  {
+    "key": "auto.pages.editor.categoriespage.delete-category",
+    "value": "Delete category",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Editor/CategoriesPage.jsx",
+    "line": 346
+  },
+  {
+    "key": "auto.pages.editor.categoriespage.e-g-fruits",
+    "value": "e.g. Fruits",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Editor/CategoriesPage.jsx",
+    "line": 373
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.content-editor",
+    "value": "Content Editor",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 608
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.add-picture-dictionary-items-with-english-as-default-and",
+    "value": "Add picture dictionary items with English as default and optional translations.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 609
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.back-to-editor-requests",
+    "value": "Back to Editor Requests",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 620
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.refresh",
+    "value": "Refresh",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 629
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.english-is-the-default-language-add-extra-translations-w",
+    "value": "English is the default language. Add extra translations with the picker below.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 642
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.save",
+    "value": "Save",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 652
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.clear",
+    "value": "Clear",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 659
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.category",
+    "value": "Category *",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 678
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.add-new",
+    "value": "Add new",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 685
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.select-category",
+    "value": "Select category",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 698
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.upload-image",
+    "value": "Upload image *",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 707
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.upload-image-file",
+    "value": "Upload image file",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 717
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.recommended-size-768-x-768-images-are-optimized-on-uploa",
+    "value": "Recommended size: 768 x 768. Images are optimized on upload for fast loading.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 720
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.english-default",
+    "value": "English (default) *",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 730
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.pronunciation-in-en",
+    "value": "Pronunciation in EN",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 739
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.preview-768-x-768",
+    "value": "Preview (768 x 768)",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 750
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.image-preview",
+    "value": "Image preview",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 759
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.a-additional-translations",
+    "value": "*A Additional translations",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 768
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.no-extra-translations-added-yet",
+    "value": "No extra translations added yet.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 796
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.disabled",
+    "value": "Disabled",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 858
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.add-language",
+    "value": "Add language",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 884
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.create-new-language",
+    "value": "Create new language",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 892
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.phonetic-pronunciation",
+    "value": "Phonetic Pronunciation",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 898
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.no-pronunciation-fields-available-yet",
+    "value": "No pronunciation fields available yet.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 924
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.short-description-max-50-words",
+    "value": "Short description (max ~50 words)",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 931
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.find-existing-item",
+    "value": "Find Existing Item",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 964
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.search-english-word",
+    "value": "Search English word",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 968
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.search",
+    "value": "Search",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 982
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.suggestions",
+    "value": "Suggestions",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 988
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.searching",
+    "value": "Searching...",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 990
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.suggestions-length",
+    "value": ") : suggestions.length ? (",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 990
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.no-image",
+    "value": "No Image",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 1006
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.no-suggestions-yet",
+    "value": "No suggestions yet.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 1022
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.filter-by-category",
+    "value": "Filter by category",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 1027
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.all-categories",
+    "value": "All categories",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 1036
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.no-results-yet",
+    "value": "No results yet.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 1081
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.categories",
+    "value": "Categories",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 1088
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.add",
+    "value": "Add",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 1094
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.edit",
+    "value": "Edit",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 1125
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.delete",
+    "value": "Delete",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 1133
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.no-categories-yet",
+    "value": "No categories yet.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 1138
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.category-name",
+    "value": "Category name",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 1163
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.cover-image-url-optional",
+    "value": "Cover image URL (optional)",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 1174
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.upload-cover-image",
+    "value": "Upload cover image",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 1206
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.cancel",
+    "value": "Cancel",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 1217
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.create-language",
+    "value": "Create Language",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 1236
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.select-language",
+    "value": "Select language",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 1248
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.language-code",
+    "value": "Language code:",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 1312
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.language-name",
+    "value": "Language name:",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 1316
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.create",
+    "value": "Create",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 1335
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.confirm-delete",
+    "value": "Confirm delete",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 1346
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.this-action-cannot-be-undone",
+    "value": "This action cannot be undone.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 1360
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.word-in-english",
+    "value": "Word in English",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 735
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.pronunciation-in-en",
+    "value": "Pronunciation in EN",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 744
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.preview",
+    "value": "Preview",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 755
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.write-a-short-explanation-to-help-learners-understand-th",
+    "value": "Write a short explanation to help learners understand the word.",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 936
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.search-english-word.2",
+    "value": "Search English word...",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 973
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.close",
+    "value": "Close",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 1156
+  },
+  {
+    "key": "auto.pages.editor.contenteditorpage.e-g-fruits",
+    "value": "e.g. Fruits",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Editor/ContentEditorPage.jsx",
+    "line": 1168
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.editor-requests",
+    "value": "Editor Requests",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 182
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.requests-submitted-by-editors-show-here-with-approval-st",
+    "value": "Requests submitted by editors show here with approval status.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 183
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.dictionary",
+    "value": "Dictionary",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 193
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.all-statuses",
+    "value": "All statuses",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 202
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.pending",
+    "value": "Pending",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 203
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.edited-pending",
+    "value": "Edited-pending",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 204
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.reject",
+    "value": "Reject",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 205
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.approved",
+    "value": "Approved",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 206
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.refresh",
+    "value": "Refresh",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 213
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.loading-requests",
+    "value": "Loading requests...",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 227
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.filteredpending-length",
+    "value": ") : filteredPending.length ? (",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 227
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.items",
+    "value": "Items",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 232
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.status",
+    "value": "Status",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 233
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.action",
+    "value": "Action",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 234
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.no-image",
+    "value": "No Image",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 252
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.accept",
+    "value": "Accept",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 280
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.delete",
+    "value": "Delete",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 300
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.edit",
+    "value": "Edit",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 324
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.no-requests-yet",
+    "value": "No requests yet.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 345
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.approved-items",
+    "value": "Approved items",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 351
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.items-that-have-been-approved-by-admin-owner",
+    "value": "Items that have been approved by admin/owner.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 352
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.loading-approvals",
+    "value": "Loading approvals...",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 354
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.filteredapproved-length",
+    "value": ") : filteredApproved.length ? (",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 354
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.no-approved-items-yet",
+    "value": "No approved items yet.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 395
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.request-detail",
+    "value": "Request detail",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 405
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.close",
+    "value": "Close",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 414
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.status.2",
+    "value": "Status:",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 422
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.type",
+    "value": "Type:",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 426
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.action.2",
+    "value": "Action:",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 426
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.created",
+    "value": "Created:",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 430
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.editor",
+    "value": "Editor:",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 434
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.reviewed-by",
+    "value": "Reviewed by:",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 439
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.target-id",
+    "value": "Target ID:",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 444
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.decision",
+    "value": "Decision:",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 449
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.remark",
+    "value": "Remark:",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 455
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.revise",
+    "value": "Revise",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 476
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.edit-in-editor",
+    "value": "Edit in Editor",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 517
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.remark-for-editor",
+    "value": "Remark for editor",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 535
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.cancel",
+    "value": "Cancel",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 564
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.payload",
+    "value": "Payload",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 573
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.image-preview",
+    "value": "Image preview",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 577
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.no-preview",
+    "value": "No preview",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 585
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.category",
+    "value": "Category:",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 592
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.description",
+    "value": "Description:",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 596
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.translations",
+    "value": "Translations:",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 600
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.phonetic-pronunciations",
+    "value": "Phonetic Pronunciations:",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 608
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.item",
+    "value": "Item",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 248
+  },
+  {
+    "key": "auto.pages.editor.editorrequestspage.explain-what-to-revise-or-why-you-rejected-this-request",
+    "value": "Explain what to revise or why you rejected this request...",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Editor/EditorRequestsPage.jsx",
+    "line": 548
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.letter-a",
+    "value": "Letter A",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 25
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.letter-b",
+    "value": "Letter B",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 26
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.letter-c",
+    "value": "Letter C",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 27
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.letter-d",
+    "value": "Letter D",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 28
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.letter-e",
+    "value": "Letter E",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 29
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.letter-f",
+    "value": "Letter F",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 30
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.letter-g",
+    "value": "Letter G",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 31
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.letter-h",
+    "value": "Letter H",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 32
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.letter-i",
+    "value": "Letter I",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 33
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.letter-j",
+    "value": "Letter J",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 34
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.letter-k",
+    "value": "Letter K",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 35
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.letter-l",
+    "value": "Letter L",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 36
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.letter-m",
+    "value": "Letter M",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 37
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.letter-n",
+    "value": "Letter N",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 38
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.letter-o",
+    "value": "Letter O",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 39
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.letter-p",
+    "value": "Letter P",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 40
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.letter-q",
+    "value": "Letter Q",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 41
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.letter-r",
+    "value": "Letter R",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 42
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.letter-s",
+    "value": "Letter S",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 43
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.letter-t",
+    "value": "Letter T",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 44
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.letter-u",
+    "value": "Letter U",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 45
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.letter-v",
+    "value": "Letter V",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 46
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.letter-w",
+    "value": "Letter W",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 47
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.letter-x",
+    "value": "Letter X",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 48
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.letter-y",
+    "value": "Letter Y",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 49
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.letter-z",
+    "value": "Letter Z",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 50
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.giyeok",
+    "value": "Giyeok",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 54
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.nieun",
+    "value": "Nieun",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 55
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.digeut",
+    "value": "Digeut",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 56
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.rieul",
+    "value": "Rieul",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 57
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.mieum",
+    "value": "Mieum",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 58
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.bieup",
+    "value": "Bieup",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 59
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.siot",
+    "value": "Siot",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 60
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.ieung",
+    "value": "Ieung",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 61
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.jieut",
+    "value": "Jieut",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 62
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.chieut",
+    "value": "Chieut",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 63
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.kieuk",
+    "value": "Kieuk",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 64
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.tieut",
+    "value": "Tieut",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 65
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.pieup",
+    "value": "Pieup",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 66
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.hieut",
+    "value": "Hieut",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 67
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.ssanggiyeok",
+    "value": "Ssanggiyeok",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 69
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.ssangdigeut",
+    "value": "Ssangdigeut",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 70
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.ssangbieup",
+    "value": "Ssangbieup",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 71
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.ssangsiot",
+    "value": "Ssangsiot",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 72
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.ssangjieut",
+    "value": "Ssangjieut",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 73
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.ae",
+    "value": "Ae",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 76
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.ya",
+    "value": "Ya",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 77
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.yae",
+    "value": "Yae",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 78
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.eo",
+    "value": "Eo",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 79
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.yeo",
+    "value": "Yeo",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 81
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.ye",
+    "value": "Ye",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 82
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.wa",
+    "value": "Wa",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 84
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.wae",
+    "value": "Wae",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 85
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.oe",
+    "value": "Oe",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 86
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.yo",
+    "value": "Yo",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 87
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.wo",
+    "value": "Wo",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 89
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.we",
+    "value": "We",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 90
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.wi",
+    "value": "Wi",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 91
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.yu",
+    "value": "Yu",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 92
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.eu",
+    "value": "Eu",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 93
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.ui",
+    "value": "Ui",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 94
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.ka",
+    "value": "Ka",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 99
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.kha",
+    "value": "Kha",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 100
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.ko",
+    "value": "Ko",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 101
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.kho",
+    "value": "Kho",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 102
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.ngo",
+    "value": "Ngo",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 103
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.cha",
+    "value": "Cha",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 104
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.chha",
+    "value": "Chha",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 105
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.cho",
+    "value": "Cho",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 106
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.chho",
+    "value": "Chho",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 107
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.gno",
+    "value": "Gno",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 108
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.da",
+    "value": "Da",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 109
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.tha",
+    "value": "Tha",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 110
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.do",
+    "value": "Do",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 111
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.tho",
+    "value": "Tho",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 112
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.na",
+    "value": "Na",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 113
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.ta",
+    "value": "Ta",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 114
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.to",
+    "value": "To",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 116
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.no",
+    "value": "No",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 118
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.ba",
+    "value": "Ba",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 119
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.pha",
+    "value": "Pha",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 120
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.po",
+    "value": "Po",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 121
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.pho",
+    "value": "Pho",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 122
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.mo",
+    "value": "Mo",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 123
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.ro",
+    "value": "Ro",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 125
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.lo",
+    "value": "Lo",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 126
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.vo",
+    "value": "Vo",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 127
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.sa",
+    "value": "Sa",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 128
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.ha",
+    "value": "Ha",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 129
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.la",
+    "value": "La",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 130
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.sha",
+    "value": "Sha",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 133
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.ssa",
+    "value": "Ssa",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 134
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.sub-ka",
+    "value": "Sub-ka",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 136
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.sub-kha",
+    "value": "Sub-kha",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 137
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.sub-ko",
+    "value": "Sub-ko",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 138
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.sub-kho",
+    "value": "Sub-kho",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 139
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.sub-ngo",
+    "value": "Sub-ngo",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 140
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.sub-cha",
+    "value": "Sub-cha",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 141
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.sub-chha",
+    "value": "Sub-chha",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 142
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.sub-cho",
+    "value": "Sub-cho",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 143
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.sub-chho",
+    "value": "Sub-chho",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 144
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.sub-gno",
+    "value": "Sub-gno",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 145
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.sub-da",
+    "value": "Sub-da",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 146
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.sub-tha",
+    "value": "Sub-tha",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 147
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.sub-do",
+    "value": "Sub-do",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 148
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.sub-tho",
+    "value": "Sub-tho",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 149
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.sub-na",
+    "value": "Sub-na",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 150
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.sub-ta",
+    "value": "Sub-ta",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 151
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.sub-to",
+    "value": "Sub-to",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 153
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.sub-no",
+    "value": "Sub-no",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 155
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.sub-ba",
+    "value": "Sub-ba",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 156
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.sub-pha",
+    "value": "Sub-pha",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 157
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.sub-po",
+    "value": "Sub-po",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 158
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.sub-pho",
+    "value": "Sub-pho",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 159
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.sub-mo",
+    "value": "Sub-mo",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 160
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.sub-yo",
+    "value": "Sub-yo",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 161
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.sub-ro",
+    "value": "Sub-ro",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 162
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.sub-lo",
+    "value": "Sub-lo",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 163
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.sub-vo",
+    "value": "Sub-vo",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 164
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.sub-sa",
+    "value": "Sub-sa",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 165
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.sub-ha",
+    "value": "Sub-ha",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 166
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.sub-a",
+    "value": "Sub-a",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 167
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.ei",
+    "value": "Ei",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 170
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.o-u",
+    "value": "Ŏ/Ŭ",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 171
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.ou",
+    "value": "Ou",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 172
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.au",
+    "value": "Âu",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 173
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.r",
+    "value": "Rœ",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 174
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.roe",
+    "value": "Roe",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 175
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.l",
+    "value": "Lœ",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 176
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.loe",
+    "value": "Loe",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 177
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.ai",
+    "value": "Ai",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 179
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.ao",
+    "value": "Ao",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 180
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.au.2",
+    "value": "Au",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 209
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.am",
+    "value": "Âm",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 210
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.ah",
+    "value": "Aḥ",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 211
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.musekaton",
+    "value": "Mŭsĕkâtôn",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 212
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.treisapt",
+    "value": "Treisâpt",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 213
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.bantok",
+    "value": "Bântôk",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 214
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.robat",
+    "value": "Rôbat",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 215
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.kakabat",
+    "value": "Kakabat",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 216
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.aoh",
+    "value": "Aôh",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 218
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.bau",
+    "value": "Bau",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 219
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.lea",
+    "value": "Léa",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 220
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.chba",
+    "value": "Chba",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 221
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.msau",
+    "value": "Msau",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 222
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.tra",
+    "value": "Tra",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 223
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.full-stop",
+    "value": "Full stop",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 236
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.end-mark",
+    "value": "End mark",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 237
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.colon",
+    "value": "Colon",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 238
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.duplication",
+    "value": "Duplication",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 239
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.etc",
+    "value": "Etc",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 240
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.person",
+    "value": "Person",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 317
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.mouth",
+    "value": "Mouth",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 318
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.mountain",
+    "value": "Mountain",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 319
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.sun",
+    "value": "Sun",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 320
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.moon",
+    "value": "Moon",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 321
+  },
+  {
+    "key": "auto.pages.practice.handwritingpracticepage.tree",
+    "value": "Tree",
+    "source": "object-label",
+    "file": "frontend/src/pages/Practice/HandwritingPracticePage.jsx",
+    "line": 322
+  },
+  {
+    "key": "auto.pages.setting.settingssubsidebar.ads-settings",
+    "value": "Ads Settings",
+    "source": "object-label",
+    "file": "frontend/src/pages/Setting/SettingsSubSidebar.jsx",
+    "line": 22
+  },
+  {
+    "key": "auto.pages.setting.settingssubsidebar.roles-users",
+    "value": "Roles & Users",
+    "source": "object-label",
+    "file": "frontend/src/pages/Setting/SettingsSubSidebar.jsx",
+    "line": 23
+  },
+  {
+    "key": "auto.pages.setting.settingssubsidebar.translation-manager",
+    "value": "Translation Manager",
+    "source": "object-label",
+    "file": "frontend/src/pages/Setting/SettingsSubSidebar.jsx",
+    "line": 24
+  },
+  {
+    "key": "auto.pages.setting.settingssubsidebar.translation-providers",
+    "value": "Translation Providers",
+    "source": "object-label",
+    "file": "frontend/src/pages/Setting/SettingsSubSidebar.jsx",
+    "line": 25
+  },
+  {
+    "key": "auto.pages.setting.translationmanagerpage.translations-owner",
+    "value": "Translations (Owner)",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Setting/TranslationManagerPage.jsx",
+    "line": 374
+  },
+  {
+    "key": "auto.pages.setting.translationmanagerpage.manage-translation-texts-and-font-settings-for-the-publi",
+    "value": "Manage translation texts and font settings for the public Downloader page. English reference is loaded from the",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Setting/TranslationManagerPage.jsx",
+    "line": 375
+  },
+  {
+    "key": "auto.pages.setting.translationmanagerpage.translation-document",
+    "value": "translation document.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Setting/TranslationManagerPage.jsx",
+    "line": 377
+  },
+  {
+    "key": "auto.pages.setting.translationmanagerpage.refresh",
+    "value": "Refresh",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Setting/TranslationManagerPage.jsx",
+    "line": 385
+  },
+  {
+    "key": "auto.pages.setting.translationmanagerpage.download-csv",
+    "value": "Download CSV",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Setting/TranslationManagerPage.jsx",
+    "line": 392
+  },
+  {
+    "key": "auto.pages.setting.translationmanagerpage.upload-csv",
+    "value": "Upload CSV",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Setting/TranslationManagerPage.jsx",
+    "line": 399
+  },
+  {
+    "key": "auto.pages.setting.translationmanagerpage.languages",
+    "value": "Languages",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Setting/TranslationManagerPage.jsx",
+    "line": 413
+  },
+  {
+    "key": "auto.pages.setting.translationmanagerpage.loading-languages",
+    "value": "Loading languages…",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Setting/TranslationManagerPage.jsx",
+    "line": 415
+  },
+  {
+    "key": "auto.pages.setting.translationmanagerpage.no-languages-found-run-the-seed-script-or-create-a-new-l",
+    "value": "No languages found. Run the seed script or create a new language.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Setting/TranslationManagerPage.jsx",
+    "line": 471
+  },
+  {
+    "key": "auto.pages.setting.translationmanagerpage.add-new-language",
+    "value": "Add New Language",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Setting/TranslationManagerPage.jsx",
+    "line": 480
+  },
+  {
+    "key": "auto.pages.setting.translationmanagerpage.example-codes",
+    "value": "Example codes:",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Setting/TranslationManagerPage.jsx",
+    "line": 481
+  },
+  {
+    "key": "auto.pages.setting.translationmanagerpage.en",
+    "value": "en",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Setting/TranslationManagerPage.jsx",
+    "line": 482
+  },
+  {
+    "key": "auto.pages.setting.translationmanagerpage.kh",
+    "value": "kh",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Setting/TranslationManagerPage.jsx",
+    "line": 482
+  },
+  {
+    "key": "auto.pages.setting.translationmanagerpage.kr",
+    "value": "kr",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Setting/TranslationManagerPage.jsx",
+    "line": 482
+  },
+  {
+    "key": "auto.pages.setting.translationmanagerpage.th",
+    "value": "th",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Setting/TranslationManagerPage.jsx",
+    "line": 482
+  },
+  {
+    "key": "auto.pages.setting.translationmanagerpage.ja",
+    "value": "ja",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Setting/TranslationManagerPage.jsx",
+    "line": 482
+  },
+  {
+    "key": "auto.pages.setting.translationmanagerpage.fr",
+    "value": "fr",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Setting/TranslationManagerPage.jsx",
+    "line": 483
+  },
+  {
+    "key": "auto.pages.setting.translationmanagerpage.etc",
+    "value": ", etc.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Setting/TranslationManagerPage.jsx",
+    "line": 483
+  },
+  {
+    "key": "auto.pages.setting.translationmanagerpage.select-language",
+    "value": "Select language",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Setting/TranslationManagerPage.jsx",
+    "line": 490
+  },
+  {
+    "key": "auto.pages.setting.translationmanagerpage.create-language",
+    "value": "Create Language",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Setting/TranslationManagerPage.jsx",
+    "line": 502
+  },
+  {
+    "key": "auto.pages.setting.translationmanagerpage.save",
+    "value": "Save",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Setting/TranslationManagerPage.jsx",
+    "line": 530
+  },
+  {
+    "key": "auto.pages.setting.translationmanagerpage.reset",
+    "value": "Reset",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Setting/TranslationManagerPage.jsx",
+    "line": 537
+  },
+  {
+    "key": "auto.pages.setting.translationmanagerpage.default-font-family-for-this-language",
+    "value": "Default font-family for this language",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Setting/TranslationManagerPage.jsx",
+    "line": 547
+  },
+  {
+    "key": "auto.pages.setting.translationmanagerpage.this-font-is-used-for-all-keys-in-this-language-unless-a",
+    "value": "This font is used for all keys in this language, unless a per-key font override is set.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Setting/TranslationManagerPage.jsx",
+    "line": 559
+  },
+  {
+    "key": "auto.pages.setting.translationmanagerpage.add-key",
+    "value": "Add key",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Setting/TranslationManagerPage.jsx",
+    "line": 579
+  },
+  {
+    "key": "auto.pages.setting.translationmanagerpage.choose-a-language-from-the-list-on-the-left-to-start-edi",
+    "value": "Choose a language from the list on the left to start editing translations.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Setting/TranslationManagerPage.jsx",
+    "line": 586
+  },
+  {
+    "key": "auto.pages.setting.translationmanagerpage.loading-language-data",
+    "value": "Loading language data…",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Setting/TranslationManagerPage.jsx",
+    "line": 595
+  },
+  {
+    "key": "auto.pages.setting.translationmanagerpage.filteredkeys-length-0",
+    "value": ") : filteredKeys.length === 0 ? (",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Setting/TranslationManagerPage.jsx",
+    "line": 595
+  },
+  {
+    "key": "auto.pages.setting.translationmanagerpage.no-keys-match-your-filter",
+    "value": "No keys match your filter.",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Setting/TranslationManagerPage.jsx",
+    "line": 597
+  },
+  {
+    "key": "auto.pages.setting.translationmanagerpage.font-override-optional",
+    "value": "Font override (optional)",
+    "source": "jsx-text",
+    "file": "frontend/src/pages/Setting/TranslationManagerPage.jsx",
+    "line": 610
+  },
+  {
+    "key": "auto.pages.setting.translationmanagerpage.example-inter-system-ui-apple-system-blinkmacsystemfont",
+    "value": "Example: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif'",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Setting/TranslationManagerPage.jsx",
+    "line": 552
+  },
+  {
+    "key": "auto.pages.setting.translationmanagerpage.filter-by-key-english-text-or-translation",
+    "value": "Filter by key, English text, or translation…",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Setting/TranslationManagerPage.jsx",
+    "line": 569
+  },
+  {
+    "key": "auto.pages.setting.translationmanagerpage.e-g-khmer-os-siemreap-sans-serif",
+    "value": "e.g. 'Khmer OS Siemreap, sans-serif'",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Setting/TranslationManagerPage.jsx",
+    "line": 615
+  },
+  {
+    "key": "auto.pages.setting.translationmanagerpage.no-english-text-stored-for-this-key",
+    "value": "No English text stored for this key.",
+    "source": "jsx-attribute",
+    "file": "frontend/src/pages/Setting/TranslationManagerPage.jsx",
+    "line": 628
+  }
+]
