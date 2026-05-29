@@ -2,11 +2,13 @@
 
 require("dotenv").config();
 const express = require("express");
+const http = require("http");
 const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const compression = require("compression");
 const { connectDB } = require("./db");
+const { initGomokuSocket } = require("./gomokuSocket");
 
 const authRoutes = require("./routes/auth");
 const meRoutes = require("./routes/me");
@@ -17,6 +19,7 @@ const uploadRoutes = require("./routes/uploads");
 const pushRoutes = require("./routes/push");
 const shareRoutes = require("./routes/share");
 const blogRoutes = require("./routes/blog");
+const gomokuRoutes = require("./routes/gomoku");
 
 const app = express();
 app.set("trust proxy", true);
@@ -124,11 +127,14 @@ app.use("/api/change-requests", changeRoutes);
 app.use("/api/uploads", uploadRoutes);
 app.use("/api/push", pushRoutes);
 app.use("/api/blog", blogRoutes);
+app.use("/api/gomoku", gomokuRoutes);
 
 const port = Number(process.env.PORT || 4000);
+const server = http.createServer(app);
+initGomokuSocket(server);
 
 connectDB(process.env.MONGO_URI)
-  .then(() => app.listen(port, () => console.log(`[api] http://localhost:${port}`)))
+  .then(() => server.listen(port, () => console.log(`[api] http://localhost:${port}`)))
   .catch((e) => {
     console.error("[db] failed", e);
     process.exit(1);
