@@ -45,6 +45,42 @@ const escapeCsvCell = (value) => {
   return text;
 };
 const toCsv = (rows = []) => rows.map((row) => row.map(escapeCsvCell).join(",")).join("\n");
+
+function normalizeLocalizedStringMap(value) {
+  if (!value || typeof value !== "object") return {};
+  const normalized = {};
+  Object.entries(value).forEach(([code, text]) => {
+    const key = String(code || "").trim().toLowerCase();
+    const clean = String(text || "").trim();
+    if (!key || !clean) return;
+    normalized[key] = clean;
+  });
+  return normalized;
+}
+
+function normalizeLocalizedStringArrayMap(value, maxItems = 5) {
+  if (!value || typeof value !== "object") return {};
+  const normalized = {};
+  Object.entries(value).forEach(([code, entries]) => {
+    const key = String(code || "").trim().toLowerCase();
+    if (!key) return;
+    const list = Array.isArray(entries) ? entries : String(entries || "").split(/\n|,/);
+    const clean = list
+      .map((entry) => String(entry || "").trim())
+      .filter(Boolean)
+      .slice(0, maxItems);
+    if (clean.length) normalized[key] = clean;
+  });
+  return normalized;
+}
+
+function normalizeLearningFields(payload) {
+  if (payload.examples !== undefined) payload.examples = normalizeLocalizedStringArrayMap(payload.examples, 3);
+  if (payload.relatedWords !== undefined) payload.relatedWords = normalizeLocalizedStringArrayMap(payload.relatedWords, 5);
+  if (payload.funFacts !== undefined) payload.funFacts = normalizeLocalizedStringMap(payload.funFacts);
+  if (payload.categoryExplanations !== undefined) payload.categoryExplanations = normalizeLocalizedStringMap(payload.categoryExplanations);
+}
+
 const parseCsv = (input = "") => {
   const text = String(input || "");
   const rows = [];
@@ -231,7 +267,12 @@ router.delete("/categories/:id", async (req, res) => {
 
 /* Items */
 router.get("/items", async (_req, res) => {
-  const items = await Item.find().sort({ createdAt: -1 }).limit(500).lean();
+  const items = await Item.find()
+    .populate("editorId", "name email")
+    .populate("approvedBy", "name email")
+    .sort({ createdAt: -1 })
+    .limit(500)
+    .lean();
   res.json({ items });
 });
 router.post("/items", async (req, res) => {
@@ -239,6 +280,9 @@ router.post("/items", async (req, res) => {
   payload.description = String(payload.description || "").trim() || "No description";
   payload.imageThumbUrl = String(payload.imageThumbUrl || payload.imageUrl || "").trim();
   payload.phoneticPronunciations = normalizePhoneticPronunciations(payload.phoneticPronunciations);
+  normalizeLearningFields(payload);
+  payload.editorId = req.user.id;
+  payload.approvedBy = req.user.id;
   const doc = await Item.create(payload);
   await notifyCategoryFollowers(doc, {
     title: "New content added",
@@ -248,6 +292,8 @@ router.post("/items", async (req, res) => {
 });
 router.patch("/items/:id", async (req, res) => {
   const payload = { ...(req.body || {}) };
+  delete payload.editorId;
+  delete payload.approvedBy;
   if (payload.description !== undefined) {
     payload.description = String(payload.description || "").trim() || "No description";
   }
@@ -257,6 +303,13 @@ router.patch("/items/:id", async (req, res) => {
   if (payload.phoneticPronunciations !== undefined) {
     payload.phoneticPronunciations = normalizePhoneticPronunciations(payload.phoneticPronunciations);
   }
+  normalizeLearningFields(payload);
+  const changesContent = ["categoryId", "imageUrl", "imageThumbUrl", "translations", "phoneticPronunciations", "description", "examples", "relatedWords", "funFacts", "categoryExplanations"]
+    .some((key) => Object.prototype.hasOwnProperty.call(payload, key));
+  if (changesContent) {
+    payload.editorId = req.user.id;
+  }
+  payload.approvedBy = req.user.id;
   const doc = await Item.findByIdAndUpdate(
     req.params.id,
     { $set: payload },

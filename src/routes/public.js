@@ -182,6 +182,10 @@ router.get("/items", async (req, res) => {
     const regex = { $regex: s, $options: "i" };
     filter.$or = [
       { description: regex },
+      { "examples.en": regex },
+      { "relatedWords.en": regex },
+      { "funFacts.en": regex },
+      { "categoryExplanations.en": regex },
       {
         $expr: {
           $gt: [

@@ -12,17 +12,32 @@ const escapeRegExp = (value) => String(value || "").replace(/[.*+?^${}()|[\]\\]/
 const participantKey = (a, b) => [String(a), String(b)].sort().join(":");
 const userSelect = "name email avatarUrl isActive updatedAt";
 
+const idString = (value) => String(value?._id || value || "");
+
 const profileForUser = (user) => ({
   ...toGomokuProfile(user, { online: isProfileOnline(buildProfileId(user)) }),
   isSelf: false,
 });
 
-const friendshipPayload = (friendship, otherUser) => ({
+const scoreForUser = (friendship, currentUserId) => {
+  const requesterWins = Number(friendship.requesterWins || 0);
+  const receiverWins = Number(friendship.receiverWins || 0);
+  return idString(friendship.requester) === String(currentUserId)
+    ? { me: requesterWins, opponent: receiverWins }
+    : { me: receiverWins, opponent: requesterWins };
+};
+
+const friendshipPayload = (friendship, otherUser, currentUserId) => ({
   friendshipId: String(friendship._id),
   status: friendship.status,
-  requester: String(friendship.requester),
-  receiver: String(friendship.receiver),
-  friend: profileForUser(otherUser),
+  requester: idString(friendship.requester),
+  receiver: idString(friendship.receiver),
+  score: scoreForUser(friendship, currentUserId),
+  friend: {
+    ...profileForUser(otherUser),
+    friendshipId: String(friendship._id),
+    friendshipScore: scoreForUser(friendship, currentUserId),
+  },
 });
 
 const findUserByProfileId = async (profileId) => {
@@ -91,7 +106,7 @@ router.get("/friends", authRequired, async (req, res) => {
     .map((friendship) => {
       const other = String(friendship.requester?._id) === String(userId) ? friendship.receiver : friendship.requester;
       if (!other) return null;
-      return friendshipPayload(friendship, other);
+      return friendshipPayload(friendship, other, userId);
     })
     .filter(Boolean);
 
@@ -125,7 +140,7 @@ router.post("/friends/invite", authRequired, async (req, res) => {
   const from = { ...toGomokuProfile(requester, { online: true }), friendshipId: String(friendship._id) };
   sendToProfile(buildProfileId(receiver), { type: "invite_received", friendshipId: String(friendship._id), from });
 
-  res.json({ friendship: friendshipPayload(friendship, receiver) });
+  res.json({ friendship: friendshipPayload(friendship, receiver, req.user.id) });
 });
 
 router.post("/friends/:id/accept", authRequired, async (req, res) => {
@@ -143,10 +158,54 @@ router.post("/friends/:id/accept", authRequired, async (req, res) => {
     sendToProfile(buildProfileId(requester), {
       type: "friend_accepted",
       friendshipId: String(friendship._id),
-      friend: friendshipPayload(friendship, receiver).friend,
+      friend: friendshipPayload(friendship, receiver, requester._id).friend,
+      score: scoreForUser(friendship, requester._id),
     });
   }
-  res.json({ friendship: friendshipPayload(friendship, requester) });
+  res.json({ friendship: friendshipPayload(friendship, requester, req.user.id) });
+});
+
+router.post("/friends/:id/score", authRequired, async (req, res) => {
+  const friendship = await GomokuFriend.findById(req.params.id);
+  if (!friendship) return res.status(404).json({ message: "Friendship not found" });
+  if (friendship.status !== "accepted") return res.status(400).json({ message: "Friendship is not accepted" });
+  const isRequester = String(friendship.requester) === String(req.user.id);
+  const isReceiver = String(friendship.receiver) === String(req.user.id);
+  if (!isRequester && !isReceiver) return res.status(403).json({ message: "Only players can update this score" });
+
+  const requester = await User.findById(friendship.requester).select(userSelect);
+  const receiver = await User.findById(friendship.receiver).select(userSelect);
+  if (!requester || !receiver) return res.status(404).json({ message: "Player not found" });
+
+  const matchId = String(req.body?.matchId || "").trim().slice(0, 200);
+  const scoredMatchIds = Array.isArray(friendship.scoredMatchIds) ? friendship.scoredMatchIds : [];
+  const alreadyScored = matchId && scoredMatchIds.includes(matchId);
+  const submittedScore = req.body?.score || {};
+  const submittedMe = Number(submittedScore.me);
+  const submittedOpponent = Number(submittedScore.opponent);
+
+  if (Number.isFinite(submittedMe) && Number.isFinite(submittedOpponent) && submittedMe >= 0 && submittedOpponent >= 0) {
+    if (isRequester) {
+      friendship.requesterWins = Math.max(Number(friendship.requesterWins || 0), Math.floor(submittedMe));
+      friendship.receiverWins = Math.max(Number(friendship.receiverWins || 0), Math.floor(submittedOpponent));
+    } else {
+      friendship.receiverWins = Math.max(Number(friendship.receiverWins || 0), Math.floor(submittedMe));
+      friendship.requesterWins = Math.max(Number(friendship.requesterWins || 0), Math.floor(submittedOpponent));
+    }
+  } else if (!alreadyScored) {
+    const winnerProfileId = String(req.body?.winnerProfileId || "").trim();
+    if (winnerProfileId === buildProfileId(requester)) friendship.requesterWins = Number(friendship.requesterWins || 0) + 1;
+    else if (winnerProfileId === buildProfileId(receiver)) friendship.receiverWins = Number(friendship.receiverWins || 0) + 1;
+    else return res.status(400).json({ message: "Winner profile is not in this friendship" });
+  }
+
+  if (matchId && !alreadyScored) {
+    scoredMatchIds.push(matchId);
+    friendship.scoredMatchIds = scoredMatchIds.slice(-120);
+  }
+
+  await friendship.save();
+  res.json({ ok: true, duplicate: !!alreadyScored, score: scoreForUser(friendship, req.user.id) });
 });
 
 router.post("/friends/:id/decline", authRequired, async (req, res) => {

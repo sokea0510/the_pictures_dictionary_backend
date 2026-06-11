@@ -36,6 +36,42 @@ function titleFromPayload(payload = {}) {
   return t.en || Object.values(t)[0] || payload.label || "Item";
 }
 
+
+function normalizeLocalizedStringMap(value) {
+  if (!value || typeof value !== "object") return {};
+  const normalized = {};
+  Object.entries(value).forEach(([code, text]) => {
+    const key = String(code || "").trim().toLowerCase();
+    const clean = String(text || "").trim();
+    if (!key || !clean) return;
+    normalized[key] = clean;
+  });
+  return normalized;
+}
+
+function normalizeLocalizedStringArrayMap(value, maxItems = 5) {
+  if (!value || typeof value !== "object") return {};
+  const normalized = {};
+  Object.entries(value).forEach(([code, entries]) => {
+    const key = String(code || "").trim().toLowerCase();
+    if (!key) return;
+    const list = Array.isArray(entries) ? entries : String(entries || "").split(/\n|,/);
+    const clean = list
+      .map((entry) => String(entry || "").trim())
+      .filter(Boolean)
+      .slice(0, maxItems);
+    if (clean.length) normalized[key] = clean;
+  });
+  return normalized;
+}
+
+function normalizeLearningFields(payload) {
+  if (payload.examples !== undefined) payload.examples = normalizeLocalizedStringArrayMap(payload.examples, 3);
+  if (payload.relatedWords !== undefined) payload.relatedWords = normalizeLocalizedStringArrayMap(payload.relatedWords, 5);
+  if (payload.funFacts !== undefined) payload.funFacts = normalizeLocalizedStringMap(payload.funFacts);
+  if (payload.categoryExplanations !== undefined) payload.categoryExplanations = normalizeLocalizedStringMap(payload.categoryExplanations);
+}
+
 function normalizePhoneticPronunciations(value) {
   if (!value || typeof value !== "object") return {};
   const normalized = {};
@@ -105,7 +141,10 @@ router.post("/:id/approve", authRequired, requireAnyRole(["admin", "owner"]), as
       description: String(cr.payload?.description || "").trim() || "No description",
       imageThumbUrl: String(cr.payload?.imageThumbUrl || cr.payload?.imageUrl || "").trim(),
       phoneticPronunciations: normalizePhoneticPronunciations(cr.payload?.phoneticPronunciations),
+      editorId: cr.createdBy,
+      approvedBy: req.user.id,
     };
+    normalizeLearningFields(cr.payload);
   }
 
   try {

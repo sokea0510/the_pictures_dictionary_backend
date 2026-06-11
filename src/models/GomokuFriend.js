@@ -8,6 +8,9 @@ const GomokuFriendSchema = new mongoose.Schema(
     status: { type: String, enum: ["pending", "accepted", "declined"], default: "pending", index: true },
     acceptedAt: { type: Date, default: null },
     declinedAt: { type: Date, default: null },
+    requesterWins: { type: Number, default: 0, min: 0 },
+    receiverWins: { type: Number, default: 0, min: 0 },
+    scoredMatchIds: { type: [String], default: [] },
   },
   { timestamps: true }
 );

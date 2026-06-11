@@ -10,6 +10,12 @@ const ItemSchema = new mongoose.Schema(
     translations: { type: Map, of: String, default: {} },
     phoneticPronunciations: { type: Map, of: String, default: {} },
     description: { type: String, default: "", trim: true },
+    examples: { type: Map, of: [String], default: {} },
+    relatedWords: { type: Map, of: [String], default: {} },
+    funFacts: { type: Map, of: String, default: {} },
+    categoryExplanations: { type: Map, of: String, default: {} },
+    editorId: { type: mongoose.Schema.Types.ObjectId, ref: "User", default: null },
+    approvedBy: { type: mongoose.Schema.Types.ObjectId, ref: "User", default: null },
     isEnabled: { type: Boolean, default: true }
   },
   { timestamps: true }
