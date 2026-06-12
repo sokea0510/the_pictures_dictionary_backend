@@ -13,7 +13,7 @@ const Ad = require("../models/Ad");
 const User = require("../models/User");
 const Translation = require("../models/Translation");
 const TranslationSettings = require("../models/TranslationSettings");
-const { resetSettingsCache } = require("../utils/translate");
+const { resetSettingsCache, translateText } = require("../utils/translate");
 const TranslationUsage = require("../models/TranslationUsage");
 const bcrypt = require("bcryptjs");
 const { notifyCategoryFollowers } = require("../utils/notifications");
@@ -35,6 +35,26 @@ const decodeMessages = (obj = {}) => {
     out[decodeKey(k)] = v;
   });
   return out;
+};
+
+
+const protectTranslationPlaceholders = (value = "") => {
+  const placeholders = [];
+  const text = String(value || "").replace(/\{\{\s*[^{}]+\s*\}\}/g, (match) => {
+    const token = `__PD_PLACEHOLDER_${placeholders.length}__`;
+    placeholders.push({ token, value: match });
+    return token;
+  });
+  return { text, placeholders };
+};
+
+const restoreTranslationPlaceholders = (value = "", placeholders = []) => {
+  let next = String(value || "");
+  placeholders.forEach(({ token, value: original }) => {
+    next = next.split(token).join(original);
+    next = next.split(token.toLowerCase()).join(original);
+  });
+  return next;
 };
 
 const escapeCsvCell = (value) => {
@@ -552,6 +572,71 @@ router.post("/translations/import/csv", requireRoleAtLeast("owner"), async (req,
     updatedLanguages,
     updatedKeys,
     message: `Imported CSV: updated ${updatedKeys} values across ${updatedLanguages} languages.`,
+  });
+});
+
+
+router.post("/translations/translate-missing", requireRoleAtLeast("owner"), async (req, res) => {
+  const sourceLang = normalizeLanguageCode(req.body?.sourceLang || "en") || "en";
+  const sourceMessages = req.body?.sourceMessages && typeof req.body.sourceMessages === "object" ? req.body.sourceMessages : {};
+  const requestedLangs = Array.isArray(req.body?.targetLangs)
+    ? req.body.targetLangs.map(normalizeLanguageCode).filter(Boolean)
+    : [];
+  const requestedSet = requestedLangs.length ? new Set(requestedLangs) : null;
+  const keys = Array.isArray(req.body?.keys)
+    ? req.body.keys.map((key) => String(key || "").trim()).filter(Boolean)
+    : Object.keys(sourceMessages || {});
+  const overwrite = req.body?.overwrite === true;
+
+  if (!Object.keys(sourceMessages).length) return res.status(400).json({ message: "Missing source messages." });
+  if (!keys.length) return res.status(400).json({ message: "Missing translation keys." });
+
+  const docs = await Translation.find({}).select("lang messages isEnabled");
+  const targets = docs
+    .map((doc) => ({ doc, lang: normalizeLanguageCode(doc.lang) }))
+    .filter(({ lang, doc }) => lang && lang !== sourceLang && doc.isEnabled !== false && (!requestedSet || requestedSet.has(lang)));
+
+  let updatedLanguages = 0;
+  let updatedKeys = 0;
+  const errors = [];
+
+  for (const { doc, lang } of targets) {
+    const messages = decodeMessages(doc.messages || {});
+    let changed = false;
+
+    for (const key of keys) {
+      const sourceText = String(sourceMessages[key] || "").trim();
+      if (!sourceText) continue;
+      const current = String(messages[key] || "").trim();
+      if (!overwrite && current && current !== sourceText) continue;
+
+      try {
+        const protectedSource = protectTranslationPlaceholders(sourceText);
+        const result = await translateText({ text: protectedSource.text, source: sourceLang, target: lang });
+        const translated = restoreTranslationPlaceholders(result?.translatedText || "", protectedSource.placeholders).trim();
+        if (!translated) continue;
+        messages[key] = translated;
+        changed = true;
+        updatedKeys += 1;
+      } catch (err) {
+        errors.push({ lang, key, message: err?.message || "Translation failed." });
+      }
+    }
+
+    if (changed) {
+      doc.messages = encodeMessages(messages);
+      await doc.save();
+      updatedLanguages += 1;
+    }
+  }
+
+  res.json({
+    ok: true,
+    targetLanguages: targets.length,
+    updatedLanguages,
+    updatedKeys,
+    errors: errors.slice(0, 20),
+    errorCount: errors.length,
   });
 });
 

@@ -21,6 +21,7 @@ const shareRoutes = require("./routes/share");
 const blogRoutes = require("./routes/blog");
 const gomokuRoutes = require("./routes/gomoku");
 const tutorialRoutes = require("./routes/tutorials");
+const learningRoutes = require("./routes/learning");
 
 const app = express();
 app.set("trust proxy", true);
@@ -130,6 +131,7 @@ app.use("/api/push", pushRoutes);
 app.use("/api/blog", blogRoutes);
 app.use("/api/gomoku", gomokuRoutes);
 app.use("/api/tutorials", tutorialRoutes);
+app.use("/api/learning", learningRoutes);
 
 const port = Number(process.env.PORT || 4000);
 const server = http.createServer(app);
