@@ -11,6 +11,10 @@
   "dependencies": {
     "@aws-sdk/client-s3": "^3.985.0",
     "@aws-sdk/client-translate": "^3.971.0",
+    "@expo-google-fonts/noto-sans-khmer": "^0.4.3",
+    "@expo-google-fonts/noto-sans-kr": "^0.4.3",
+    "@fontsource/noto-sans-khmer": "^5.2.8",
+    "@fontsource/noto-sans-kr": "^5.2.9",
     "bcryptjs": "^2.4.3",
     "compression": "^1.8.1",
     "cors": "^2.8.5",
@@ -23,6 +27,7 @@
     "morgan": "^1.10.0",
     "nodemailer": "^8.0.7",
     "pm2": "^6.0.14",
+    "sharp": "^0.33.5",
     "web-push": "^3.6.7",
     "zod": "^3.23.8"
   },

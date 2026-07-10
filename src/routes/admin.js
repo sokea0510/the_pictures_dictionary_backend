@@ -17,6 +17,27 @@ const { resetSettingsCache, translateText } = require("../utils/translate");
 const TranslationUsage = require("../models/TranslationUsage");
 const bcrypt = require("bcryptjs");
 const { notifyCategoryFollowers } = require("../utils/notifications");
+const TelegramPost = require("../models/TelegramPost");
+const FacebookPost = require("../models/FacebookPost");
+const {
+  createPendingTelegramPosts,
+  deletePublishedTelegramPost,
+  getTelegramSettings,
+  postDailyTelegramItem,
+  publishTelegramPost,
+  publicTelegramSettings,
+  serializeTelegramPost,
+  updateTelegramSettings,
+} = require("../utils/telegramDailyPost");
+const {
+  createPendingFacebookPosts,
+  deletePublishedFacebookPost,
+  getFacebookSettings,
+  publishFacebookPost,
+  publicFacebookSettings,
+  serializeFacebookPost,
+  updateFacebookSettings,
+} = require("../utils/facebookDailyPost");
 
 const router = express.Router();
 
@@ -191,6 +212,187 @@ const languageAliases = (code) => {
 
 // Admin + Owner can manage dictionary + ads
 router.use(authRequired, requireAnyRole(["admin", "owner"]));
+
+router.get("/telegram/settings", requireRoleAtLeast("owner"), async (_req, res) => {
+  const settings = await getTelegramSettings();
+  res.json({ settings: publicTelegramSettings(settings) });
+});
+
+router.put("/telegram/settings", requireRoleAtLeast("owner"), async (req, res) => {
+  const settings = await updateTelegramSettings(req.body || {});
+  res.json({ settings: publicTelegramSettings(settings) });
+});
+
+router.get("/telegram/posts", requireRoleAtLeast("owner"), async (req, res) => {
+  const status = String(req.query.status || "pending").trim().toLowerCase();
+  const filter = {};
+  if (["pending", "published", "failed", "rejected"].includes(status)) filter.status = status;
+
+  const from = String(req.query.from || "").trim();
+  const to = String(req.query.to || "").trim();
+  if (status === "published") {
+    if (from || to) {
+      filter.publishedAt = {};
+      if (from) filter.publishedAt.$gte = new Date(`${from}T00:00:00.000Z`);
+      if (to) filter.publishedAt.$lte = new Date(`${to}T23:59:59.999Z`);
+    } else {
+      filter.publishedAt = { $gte: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000) };
+    }
+  } else if (from || to) {
+    filter.scheduledDate = {};
+    if (from) filter.scheduledDate.$gte = from;
+    if (to) filter.scheduledDate.$lte = to;
+  }
+
+  const posts = await TelegramPost.find(filter)
+    .populate("itemId", "translations imageUrl imageThumbUrl")
+    .sort(status === "published" ? { publishedAt: -1, createdAt: -1 } : { scheduledDate: 1, createdAt: 1 })
+    .limit(200)
+    .lean();
+  res.json({ posts: posts.map(serializeTelegramPost) });
+});
+
+router.post("/telegram/posts/generate", requireRoleAtLeast("owner"), async (req, res) => {
+  const result = await createPendingTelegramPosts({ count: req.body?.count, scheduledDate: req.body?.scheduledDate });
+  res.json(result);
+});
+
+router.patch("/telegram/posts/:id", requireRoleAtLeast("owner"), async (req, res) => {
+  const patch = {};
+  if (req.body?.caption !== undefined) patch.caption = String(req.body.caption || "").slice(0, 1024);
+  if (req.body?.scheduledDate !== undefined) patch.scheduledDate = String(req.body.scheduledDate || "").slice(0, 10);
+  const post = await TelegramPost.findByIdAndUpdate(req.params.id, { $set: patch }, { new: true })
+    .populate("itemId", "translations imageUrl imageThumbUrl");
+  if (!post) return res.status(404).json({ message: "Telegram post not found" });
+  res.json({ post: serializeTelegramPost(post) });
+});
+
+router.post("/telegram/posts/:id/approve", requireRoleAtLeast("owner"), async (req, res) => {
+  try {
+    const post = await publishTelegramPost(req.params.id, req.user?.id || null);
+    res.json({ post });
+  } catch (err) {
+    console.error("telegram post approval failed", err);
+    res.status(500).json({ message: err?.message || "Telegram post approval failed" });
+  }
+});
+
+
+router.post("/telegram/posts/:id/delete", requireRoleAtLeast("owner"), async (req, res) => {
+  try {
+    const post = await deletePublishedTelegramPost(req.params.id);
+    res.json({ post });
+  } catch (err) {
+    console.error("telegram post delete failed", err);
+    const status = Number(err?.statusCode || 500);
+    res.status(status >= 400 && status < 500 ? status : 500).json({ message: err?.message || "Telegram post delete failed" });
+  }
+});
+
+router.post("/telegram/posts/:id/reject", requireRoleAtLeast("owner"), async (req, res) => {
+  const post = await TelegramPost.findByIdAndUpdate(
+    req.params.id,
+    { $set: { status: "rejected", error: String(req.body?.reason || "Rejected by owner").slice(0, 500) } },
+    { new: true }
+  ).populate("itemId", "translations imageUrl imageThumbUrl");
+  if (!post) return res.status(404).json({ message: "Telegram post not found" });
+  res.json({ post: serializeTelegramPost(post) });
+});
+
+router.post("/telegram/daily-post", async (req, res) => {
+  try {
+    const result = await postDailyTelegramItem({ force: req.body?.force === true });
+    res.json(result);
+  } catch (err) {
+    console.error("telegram daily post failed", err);
+    res.status(500).json({ message: err?.message || "Telegram daily post failed" });
+  }
+});
+
+router.get("/facebook/settings", requireRoleAtLeast("owner"), async (_req, res) => {
+  const settings = await getFacebookSettings();
+  res.json({ settings: publicFacebookSettings(settings) });
+});
+
+router.put("/facebook/settings", requireRoleAtLeast("owner"), async (req, res) => {
+  const settings = await updateFacebookSettings(req.body || {});
+  res.json({ settings: publicFacebookSettings(settings) });
+});
+
+router.get("/facebook/posts", requireRoleAtLeast("owner"), async (req, res) => {
+  const status = String(req.query.status || "pending").trim().toLowerCase();
+  const filter = {};
+  if (["pending", "published", "failed", "rejected"].includes(status)) filter.status = status;
+
+  const from = String(req.query.from || "").trim();
+  const to = String(req.query.to || "").trim();
+  if (status === "published") {
+    if (from || to) {
+      filter.publishedAt = {};
+      if (from) filter.publishedAt.$gte = new Date(`${from}T00:00:00.000Z`);
+      if (to) filter.publishedAt.$lte = new Date(`${to}T23:59:59.999Z`);
+    } else {
+      filter.publishedAt = { $gte: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000) };
+    }
+  } else if (from || to) {
+    filter.scheduledDate = {};
+    if (from) filter.scheduledDate.$gte = from;
+    if (to) filter.scheduledDate.$lte = to;
+  }
+
+  const posts = await FacebookPost.find(filter)
+    .populate("itemId", "translations imageUrl imageThumbUrl")
+    .sort(status === "published" ? { publishedAt: -1, createdAt: -1 } : { scheduledDate: 1, createdAt: 1 })
+    .limit(200)
+    .lean();
+  res.json({ posts: posts.map(serializeFacebookPost) });
+});
+
+router.post("/facebook/posts/generate", requireRoleAtLeast("owner"), async (req, res) => {
+  const result = await createPendingFacebookPosts({ count: req.body?.count, scheduledDate: req.body?.scheduledDate });
+  res.json(result);
+});
+
+router.patch("/facebook/posts/:id", requireRoleAtLeast("owner"), async (req, res) => {
+  const patch = {};
+  if (req.body?.caption !== undefined) patch.caption = String(req.body.caption || "").slice(0, 5000);
+  if (req.body?.scheduledDate !== undefined) patch.scheduledDate = String(req.body.scheduledDate || "").slice(0, 10);
+  const post = await FacebookPost.findByIdAndUpdate(req.params.id, { $set: patch }, { new: true })
+    .populate("itemId", "translations imageUrl imageThumbUrl");
+  if (!post) return res.status(404).json({ message: "Facebook post not found" });
+  res.json({ post: serializeFacebookPost(post) });
+});
+
+router.post("/facebook/posts/:id/approve", requireRoleAtLeast("owner"), async (req, res) => {
+  try {
+    const post = await publishFacebookPost(req.params.id, req.user?.id || null);
+    res.json({ post });
+  } catch (err) {
+    console.error("facebook post approval failed", err);
+    res.status(500).json({ message: err?.message || "Facebook post approval failed" });
+  }
+});
+
+router.post("/facebook/posts/:id/delete", requireRoleAtLeast("owner"), async (req, res) => {
+  try {
+    const post = await deletePublishedFacebookPost(req.params.id);
+    res.json({ post });
+  } catch (err) {
+    console.error("facebook post delete failed", err);
+    const status = Number(err?.statusCode || 500);
+    res.status(status >= 400 && status < 500 ? status : 500).json({ message: err?.message || "Facebook post delete failed" });
+  }
+});
+
+router.post("/facebook/posts/:id/reject", requireRoleAtLeast("owner"), async (req, res) => {
+  const post = await FacebookPost.findByIdAndUpdate(
+    req.params.id,
+    { $set: { status: "rejected", error: String(req.body?.reason || "Rejected by owner").slice(0, 500) } },
+    { new: true }
+  ).populate("itemId", "translations imageUrl imageThumbUrl");
+  if (!post) return res.status(404).json({ message: "Facebook post not found" });
+  res.json({ post: serializeFacebookPost(post) });
+});
 
 /* Languages */
 router.post("/languages", async (req, res) => {

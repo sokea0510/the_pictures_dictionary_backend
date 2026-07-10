@@ -9,6 +9,8 @@ const morgan = require("morgan");
 const compression = require("compression");
 const { connectDB } = require("./db");
 const { initGomokuSocket } = require("./gomokuSocket");
+const { startTelegramDailyPoster } = require("./utils/telegramDailyPost");
+const { startFacebookDailyPoster } = require("./utils/facebookDailyPost");
 
 const authRoutes = require("./routes/auth");
 const meRoutes = require("./routes/me");
@@ -22,6 +24,7 @@ const blogRoutes = require("./routes/blog");
 const gomokuRoutes = require("./routes/gomoku");
 const tutorialRoutes = require("./routes/tutorials");
 const learningRoutes = require("./routes/learning");
+const handwritingRoutes = require("./routes/handwriting");
 
 const app = express();
 app.set("trust proxy", true);
@@ -132,13 +135,18 @@ app.use("/api/blog", blogRoutes);
 app.use("/api/gomoku", gomokuRoutes);
 app.use("/api/tutorials", tutorialRoutes);
 app.use("/api/learning", learningRoutes);
+app.use("/api/handwriting", handwritingRoutes);
 
 const port = Number(process.env.PORT || 4000);
 const server = http.createServer(app);
 initGomokuSocket(server);
 
 connectDB(process.env.MONGO_URI)
-  .then(() => server.listen(port, () => console.log(`[api] http://localhost:${port}`)))
+  .then(() => {
+    startTelegramDailyPoster();
+    startFacebookDailyPoster();
+    server.listen(port, () => console.log(`[api] http://localhost:${port}`));
+  })
   .catch((e) => {
     console.error("[db] failed", e);
     process.exit(1);
