@@ -142,14 +142,61 @@ router.get("/categories", async (_req, res) => {
   })
     .select("_id label coverUrl isEnabled")
     .lean();
+  const categoryIds = categories.map((cat) => cat._id);
+  const itemCounts = await Item.aggregate([
+    {
+      $match: {
+        categoryId: { $in: categoryIds },
+        $or: [{ isEnabled: true }, { isEnabled: { $exists: false } }],
+      },
+    },
+    { $group: { _id: "$categoryId", itemCount: { $sum: 1 } } },
+  ]);
+  const countsByCategory = new Map(itemCounts.map((row) => [String(row._id), row.itemCount]));
   const normalized = categories.map((cat) => {
     const coverUrl = String(cat.coverUrl || "");
     return {
       ...cat,
       coverUrl: coverUrl.startsWith("data:image") ? "" : coverUrl,
+      itemCount: countsByCategory.get(String(cat._id)) || 0,
     };
   }).sort((a, b) => String(a.label || "").localeCompare(String(b.label || ""), undefined, { sensitivity: "base" }));
   res.json({ categories: normalized });
+});
+
+router.get("/categories/:categoryId/image", async (req, res) => {
+  const categoryId = String(req.params.categoryId || "").trim();
+  if (!mongoose.Types.ObjectId.isValid(categoryId)) return res.status(404).end();
+
+  const category = await Category.findOne({
+    _id: categoryId,
+    $or: [{ isEnabled: true }, { isEnabled: { $exists: false } }],
+  }).select("coverUrl updatedAt createdAt").lean();
+  if (!category?.coverUrl) return res.status(404).end();
+
+  let sourceUrl;
+  try {
+    sourceUrl = new URL(String(category.coverUrl));
+  } catch {
+    return res.status(404).end();
+  }
+  if (!["http:", "https:"].includes(sourceUrl.protocol)) return res.status(404).end();
+
+  try {
+    const response = await fetch(sourceUrl, { signal: AbortSignal.timeout(10000) });
+    if (!response.ok) return res.status(502).end();
+    const contentType = String(response.headers.get("content-type") || "image/jpeg");
+    if (!contentType.startsWith("image/")) return res.status(502).end();
+    const buffer = Buffer.from(await response.arrayBuffer());
+    const updated = new Date(category.updatedAt || category.createdAt || Date.now()).toUTCString();
+    res.set("Cache-Control", "public, max-age=31536000, immutable");
+    res.set("Last-Modified", updated);
+    res.set("Cross-Origin-Resource-Policy", "cross-origin");
+    res.type(contentType).send(buffer);
+  } catch (error) {
+    console.error("category image proxy failed", error);
+    res.status(502).end();
+  }
 });
 
 router.get("/stats", async (_req, res) => {

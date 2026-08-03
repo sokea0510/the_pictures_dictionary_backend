@@ -472,7 +472,22 @@ router.get("/categories", async (_req, res) => {
     .select("_id label coverUrl isEnabled createdAt updatedAt")
     .sort({ label: 1 })
     .lean();
-  res.json({ categories });
+  const categoryIds = categories.map((category) => category._id);
+  const itemCounts = await Item.aggregate([
+    {
+      $match: {
+        categoryId: { $in: categoryIds },
+        $or: [{ isEnabled: true }, { isEnabled: { $exists: false } }],
+      },
+    },
+    { $group: { _id: "$categoryId", itemCount: { $sum: 1 } } },
+  ]);
+  const countsByCategory = new Map(itemCounts.map((row) => [String(row._id), row.itemCount]));
+  const categoriesWithCounts = categories.map((category) => ({
+    ...category,
+    itemCount: countsByCategory.get(String(category._id)) || 0,
+  }));
+  res.json({ categories: categoriesWithCounts });
 });
 router.post("/categories", async (req, res) => {
   const doc = await Category.create(req.body);

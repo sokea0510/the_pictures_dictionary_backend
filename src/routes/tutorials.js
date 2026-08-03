@@ -40,6 +40,7 @@ const lessonPayload = (body = {}, user = {}) => {
           title: String(section?.title || "").trim(),
           content: String(section?.content || ""),
           contentHtml: String(section?.contentHtml || ""),
+          sourceFormat: cleanSourceFormat(section?.sourceFormat || (section?.contentHtml ? "html" : "text")),
         }))
         .filter((section) => section.title || section.content.trim() || section.contentHtml.trim())
         .slice(0, 40)
@@ -116,7 +117,9 @@ router.get("/public/subjects", async (_req, res) => {
     return acc;
   }, {});
   res.json({
-    subjects: subjects.map((subject) => serializeSubject(subject, lessonsBySubject[String(subject._id)] || [])),
+    subjects: subjects
+      .map((subject) => serializeSubject(subject, lessonsBySubject[String(subject._id)] || []))
+      .filter((subject) => subject.lessonCount > 0 && subject.firstLessonSlug),
   });
 });
 

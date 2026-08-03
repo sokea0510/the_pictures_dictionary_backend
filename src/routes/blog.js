@@ -175,6 +175,35 @@ router.get("/public", async (req, res) => {
   res.json({ posts: posts.map(withResolvedAuthorName) });
 });
 
+router.get("/public/:slug/image", async (req, res) => {
+  const post = await BlogPost.findOne({ slug: req.params.slug, status: "published" }).select("coverImageUrl updatedAt publishedAt createdAt").lean();
+  if (!post?.coverImageUrl) return res.status(404).end();
+
+  let sourceUrl;
+  try {
+    sourceUrl = new URL(String(post.coverImageUrl));
+  } catch {
+    return res.status(404).end();
+  }
+  if (!["http:", "https:"].includes(sourceUrl.protocol)) return res.status(404).end();
+
+  try {
+    const response = await fetch(sourceUrl, { signal: AbortSignal.timeout(10000) });
+    if (!response.ok) return res.status(502).end();
+    const contentType = String(response.headers.get("content-type") || "image/jpeg");
+    if (!contentType.startsWith("image/")) return res.status(502).end();
+    const buffer = Buffer.from(await response.arrayBuffer());
+    const updated = new Date(post.updatedAt || post.publishedAt || post.createdAt || Date.now()).toUTCString();
+    res.set("Cache-Control", "public, max-age=31536000, immutable");
+    res.set("Last-Modified", updated);
+    res.set("Cross-Origin-Resource-Policy", "cross-origin");
+    res.type(contentType).send(buffer);
+  } catch (error) {
+    console.error("blog cover image proxy failed", error);
+    res.status(502).end();
+  }
+});
+
 router.get("/public/:slug", async (req, res) => {
   const post = await BlogPost.findOne({ slug: req.params.slug, status: "published" })
     .populate("authorId", "name email")

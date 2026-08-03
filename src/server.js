@@ -20,6 +20,7 @@ const changeRoutes = require("./routes/changeRequests");
 const uploadRoutes = require("./routes/uploads");
 const pushRoutes = require("./routes/push");
 const shareRoutes = require("./routes/share");
+const dictionarySeoRoutes = require("./routes/dictionarySeo");
 const blogRoutes = require("./routes/blog");
 const gomokuRoutes = require("./routes/gomoku");
 const tutorialRoutes = require("./routes/tutorials");
@@ -108,21 +109,37 @@ app.get(["/robots.txt", "/robots.tx"], (_req, res) => {
       "User-agent: facebookexternalhit",
       "Allow: /share/",
       "Allow: /api/health",
+      "Allow: /api/public/",
+      "Allow: /api/blog/public",
+      "Allow: /api/learning/public/",
+      "Allow: /api/tutorials/public/",
+      "Allow: /api/handwriting/public/",
       "Disallow: /",
       "",
       "User-agent: Facebot",
       "Allow: /share/",
       "Allow: /api/health",
+      "Allow: /api/public/",
+      "Allow: /api/blog/public",
+      "Allow: /api/learning/public/",
+      "Allow: /api/tutorials/public/",
+      "Allow: /api/handwriting/public/",
       "Disallow: /",
       "",
       "User-agent: *",
       "Allow: /share/",
       "Allow: /api/health",
+      "Allow: /api/public/",
+      "Allow: /api/blog/public",
+      "Allow: /api/learning/public/",
+      "Allow: /api/tutorials/public/",
+      "Allow: /api/handwriting/public/",
       "Disallow: /",
       "",
     ].join("\n")
   );
 });
+app.use("/dictionary", dictionarySeoRoutes);
 app.use("/share", shareRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/me", meRoutes);

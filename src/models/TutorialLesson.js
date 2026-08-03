@@ -5,6 +5,7 @@ const TutorialSectionSchema = new mongoose.Schema(
     title: { type: String, default: "", trim: true },
     content: { type: String, default: "" },
     contentHtml: { type: String, default: "" },
+    sourceFormat: { type: String, enum: ["text", "html", "runnable-html"], default: "text" },
   },
   { _id: true }
 );
